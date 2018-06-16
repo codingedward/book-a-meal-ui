@@ -1,0 +1,32 @@
+header.welcome {
+    min-height: 70vh;
+    background-color: #333;
+    background: url('../imgs/bg1.jpg') no-repeat center bottom;
+    text-align: center;
+    width: 100%;
+}
+header.welcome h3 {
+    padding: 20px;
+    background-color: rgba(0, 80, 80, 0.7);
+}
+.logo {
+    font-size: 40px;
+    font-family: 'Leckerli One', cursive;
+}
+
+.menu-item {
+    border: 2px dashed #008080;
+}
+
+footer {
+    margin-top: 40px;
+    min-height: 250px;
+}
+
+footer p {
+    color: white;
+    width: 100%;
+    margin: auto;
+    background-color: rgba(0,80, 80, .4);
+}
+
