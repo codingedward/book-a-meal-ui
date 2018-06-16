@@ -1,7 +1,8 @@
 header.welcome {
     min-height: 70vh;
     background-color: #333;
-    background: url('../imgs/bg1.jpg') no-repeat center bottom;
+    background: url('../imgs/bg3.jpg') no-repeat center bottom;
+    background-size: cover;
     text-align: center;
     width: 100%;
 }
@@ -9,9 +10,17 @@ header.welcome h3 {
     padding: 20px;
     background-color: rgba(0, 80, 80, 0.7);
 }
-.logo {
-    font-size: 40px;
+.logo, 
+.logo-medium,
+.logo-small {
     font-family: 'Leckerli One', cursive;
+}
+.logo { font-size: 40px; }
+.logo-medium { font-size: 30px; }
+.logo-small { font-size: 28px; }
+
+.patterns {
+    background-image: url('../imgs/food.png');
 }
 
 .menu-item {
