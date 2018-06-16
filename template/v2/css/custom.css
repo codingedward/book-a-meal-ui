@@ -40,7 +40,10 @@
     border-color: orange;
 }
 
-.patterns {
-    background-image: url('../imgs/food.png');
+.form-control:focus,
+.form-control:active {
+    border: 1px solid #ccc;
 }
 
+a { color: #008080; }
+a:hover { color: #004040; }
