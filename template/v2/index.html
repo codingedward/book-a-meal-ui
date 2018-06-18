@@ -21,12 +21,12 @@
                         <h3 id="slogan" class="animated fadeInDown text-flav mb-md-4"></h3>
                     </div>
                 </div>
-                <div class="row mt-md-2 mt-1">
+                <div class="row mt-md-2 mt-2">
                     <div class="col-6">
-                        <a href="sign-up.html" class="animated fadeInLeft btn btn-primary float-right ">Sign Up</a>
+                        <a href="sign-up.html" class="animated fadeInLeft btn btn-primary btn-lg float-right">Sign Up</a>
                     </div>
                     <div class="col-6">
-                        <a href="login.html" class="animated fadeInRight btn btn-primary float-left"> Log In </a>
+                        <a href="login.html" class="animated fadeInRight btn btn-primary btn-lg float-left"> Log In </a>
                     </div>
                 </div>
             </nav>
@@ -392,9 +392,14 @@
                     }
                 ],
             });
-
+            
+            var first = [
+                "Welcome to yummy stuff!",
+                "Welcome to where food lives!",
+            ];
+            var randIndex = Math.trunc(Math.random() * first.length);
             new Typed("#slogan", {
-                strings: ["Welcome to where food lives.", "Welcome to book a meal." ],
+                strings: [first[randIndex], "Welcome to book a meal." ],
                 startDelay: 200,
                 typeSpeed: 40,
                 backSpeed: 40,
