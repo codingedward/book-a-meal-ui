@@ -15,35 +15,83 @@
  */
 
 /* backgrounds */
-.bg-teal { background-color: #2d728f; }
-.bg-blue { background-color: #3b83a5; }
-.bg-flav { background-color: #f5ee9e; }
-.bg-carrot { background-color: #f49e5c; }
-.bg-brown { background-color: #ab3428; }
+.bg-teal { background-color: #2d728f !important; }
+.bg-blue { background-color: #3b83a5 !important; }
+.bg-flav { background-color: #f5ee9e !important; }
+.bg-carrot { background-color: #f49e5c !important; }
+.bg-brown { background-color: #ab3428 !important; }
 
 /* text color */
 * { color: #555; } /* better for contrast */
-.text-white { color: #fff; }
-.text-teal { color: #2d728f; }
-.text-blue { color: #3b83a5; }
-.text-flav { color: #f5ee9e; }
-.text-carrot { color: #f49e5c; }
-.text-brown { color: #ab3428; }
-.text-orange { color: orange; }
-.text-center { text-align: center; }
+.text-white { color: #fff !important; }
+.text-teal { color: #2d728f !important; }
+.text-blue { color: #3b83a5 !important; }
+.text-flav { color: #f5ee9e !important; }
+.text-carrot { color: #f49e5c !important; }
+.text-brown { color: #ab3428 !important; }
+.text-orange { color: orange !important; }
+.text-center { text-align: center !important; }
+
+.btn,
+.modal-content,
+.form-control {
+    border-radius: 0;
+}
+
+.table-holder {
+    width: 100%;
+    overflow-x: scroll;
+    padding: 0;
+    margin: 0;
+}
+
+.btn {
+    color: black;
+    background-color: #f5ee9e;
+}
+
+.btn-secondary {
+    color: white;
+    background-color: #008080;
+}
 
 .btn-primary,
 .btn-primary:hover,
 .btn-primary:focus { 
     color: black;
     background-color: orange;
-    border-color: orange;
+    border: 1px solid orange;
+}
+
+.btn-danger,
+.btn-danger:hover {
+    color: white;
+    background-color: #cc0000 !important;
+}
+
+
+.btn-lg {
+    font-size: 19px;
+}
+
+.modal-header {
+    border-bottom: 0;
 }
 
 .form-control:focus,
 .form-control:active {
-    border: 1px solid #ccc;
+    box-shadow: none;
 }
 
 a { color: #008080; }
 a:hover { color: #004040; }
+a:active, a:focus { outline: none; }
+
+label {
+    margin-bottom: 0;
+}
+
+select.form-control,
+input.form-control {
+    margin-bottom: 20px;
+}
