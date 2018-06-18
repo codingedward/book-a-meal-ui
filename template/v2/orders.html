@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Caterer | Menu</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="css/custom.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8">
+    </head>
+    <body>
+        <main class="container-fluid">
+            <section class="row">
+                <nav class="d-none d-md-block col-md-4 col-lg-3 controls sidebar patterns bg-teal text-center"> 
+                    <h1 class="logo-medium text-flav pt-3">BAM!</h1> 
+                    <hr/>
+                    <a href="meals.html" class="btn">Manage Meals</a>
+                    <a href="menu.html" class="btn">Set Menu</a>
+                    <a href="#" class="btn active">Manage Orders</a>
+                    <a href="users.html" class="btn">Users</a>
+                    <a href="orders-history.html" class="btn">Order History</a>
+                    <hr class="last"/>
+                    <a href="index.html" class="btn btn-logout">Logout</a>
+                </nav>
+
+                <div class="col-12 col-md-8 offset-md-4 col-lg-9 offset-lg-3 container-fluid p-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <img data-toggle="modal" 
+                                 data-target="#controls-modal" 
+                                 class="d-md-none controls-icon pb-3" 
+                                 src="imgs/menu.png" alt=""/>
+                        </div>
+                        <div class="col-12 mb-2 pr-0 pr-sm-2">
+                            <h5 class="d-inline-block"> Manage Orders </h5>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 col-sm-2 col-lg-1 text-right">
+                            <label class="pt-2">Text:</label>
+                        </div>
+                        <div class="col-8 col-sm-4 col-lg-3 pl-0">
+                           <input type="text" class="d-inline form-control ml-0 mb-0" placeholder=" Search text..."/>
+                        </div>
+                        <div class="col-4 col-sm-2 pt-3 pt-sm-0 text-right">
+                            <label class="pt-2">Category:</label>
+                        </div>
+                        <div class="col-8 col-sm-4 col-lg-3 pt-3 pt-sm-0 pl-0">
+                            <select class="d-inline form-control ml-0 mb-0" name="" id="">
+                                <option value="">-- Select --</option>
+                                <option value="">Breakfast</option>
+                                <option value="">Lunch</option>
+                                <option value="">Supper</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-1 pt-3 pt-lg-0">
+                            <button class="btn btn-secondary d-block m-auto">Filter </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-holder">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Customer</th>
+                                            <th>Meal</th>
+                                            <th>Category</th>
+                                            <th>Quantity</th>
+                                            <th>Cost</th>
+                                            <th>Order Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Vicky</td>
+                                            <td>Spaghetti</td>
+                                            <td>Supper</td>
+                                            <td>8</td>
+                                            <td>Ksh. 200</td>
+                                            <td>10:32 hrs</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Anthony</td>
+                                            <td>Pudding</td>
+                                            <td>Lunch</td>
+                                            <td>3</td>
+                                            <td>Ksh. 300</td>
+                                            <td>16:32 hrs</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Edward</td>
+                                            <td>Weird Stuff</td>
+                                            <td>Breakfast</td>
+                                            <td>3</td>
+                                            <td>Ksh. 300</td>
+                                            <td>16:52 hrs</td>
+                                        </tr> 
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Moses</td>
+                                            <td>Weird Stuff</td>
+                                            <td>Supper</td>
+                                            <td>3</td>
+                                            <td>Ksh. 300</td>
+                                            <td>18:32 hrs</td>
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center pt-0 mt-0 text-bottom">Showing page 1 of 1</p>
+                            <div class="pt-1">
+                                <button class="btn btn-secondary float-right">Next </button>
+                                <button class="btn btn-secondary">Previous</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section id="add-modal" class="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title">New Menu Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <label>Category</label>
+                        <select class="form-control" name="" id="">
+                            <option>-- Select --</option>
+                            <option>Breakfast</option>
+                            <option>Lunch</option>
+                            <option>Supper</option>
+                        </select>
+                        <label>Meal</label>
+                        <select class="form-control" name="" id="">
+                            <option>-- Select --</option>
+                            <option>Eggs</option>
+                            <option>Pudding</option>
+                            <option>Spaghetti</option>
+                        </select>
+                        <label>Quantity</label>
+                        <input class="form-control" type="number" value="" name="" id=""/>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Save Menu Item</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="delete-modal" class="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Menu Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Delete this menu item (Spaghetti) from today's menu? </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="controls-modal" class="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content p-0">
+                    <div class="modal-body p-0">
+                        <nav class="controls patterns bg-teal"> 
+                            <div class="col-12">
+                                <span class="modal-close" data-dismiss="modal">&times;</span>
+                                <h1 class="logo text-flav w-100">BAM!</h1> 
+                                <hr/>
+                                <a href="meals.html" class="btn">Manage Meals</a>
+                                <a href="menu.html" class="btn">Set Menu</a>
+                                <a href="#" class="btn active">Manage Orders</a>
+                                <a href="users.html" class="btn">Users</a>
+                                <a href="orders-history.html" class="btn">Order History</a>
+                                <hr class="last"/>
+                                <a href="index.html" class="btn btn-logout">Logout</a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+        <script src="js/bootstrap.bundle.min.js" charset="utf-8"></script>
+        <script src="js/app.js" charset="utf-8"></script>
+    </body>
+</html>
+
