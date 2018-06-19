@@ -83,6 +83,12 @@ header.welcome h3 {
     margin-left: calc(50% - 20px);
 }
 
+.controls .logo {
+    text-align: center;
+    display: inline-block;
+}
+
+
 .modal-header {
     text-align: center;
 }
@@ -104,11 +110,23 @@ header.welcome h3 {
     font-weight: bold;
 }
 
-.controls .logo {
+.notice {
     text-align: center;
-    display: inline-block;
+    border: 2px dashed #008080;
 }
 
+.notice-close {
+    color: #666;
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.notice h5 {
+    padding-top: 5px;
+}
 
 table img {
     max-width: 90px;
