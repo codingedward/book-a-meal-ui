@@ -1,11 +1,18 @@
 import React from 'react';
-import Landing from './containers/Landing'
-import './styles.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Landing from './components/views/Landing';
+import LoginContainer from './containers/LoginContainer';
+import './styles.css';
 
 class App extends React.Component {
     render() {
         return (
-            <Landing />
+            <Router>
+                <div>
+                    <Route exact path="/" component={Landing} />
+                    <Route path="/login" component={LoginContainer} />
+                </div>
+            </Router>
         );
     }
 }
