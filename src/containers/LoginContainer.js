@@ -1,17 +1,22 @@
 import { connect } from 'react-redux';
-import { authenticate } from '../actions/AuthActions';
+import { push } from 'connected-react-router';
+import { loginAct } from '../actions/AuthActions';
 import Login from '../components/views/Login';
 
 const mapStateToProps = (state) =>  {
+    console.log(state)
     return {
-        auth: state.auth
+        response: state.auth.login
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        authenticate: (credentials) => {
-            dispatch(authenticate(credentials))
+        login: (credentials) => {
+            dispatch(loginAct(credentials))
+        },
+        redirect: (page) => {
+            dispatch(push(page))
         }
     }
 }
