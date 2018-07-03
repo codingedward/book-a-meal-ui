@@ -1,28 +1,82 @@
-import { AUTHENTICATE }  from '../actions/AuthActions';
+import { combineReducers } from 'redux';
+import { LOG_IN, SIGN_UP } from '../actions/AuthActions';
 
-const initialState = {
-    auth: {
-        active: false,
-        token: null,
-        user: null
-    }
+const loginInitialState = {
+    login: {},
 }
 
-function authenticate(state = initialState, action) {
+
+const login = (state = loginInitialState, action) => {
     switch (action.type) {
-        case `${AUTHENTICATE}_SUCCESS`:
-            return Object.assign({}, state, {
-                auth: {
-                    active: true,
-                    token: action.payload.data.access_token,
-                    user: action.payload.data.user,
+        case LOG_IN:
+            return {
+                ...state,
+                login: {
+                    loading: true,
                 }
-            });
-        case `${AUTHENTICATE}_FAIL`:
-            return {...state};
+            };
+
+        case `${LOG_IN}_SUCCESS`:
+            return {
+                ...state,
+                login: {
+                    payload: action.payload,
+                    loading: false,
+                }
+            };
+
+        case `${LOG_IN}_FAIL`:
+            return {
+                ...state,
+                login: {
+                    error: action.error.response,
+                    loading: false,
+                }
+            };
+
         default:
             return state;
     }
 }
 
-export default authenticate;
+const signUpInitialState = {
+    signUp: {}
+}
+
+const signUp = (state = signUpInitialState, action) => {
+    switch (action.type) {
+        case SIGN_UP:
+            return {
+                ...state,
+                signUp: {
+                    loading: true,
+                }
+            };
+
+        case `${SIGN_UP}_SUCCESS`:
+            return {
+                ...state,
+                signUp: {
+                    payload: action.payload,
+                    loading: false,
+                }
+            };
+
+        case `${SIGN_UP}_FAIL`:
+            return {
+                ...state,
+                signUp: {
+                    error: action.error.response,
+                    loading: false,
+                }
+            };
+
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({
+    login,
+    signUp,
+})
