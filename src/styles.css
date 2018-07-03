@@ -134,5 +134,5 @@ input.form-control {
 .patterns {
   background-image: url("./assets/food.png"); }
 
-#root {
+body #root {
   height: 100%; }
