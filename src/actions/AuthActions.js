@@ -21,7 +21,7 @@ export function signUpAct(details) {
         payload: {
             request: {
                 method: 'post',
-                url: '/auth/sign-up',
+                url: '/auth/signup',
                 data: details
             }
         }
