@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
+import { Alert, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import AuthPage from '../../common/AuthPage';
+import { singleError } from '../../../utils';
 import './styles.css';
 
 class Register extends React.Component {
 
+    state = {}
+
     onSubmit = (evt) => {
         evt.preventDefault();
-        this.props.login(this.state);
+        this.props.signUp(this.state);
     }
 
     onChange = (evt) => {
@@ -22,6 +25,8 @@ class Register extends React.Component {
 
     render() {
 
+        const { loading, error } = this.props.response;
+
         return (
             <AuthPage>
                 <form 
@@ -29,13 +34,13 @@ class Register extends React.Component {
                     onSubmit={this.onSubmit}>
 
                     <h5 className="text-center mb-3 mt-4">Create An Account</h5>
+                    {error && <Alert color="danger"> {singleError(error)} </Alert>}
                     <label>Username</label>
                     <input 
                         className="form-control" 
                         type="text" 
                         name="username" 
                         onChange={this.onChange} />
-                    <label>Password </label>
                     <label>Email</label>
                     <input 
                         className="form-control" 
@@ -65,7 +70,7 @@ class Register extends React.Component {
 }
 
 Register.propTypes = {
-    auth: PropTypes.object.isRequired,
+    response: PropTypes.object.isRequired,
     redirect: PropTypes.func.isRequired,
     signUp: PropTypes.func.isRequired
 }
