@@ -4,14 +4,12 @@ import { Button, Alert } from 'reactstrap';
 import { Redirect, Link } from 'react-router-dom';
 
 import AuthPage from '../../common/AuthPage';
+import { singleError } from '../../../utils';
 import './styles.css';
 
 class Login extends React.Component {
 
-    state = {
-        email: '',
-        password: '',
-    }
+    state = {}
 
     onSubmit = (evt) => {
         evt.preventDefault();
@@ -38,7 +36,7 @@ class Login extends React.Component {
                     onSubmit={this.onSubmit}>
 
                     <h5 className="text-center mb-3 mt-4">Login</h5>
-                    {error && <Alert color="danger" > {error} </Alert> }
+                    {error && <Alert color="danger"> {singleError(error)} </Alert>}
                     <label>Email </label>
                     <input 
                         type="email" 
