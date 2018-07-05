@@ -16,7 +16,6 @@ import {
 
 import App from './App';
 import appReducer from './reducers';
-import { initAct } from './actions/MiscActions';
 import registerServiceWorker from './registerServiceWorker';
 
 const history = createBrowserHistory();
