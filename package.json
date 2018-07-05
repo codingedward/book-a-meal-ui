@@ -19,7 +19,8 @@
     "react-typed": "^1.0.8",
     "reactstrap": "^6.2.0",
     "redux": "^4.0.0",
-    "redux-axios-middleware": "^4.0.0"
+    "redux-axios-middleware": "^4.0.0",
+    "redux-localstorage-simple": "^2.1.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
