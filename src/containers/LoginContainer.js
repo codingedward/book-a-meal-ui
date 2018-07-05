@@ -4,7 +4,6 @@ import { loginAct } from '../actions/AuthActions';
 import Login from '../components/views/Login';
 
 const mapStateToProps = (state) =>  {
-    console.log(state)
     return {
         response: state.auth.login
     }
