@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware } from 'redux';
 
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
+import { save, load } from 'redux-localstorage-simple';
 
 import { createBrowserHistory } from 'history';
 import { 
@@ -16,6 +16,7 @@ import {
 
 import App from './App';
 import appReducer from './reducers';
+import { initAct } from './actions/MiscActions';
 import registerServiceWorker from './registerServiceWorker';
 
 const history = createBrowserHistory();
@@ -27,7 +28,12 @@ const client = axios.create({
 
 const store = createStore(
     connectRouter(history)(appReducer),
-    applyMiddleware(axiosMiddleware(client), routerMiddleware(history))
+    load(),
+    applyMiddleware(
+        axiosMiddleware(client), 
+        routerMiddleware(history),
+        save({ states: ['auth.login'] })
+    )
 );
 
 ReactDOM.render(
