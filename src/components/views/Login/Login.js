@@ -25,7 +25,7 @@ class Login extends React.Component {
 
     render() {
         const { payload, error, loading } = this.props.response;
-        if (payload && payload.data.access_token) {
+        if (payload && payload.access_token) {
             return <Redirect to="/home" />
         }
 
