@@ -8,4 +8,6 @@ export  const EntryType = {
     TEXT: 0,
     NUMBER: 1,
     IMAGE: 2,
+    DATE: 3,
 }
+
