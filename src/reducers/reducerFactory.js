@@ -4,20 +4,17 @@ const responseReducer = ({ actionName, initialState }) => {
         switch (action.type) {
             case actionName:
                 return {
-                    ...state,
                     loading: true,
                 };
 
             case `${actionName}_SUCCESS`:
                 return {
-                    ...state,
                     payload: action.payload.data,
                     loading: false,
                 };
 
             case `${actionName}_FAIL`:
                 return {
-                    ...state,
                     error: action.error.response,
                     loading: false,
                 };
