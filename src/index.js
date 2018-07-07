@@ -1,45 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { compose, createStore, applyMiddleware } from 'redux';
-
-import axios from 'axios';
-import axiosMiddleware from 'redux-axios-middleware';
-import { save, load } from 'redux-localstorage-simple';
-
-import { createBrowserHistory } from 'history';
-import { 
-    ConnectedRouter,
-    connectRouter, 
-    routerMiddleware 
-} from 'connected-react-router';
+import { ConnectedRouter } from 'connected-react-router';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import App from './App';
-import appReducer from './reducers';
+import { store, history, persistor } from './store';
 import registerServiceWorker from './registerServiceWorker';
-
-const history = createBrowserHistory();
-
-const client = axios.create({
-    baseURL: 'http://localhost:5000/api/v1',
-    responseType: 'json',
-});
-
-const store = createStore(
-    connectRouter(history)(appReducer),
-    load(),
-    applyMiddleware(
-        axiosMiddleware(client), 
-        routerMiddleware(history),
-        save({ states: ['auth.login'] })
-    )
-);
 
 ReactDOM.render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <App/>
-        </ConnectedRouter>
+        <PersistGate loading={null} persistor={persistor}>
+            <ConnectedRouter history={history}>
+                <App/>
+            </ConnectedRouter>
+        </PersistGate>
     </Provider>,
     document.getElementById('root')
 );
