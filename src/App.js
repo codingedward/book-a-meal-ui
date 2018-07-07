@@ -1,21 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './components/views/admin/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import Landing from './components/views/Landing';
 import LoginContainer from './containers/LoginContainer';
 import RegisterContainer from './containers/RegisterContainer';
+import MealsContainer from './containers/admin/MealsContainer';
 import './styles.css';
 
 class App extends React.Component {
     render() {
         return (
             <Router>
-                <div>
+                <Switch>
                     <Route exact path="/" component={Landing} />
                     <Route path="/login" component={LoginContainer} />
                     <Route path="/sign-up" component={RegisterContainer} />
-                    <Route path="/home" component={Home} />
-                </div>
+                    <Route path="/home" component={MealsContainer} />
+                </Switch>
             </Router>
         );
     }
