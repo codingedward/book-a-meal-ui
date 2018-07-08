@@ -1,23 +1,43 @@
-const responseReducer = ({ actionName, initialState }) => {
+import { Status } from '../constants';
 
-    const reducer = (state = initialState, action) => {
+export const reducer = ({ resource, resourceCollection, initialState }) => {
+
+    const createReducer = (state = initialState, action) => {
         switch (action.type) {
-            case actionName:
+            case `${resource}_CREATE`:
                 return {
-                    loading: true,
+                    ...state,
+                    createStatus: Status.STARTED,
                 };
 
-            case `${actionName}_SUCCESS`:
+            case `${resource}_CREATE_SUCCESS`:
                 return {
-                    payload: action.payload.data,
-                    loading: false,
+                    ...state,
+                    createStatus: Status.SUCCESS,
+                    payload: {
+                        ...state.payload,
+                        [resource]: state.payload[resource].concat(action.payload[resource])
+                    }
                 };
 
-            case `${actionName}_FAIL`:
+            case `${resource}_CREATE_FAIL`:
                 return {
+                    ...state,
                     error: action.error.response,
-                    loading: false,
+                    createStatus: Status.FAIL,
                 };
+
+            case `${resource}_FETCH`:
+                return {
+                    ...state,
+                    fetchStatus: Status.STARTED,
+                }
+            case `${resource}_FETCH_SUCCESS`:
+                return {
+                    ...state,
+                    fetchStatus: Status.SUCCESS,
+                    [resource]: action.payload.data
+                }
 
             default:
                 return state;
