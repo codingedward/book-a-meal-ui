@@ -10,11 +10,18 @@ import './styles.css';
 
 class CreateModal extends React.Component {
 
-    onImageChange = (data) => {
+    onImageAdded = (data) => {
         this.setState({
             ...this.state,
             image: data,
         });
+    }
+
+    onImageRemoved = () => {
+        this.setState({
+            ...this.state,
+            image: null,
+        })
     }
 
     onChange = (e) => {
@@ -45,7 +52,10 @@ class CreateModal extends React.Component {
                         </Alert>
                 }
 
-                <ImageInput onChange={(data) => this.onImageChange(data)} />
+                <ImageInput 
+                    onImageAdded={this.onImageAdded} 
+                    onImageRemoved={this.onImageRemoved}
+                />
                 <label> Name </label>
                 <Input name="name" onChange={this.onChange} type="text" />
                 <label> Cost </label>

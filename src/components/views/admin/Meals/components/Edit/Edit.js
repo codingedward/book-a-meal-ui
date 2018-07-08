@@ -16,12 +16,28 @@ class EditModal extends React.Component {
         }
     }
 
-    onImageChange = (data) => {
+    onImageAdded = (data) => {
         this.setState({
             ...this.state,
             image: data,
         });
     }
+
+    onImageRemoved = () => {
+        this.setState({
+            ...this.state,
+            image: null,
+        })
+    }
+
+    onPrefillRemoved = () => {
+        this.setState({
+            ...this.state,
+            image: null,
+            img_url: '#',
+        });
+    }
+
 
     onChange = (e) => {
         this.setState({
@@ -53,7 +69,12 @@ class EditModal extends React.Component {
                         </Alert>
                 }
 
-                <ImageInput prefill={meal.img_url} onChange={(data) => this.onImageChange(data)} />
+                <ImageInput 
+                    prefill={meal.img_url}
+                    onImageAdded={this.onImageAdded} 
+                    onImageRemoved={this.onImageRemoved}
+                    onPrefillRemoved={this.onPrefillRemoved}
+                />
                 <label> Name </label>
                 <Input defaultValue={meal.name} name="name" onChange={this.onChange} type="text" />
                 <label> Cost </label>
