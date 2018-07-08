@@ -54,7 +54,7 @@ const Table = ({ data, onDelete, onEdit }) => {
                             { /* deletable? */ }
                             {onDelete &&
                                 <td>
-                                    <button onClick={() => onDelete()} className="delete-act">
+                                    <button onClick={() => onDelete(row)} className="delete-act">
                                         Delete
                                     </button>
                                 </td>
@@ -63,6 +63,9 @@ const Table = ({ data, onDelete, onEdit }) => {
                     ))}
                 </tbody>
             </table>
+            {data.rows.length == 0 &&
+                <p className="text-center w-100">No data available.</p>
+            }
         </div>
     );
 }
