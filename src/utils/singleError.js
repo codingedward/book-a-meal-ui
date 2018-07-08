@@ -1,6 +1,6 @@
 const singleError = (errorPayload) => {
 
-    if (errorPayload.data) {
+    if (errorPayload && errorPayload.data) {
         const response = errorPayload.data;
         // alternative to Object.keys...
         for (let errorKey in response.errors) {
