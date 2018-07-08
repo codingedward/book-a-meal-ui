@@ -63,7 +63,7 @@ const Table = ({ data, onDelete, onEdit }) => {
                     ))}
                 </tbody>
             </table>
-            {data.rows.length == 0 &&
+            {data.rows.length === 0 &&
                 <p className="text-center w-100">No data available.</p>
             }
         </div>
