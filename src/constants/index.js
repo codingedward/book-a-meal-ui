@@ -1,3 +1,13 @@
+export const BASE_URL = 'http://localhost:5000/api/v1';
+export const IMAGES_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/codingedward/image/upload';
+
+export const Status = {
+    STARTED: 0,
+    SUCCESS: 1,
+    FAIL: 2,
+
+}
+
 export const Role = {
     SUPER_ADMIN: 0,
     ADMIN: 1,
