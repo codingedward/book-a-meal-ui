@@ -11,15 +11,15 @@ class Login extends React.Component {
 
     state = {}
 
-    onSubmit = (evt) => {
-        evt.preventDefault();
+    onSubmit = (e) => {
+        e.preventDefault();
         this.props.login(this.state);
     }
 
-    onChange = (evt) => {
+    onChange = (e) => {
         this.setState({
             ...this.state,
-            [evt.target.name]: evt.target.value
+            [e.target.name]: e.target.value
         })
     }
 
