@@ -3,3 +3,6 @@
   overflow-x: scroll;
   padding: 0;
   margin: 0; }
+
+td img {
+  max-width: 100px; }

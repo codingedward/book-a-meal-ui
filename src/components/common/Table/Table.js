@@ -1,12 +1,13 @@
 import React from 'react';
 import { EntryType } from '../../../constants';
+import './styles.css';
 
 const Table = ({ data, onDelete, onEdit }) => {
 
     const renderEntry = (value, type) => {
         switch (type) {
             case EntryType.IMAGE:
-                return <img src={value} alt="Entry" />;
+                return <img src={value} />; // eslint-disable-line
             case EntryType.DATE:
                 return new Date(value).toDateString()
             case EntryType.TEXT:
@@ -44,7 +45,7 @@ const Table = ({ data, onDelete, onEdit }) => {
                             { /* editable? */ }
                             {onEdit &&
                                 <td>
-                                    <button onClick={() => onEdit()} className="edit-act">
+                                    <button onClick={() => onEdit(row)} className="edit-act">
                                         Edit 
                                     </button>
                                 </td>
