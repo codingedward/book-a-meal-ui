@@ -1,7 +1,9 @@
+.preview,
 canvas {
   cursor: pointer;
-  width: 300px;
-  margin-left: calc(50% - 150px); }
+  width: 250px;
+  margin-left: calc(50% - 125px);
+  text-align: center; }
 
 .prompt {
   margin: auto;
@@ -28,9 +30,3 @@ img.prompt {
   padding-top: 40px;
   padding-bottom: 40px;
   border: 5px dashed #ccc; }
-
-.picture-preview {
-  display: none;
-  width: 100%;
-  max-width: 480px;
-  margin: auto; }

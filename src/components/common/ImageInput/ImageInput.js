@@ -18,6 +18,7 @@ class ImageInput extends React.Component {
 
     onRemove = (e) => {
         const { imageSelected } = this.state;
+
         this.setState({
             ...this.state,
             fileName: '',
@@ -27,6 +28,7 @@ class ImageInput extends React.Component {
             prefillRemoved: (imageSelected) ? false : true
         });
         this.fileInputRef.current.value = '';
+        this.props.onChange('');
     }
 
     onSelectImage = (e) => {
@@ -34,7 +36,6 @@ class ImageInput extends React.Component {
     }
 
     onFileChange = (e) => {
-
         const files = e.target.files
         if (!files.length) {
             return
@@ -87,17 +88,18 @@ class ImageInput extends React.Component {
         reader.onload = (e) => {
             let image = new Image();
             image.onload = () => {
-                this.drawImage(image)
+                this.drawImage(image);
             }
             image.src = e.target.result;
+            this.props.onChange(e.target.result);
         }
         reader.readAsDataURL(file)
     }
 
     drawImage = (image) => {
 
-        const width = 500;
-        const height = 500;
+        const width = 300;
+        const height = 300;
         let previewRatio = width / height
 
         const imageRatio = image.width / image.height
@@ -140,9 +142,6 @@ class ImageInput extends React.Component {
 
         const { prefill } = this.props;
         const { imageSelected, prefillRemoved } = this.state;
-
-        const showPrompt = (! this.state.imageSelected)
-
         let content = null;
         const buttons = (
             <div className="d-flex justify-content-center">
@@ -164,7 +163,7 @@ class ImageInput extends React.Component {
         } else if (prefill && !prefillRemoved) {
             content = (
                 <div>
-                    <img className="preview" src={prefill}/>
+                    <img className="preview" onClick={this.onSelectImage} src={prefill} alt="Prefill"/>
                     {buttons}
                 </div>
             );
