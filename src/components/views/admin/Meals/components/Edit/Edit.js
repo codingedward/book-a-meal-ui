@@ -83,7 +83,7 @@ class EditModal extends React.Component {
         );
 
         const footer = (
-            <Button color="primary" className="m-auto"onClick={() => this.onEdit()}>Update Meal</Button>
+            <Button color="primary" className="m-auto"onClick={this.onEdit}>Update Meal</Button>
         )
         const { isOpen, toggle } = this.props;
 

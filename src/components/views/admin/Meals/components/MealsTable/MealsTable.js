@@ -22,13 +22,13 @@ class MealsTable extends React.Component {
             ],
             rows: (payload && payload.meals) ? payload.meals : []
         };
-        const { toggleEdit } = this.props;
+        const { toggleEdit, toggleDelete } = this.props;
         return (
             <Table
                 loading={fetchStatus}
                 data={tableData}
                 onEdit={toggleEdit}
-                onDelete={() => {}}
+                onDelete={toggleDelete}
             />
         );
     }

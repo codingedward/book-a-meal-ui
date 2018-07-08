@@ -64,7 +64,7 @@ class CreateModal extends React.Component {
         );
 
         const footer = (
-            <Button color="primary" className="m-auto"onClick={() => this.onSave()}>Save Meal</Button>
+            <Button color="primary" className="m-auto"onClick={this.onSave}>Save Meal</Button>
         )
         const { isOpen, toggle } = this.props;
 

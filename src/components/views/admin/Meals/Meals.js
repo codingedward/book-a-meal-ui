@@ -7,6 +7,7 @@ import Filter from '../../../common/Filter';
 import Table from './components/MealsTable';
 import CreateModal from './components/Create';
 import EditModal from './components/Edit';
+import DeleteModal from './components/Delete';
 
 import { singleError } from '../../../../utils';
 import { Status } from '../../../../constants';
@@ -16,10 +17,12 @@ class Meals extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            createStatus: Status.STARTED,
+            createStatus: Status.DEFAULT,
             createIsOpen: false,
-            editStatus: Status.STARTED,
+            editStatus: Status.DEFAULT,
             editIsOpen: false,
+            deleteStatus: Status.DEFAULT,
+            deleteIsOpen: false,
         }
     }
 
@@ -51,6 +54,15 @@ class Meals extends React.Component {
         });
     }
 
+    toggleDeleteMeal = (meal) => {
+        this.setState({
+            ...this.state,
+            deleteMeal: meal || {},
+            deleteStatus: Status.STARTED,
+            deleteIsOpen: !this.state.deleteIsOpen
+        });
+    }
+
     render() {
         const contentTop = (
             <div className="col-12 mb-2 pr-0 pr-sm-2">
@@ -71,7 +83,10 @@ class Meals extends React.Component {
             editIsOpen,
             editStatus,
             createIsOpen,
-            createStatus
+            createStatus,
+            deleteMeal,
+            deleteIsOpen,
+            deleteStatus
         } = this.state;
 
         return (
@@ -91,6 +106,14 @@ class Meals extends React.Component {
                     editStatus={editStatus}
                     toggle={this.toggleEditMeal}/>
 
+                <DeleteModal 
+                    {...this.props}
+                    error={error}
+                    meal={deleteMeal} 
+                    isOpen={deleteIsOpen} 
+                    deleteStatus={deleteStatus}
+                    toggle={this.toggleDeleteMeal}/>
+
                  <section className="row">
                      <Sidebar />
                      <Content 
@@ -99,7 +122,10 @@ class Meals extends React.Component {
                      >
                          {fetchStatus === Status.FAIL &&
                                  <Alert color="danger"> { singleError(error) }</Alert> }
-                        <Table toggleEdit={this.toggleEditMeal} {...this.props} />
+                                 <Table 
+                                     {...this.props} 
+                                     toggleEdit={this.toggleEditMeal} 
+                                     toggleDelete={this.toggleDeleteMeal} />
                      </Content>
                  </section>
              </main>
