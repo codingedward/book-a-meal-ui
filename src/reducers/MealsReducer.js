@@ -4,8 +4,8 @@ import {
     CREATE_MEAL, 
     FETCH_MEALS,
     FETCH_COUNT,
+    DELETE_MEAL
 } from '../actions/MealsActions';
-
 
 const initialState = {
     payload: {
@@ -86,6 +86,24 @@ const mealsReducer = (state = initialState, action) => {
                 payload: { ...state.payload },
                 error: action.error.response,
                 editStatus: Status.FAIL
+            }
+
+        case DELETE_MEAL:
+            return {
+                payload: { ...state.payload },
+                deleteStatus: Status.STARTED
+            }
+        case `${DELETE_MEAL}_SUCCESS`:
+            // fetch is triggered...
+            return {
+                payload: { ...state.payload },
+                deleteStatus: Status.SUCCESS
+            }
+        case `${DELETE_MEAL}_FAIL`:
+            return {
+                payload: { ...state.payload },
+                error: action.error.response,
+                deleteStatus: Status.FAIL
             }
         default:
             return state;
