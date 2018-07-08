@@ -1,51 +1,105 @@
 import React from 'react';
 
 import { Alert } from 'reactstrap';
-import Table from '../../../common/Table';
 import Content from '../../../common/Content';
 import Sidebar from '../../../common/Sidebar';
-import { EntryType } from '../../../../constants';
-import { singleError } from '../../../../utils';
+import Filter from '../../../common/Filter';
+import Table from './components/MealsTable';
 import CreateModal from './components/Create';
+import EditModal from './components/Edit';
+
+import { singleError } from '../../../../utils';
+import { Status } from '../../../../constants';
 
 class Meals extends React.Component {
 
     constructor(props) {
         super(props);
-        this.props.getMeals();
+        this.state = {
+            createStatus: Status.STARTED,
+            createIsOpen: false,
+            editStatus: Status.STARTED,
+            editIsOpen: false,
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const statusNames = ['editStatus', 'fetchStatus', 'createStatus'];
+        for (const name of statusNames) {
+            if (prevProps.meals[name] !== this.props.meals[name]) {
+                this.setState({
+                    ...this.state,
+                    [name] : this.props.meals[name]
+                })
+            }
+        }
+    }
+
+    toggleAddMeal = (e) => {
+        this.setState({
+            ...this.state,
+            createIsOpen: !this.state.createIsOpen
+        });
+    }
+
+    toggleEditMeal = (meal) => {
+        this.setState({
+            ...this.state,
+            editMeal: meal || {},
+            editStatus: Status.STARTED,
+            editIsOpen: !this.state.editIsOpen
+        });
     }
 
     render() {
+        const contentTop = (
+            <div className="col-12 mb-2 pr-0 pr-sm-2">
+                <h5 className="d-inline-block">Manage Meals</h5>
+                <button onClick={() => this.toggleAddMeal()} className="btn btn-secondary float-right">
+                    Add New
+                </button>
+            </div>
+        );
 
-        const { payload, error, loading } = this.props.response;
-        const tableData = {
-            columns: [
-                { key: 'id', title: 'ID', type: EntryType.NUMBER },
-                { key: 'img_url', title: 'Image', type: EntryType.IMAGE },
-                { key: 'name', title: 'Name', type: EntryType.TEXT },
-                { key: 'cost', title: 'Cost', type: EntryType.NUMBER },
-                { key: 'created_at', title: 'Created On', type: EntryType.DATE }
-            ],
-            rows: (payload && payload.meals) ? payload.meals : []
-        };
+        const contentFilter = (
+            <Filter />
+        );
 
+        const { error, fetchStatus } = this.props.meals;
+        const { 
+            editMeal,
+            editIsOpen,
+            editStatus,
+            createIsOpen,
+            createStatus
+        } = this.state;
 
         return (
             <main className="container-fluid">
-                <CreateModal isOpen={true}/>
+                <CreateModal 
+                    {...this.props}
+                    error={error}
+                    isOpen={createIsOpen} 
+                    createStatus={createStatus}
+                    toggle={this.toggleAddMeal} />
+
+                <EditModal 
+                    {...this.props}
+                    error={error}
+                    meal={editMeal} 
+                    isOpen={editIsOpen} 
+                    editStatus={editStatus}
+                    toggle={this.toggleEditMeal}/>
+
                  <section className="row">
                      <Sidebar />
-                     <Content
-                            title="Manage Meals"
-                            actionBtn="Add New"
+                     <Content 
+                         contentTop={contentTop}
+                         contentFilter={contentFilter}
                      >
-                        {error && <Alert color="danger"> { singleError(error) }</Alert> }
-                        <Table
-                            loading={loading}
-                            data={tableData}
-                            onEdit={() => {}}
-                            onDelete={() => {}}
-                        />
+                         {fetchStatus === Status.FAIL &&
+                                 <Alert color="danger"> { singleError(error) }</Alert> }
+                        <Table toggleEdit={this.toggleEditMeal} {...this.props} />
                      </Content>
                  </section>
              </main>
