@@ -5,11 +5,17 @@ class ImageInput extends React.Component {
 
     constructor(props) {
         super(props);
+        let prefillSelected = false;
+        if (props.prefill && props.prefill !== '#') {
+            prefillSelected = true;
+        }
         this.state = {
             size: 1,
             fileName: '',
             fileSize: '',
             fileModified: '',
+            imageSelected: false,
+            prefillSelected,
         }
         this.canvasRef = React.createRef();
         this.containerRef = React.createRef();
@@ -17,18 +23,27 @@ class ImageInput extends React.Component {
     }
 
     onRemove = (e) => {
-        const { imageSelected } = this.state;
-
         this.setState({
             ...this.state,
             fileName: '',
             fileSize: '',
             fileModified: '',
             imageSelected: false,
-            prefillRemoved: (imageSelected) ? false : true
         });
         this.fileInputRef.current.value = '';
-        this.props.onChange('');
+        this.props.onImageRemoved();
+    }
+
+    onRemovePrefill = (e) => {
+        this.setState({
+            ...this.state,
+            fileName: '',
+            fileSize: '',
+            fileModified: '',
+            imageSelected: false,
+            prefillSelected: false,
+        });
+        this.props.onPrefillRemoved();
     }
 
     onSelectImage = (e) => {
@@ -91,7 +106,7 @@ class ImageInput extends React.Component {
                 this.drawImage(image);
             }
             image.src = e.target.result;
-            this.props.onChange(e.target.result);
+            this.props.onImageAdded(e.target.result);
         }
         reader.readAsDataURL(file)
     }
@@ -141,14 +156,8 @@ class ImageInput extends React.Component {
     render() {
 
         const { prefill } = this.props;
-        const { imageSelected, prefillRemoved } = this.state;
+        const { imageSelected, prefillSelected } = this.state;
         let content = null;
-        const buttons = (
-            <div className="d-flex justify-content-center">
-                <button onClick={this.onSelectImage} className="btn btn-secondary change m-3">Change</button>
-                <button onClick={this.onRemove} className="btn btn-danger remove m-3">Remove</button>
-            </div>
-        );
 
         if (imageSelected) {
             content = (
@@ -157,14 +166,20 @@ class ImageInput extends React.Component {
                     <div className="hint">
                         <small><i>(Tap image to edit)</i></small>
                     </div>
-                    {buttons}
+                    <div className="d-flex justify-content-center">
+                        <button onClick={this.onSelectImage} className="btn btn-secondary change m-3">Change</button>
+                        <button onClick={this.onRemove} className="btn btn-danger remove m-3">Remove</button>
+                    </div>
                 </div>
             );
-        } else if (prefill && !prefillRemoved) {
+        } else if (prefill && prefillSelected) {
             content = (
                 <div>
                     <img className="preview" onClick={this.onSelectImage} src={prefill} alt="Prefill"/>
-                    {buttons}
+                    <div className="d-flex justify-content-center">
+                        <button onClick={this.onSelectImage} className="btn btn-secondary change m-3">Change</button>
+                        <button onClick={this.onRemovePrefill} className="btn btn-danger remove m-3">Remove</button>
+                    </div>
                 </div>
             );
         } else {
@@ -184,8 +199,6 @@ class ImageInput extends React.Component {
             </div>
         );
     }
-
-
 }
 
 export default ImageInput;
