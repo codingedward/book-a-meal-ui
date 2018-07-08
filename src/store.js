@@ -1,21 +1,23 @@
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import { 
     connectRouter, 
     routerMiddleware 
 } from 'connected-react-router';
 
 import appReducer from './reducers';
+import { BASE_URL } from './constants';
 
 
 const client = axios.create({
-    baseURL: 'http://localhost:5000/api/v1',
+    baseURL:  BASE_URL,
     responseType: 'json',
 });
 
@@ -23,20 +25,22 @@ const axiosMiddlewareConfig = {
     interceptors: {
         request: [
             ({ getState }, config) => {
-                const payload = getState().auth.login.payload;
-                if (payload && payload.access_token) {
-                    config.headers['Authorization'] = `Bearer ${payload.access_token}`
-                }
+                if (config.baseURL.startsWith(BASE_URL)) {
+                    const payload = getState().auth.login.payload;
+                    if (payload && payload.access_token) {
+                        config.headers['Authorization'] = `Bearer ${payload.access_token}`
+                    }
+                } 
                 return config;
             }
         ]
     }
 };
 
-export const history = createBrowserHistory();
+export const history = createHashHistory();
 
 const persistedReducer = persistReducer({
-    key: 'auth',
+    key: 'root',
     storage,
 }, connectRouter(history)(appReducer));
 
@@ -44,6 +48,7 @@ const persistedReducer = persistReducer({
 export const store = createStore(
     persistedReducer,
     applyMiddleware(
+        thunk,
         axiosMiddleware(client, axiosMiddlewareConfig), 
         routerMiddleware(history),
     )
