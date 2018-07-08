@@ -5,6 +5,7 @@ export const CREATE_MEAL = 'ADD_MEAL';
 export const FETCH_MEALS = 'FETCH_MEALS';
 export const FETCH_COUNT = 10;
 export const EDIT_MEAL = 'EDIT_MEAL';
+export const DELETE_MEAL = 'DELETE_MEAL';
 
 export function createMeal(meal, meta) {
 
@@ -100,5 +101,26 @@ export function fetchMeals(page = 1, per_page = FETCH_COUNT) {
                 url: `/meals?per_page=${per_page}&page=${page}`,
             }
         }
+    }
+}
+
+export function deleteMeal(meal) {
+    return (dispatch) => {
+        dispatch({
+            type: DELETE_MEAL,
+            payload: {
+                request: {
+                    method: 'delete',
+                    url: `/meals/${meal.id}`
+                }
+            }
+        }).then(() => {
+            dispatch(fetchMeals())
+        }).catch(error => {
+            dispatch({
+                type: `${DELETE_MEAL}_FAIL`,
+                error
+            })
+        })
     }
 }
