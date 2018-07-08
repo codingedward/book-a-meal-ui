@@ -8,10 +8,10 @@ import {
 import './styles.css';
 
 const Modal = ({ title, body, footer, isOpen, toggle }) => (
-    <BModal isOpen={isOpen} toggle={toggle}>
+    <BModal isOpen={isOpen} toggle={toggle} fade={false}>
         <ModalHeader toggle={toggle}>
             {title}
-            <button type="button" className="close">
+            <button onClick={() => toggle()} type="button" className="close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </ModalHeader>
