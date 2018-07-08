@@ -1,8 +1,6 @@
 import React from 'react';
 import Modal from '../../../../../common/Modal';
-import { Alert, Button } from 'reactstrap';
-import { Status } from '../../../../../../constants';
-import { singleError } from '../../../../../../utils';
+import { Button } from 'reactstrap';
 import './styles.css';
 
 
