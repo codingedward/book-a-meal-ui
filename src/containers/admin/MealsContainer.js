@@ -1,7 +1,12 @@
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 import Meals from '../../components/views/admin/Meals';
-import { fetchMeals, createMeal, editMeal } from '../../actions/MealsActions';
+import { 
+    editMeal,
+    fetchMeals, 
+    createMeal, 
+    deleteMeal
+} from '../../actions/MealsActions';
 
 const mapStateToProps = (state) =>  {
     return {
@@ -14,15 +19,18 @@ const mapDispatchToProps = (dispatch) => {
         fetchMeals: () => {
             dispatch(fetchMeals())
         },
-        redirect: (page) => {
-            dispatch(push(page))
-        },
         createMeal: (meal) => {
             dispatch(createMeal(meal))
         },
         editMeal: (meal) => {
             dispatch(editMeal(meal))
-        }
+        },
+        deleteMeal: (meal) => {
+            dispatch(deleteMeal(meal))
+        },
+        redirect: (page) => {
+            dispatch(push(page))
+        },
     }
 }
 
