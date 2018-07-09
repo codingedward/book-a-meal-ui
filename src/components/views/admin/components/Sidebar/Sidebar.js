@@ -1,8 +1,15 @@
 import React from 'react';
-import DefaultSidebar from 'components/common/Sidebar';
+import { NavLink } from 'react-router-dom';
+import DefaultSidebar from 'src/components/common/Sidebar';
 
 const Sidebar = () => (
     <DefaultSidebar>
-        <Link to="/meals">
+        <NavLink className="btn" to="/meals" activeClassName="active">Manage Meals</NavLink>
+        <NavLink className="btn" to="/menus">Set Menu</NavLink>
+        <NavLink className="btn" to="/orders">Manage Orders</NavLink>
+        <NavLink className="btn" to="/users">Users</NavLink>
+        <NavLink className="btn" to="/orders-history">Order History</NavLink>
     </DefaultSidebar>
 );
+
+export default Sidebar;
