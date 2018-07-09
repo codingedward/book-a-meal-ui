@@ -5,7 +5,11 @@ import {
     editMeal,
     fetchMeals, 
     createMeal, 
-    deleteMeal
+    deleteMeal,
+    resetEditStatus,
+    resetCreateStatus,
+    resetDeleteStatus,
+    resetFetchStatus
 } from '../../actions/MealsActions';
 
 const mapStateToProps = (state) =>  {
@@ -16,21 +20,16 @@ const mapStateToProps = (state) =>  {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchMeals: () => {
-            dispatch(fetchMeals())
-        },
-        createMeal: (meal) => {
-            dispatch(createMeal(meal))
-        },
-        editMeal: (meal) => {
-            dispatch(editMeal(meal))
-        },
-        deleteMeal: (meal) => {
-            dispatch(deleteMeal(meal))
-        },
-        redirect: (page) => {
-            dispatch(push(page))
-        },
+        redirect: (page) => dispatch(push(page)),
+        fetchMeals: (params) => dispatch(fetchMeals(params)),
+        createMeal: (meal) => dispatch(createMeal(meal)),
+        editMeal: (meal) => dispatch(editMeal(meal)),
+        deleteMeal: (meal) =>  dispatch(deleteMeal(meal)),
+        // reset error responses
+        resetEditStatus: () => dispatch(resetEditStatus()),
+        resetDeleteStatus: () => dispatch(resetDeleteStatus()),
+        resetFetchStatus: () => dispatch(resetFetchStatus()),
+        resetCreateStatus: () => dispatch(resetCreateStatus()),
     }
 }
 
