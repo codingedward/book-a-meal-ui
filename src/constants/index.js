@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:5000/api/v1';
+export const BASE_URL = 'http://localhost:8000/api/v1';
 export const IMAGES_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/codingedward/image/upload';
 
 export const Status = {
