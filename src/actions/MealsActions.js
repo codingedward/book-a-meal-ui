@@ -1,11 +1,41 @@
 import axios from 'src/axios';
+import { paginationInfo } from 'src/utils';
+import { store } from 'src/store'
+
 import { IMAGES_UPLOAD_URL } from 'src/constants';
 
-export const CREATE_MEAL = 'ADD_MEAL';
+export const FETCH_COUNT = 5;
 export const FETCH_MEALS = 'FETCH_MEALS';
-export const FETCH_COUNT = 10;
+export const CREATE_MEAL = 'ADD_MEAL';
 export const EDIT_MEAL = 'EDIT_MEAL';
 export const DELETE_MEAL = 'DELETE_MEAL';
+export const RESET_EDIT_STATUS = 'RESET_EDIT_STATUS';
+export const RESET_FETCH_STATUS = 'RESET_FETCH_STATUS';
+export const RESET_DELETE_STATUS = 'RESET_DELETE_STATUS';
+
+export function resetCreateStatus() {
+    return {
+        type: `${CREATE_MEAL}_RESET`
+    }
+}
+
+export function resetEditStatus() {
+    return {
+        type: `${EDIT_MEAL}_RESET`
+    }
+}
+
+export function resetDeleteStatus() {
+    return {
+        type: `${DELETE_MEAL}_RESET`
+    }
+}
+
+export function resetFetchStatus() {
+    return {
+        type: `${FETCH_MEALS}_RESET`
+    }
+}
 
 export function createMeal(meal, meta) {
 
@@ -31,8 +61,8 @@ export function createMeal(meal, meta) {
                             }
                         }
                     }
-                });
-            })
+                 })                    
+            });
         }
     } 
 
@@ -48,7 +78,7 @@ export function createMeal(meal, meta) {
                 }
             }
         }
-    };
+    }
 }
 
 export function editMeal(meal) {
@@ -74,6 +104,11 @@ export function editMeal(meal) {
                         }
                     }
                 });
+            }).catch(error => {
+                dispatch({
+                    type: `${EDIT_MEAL}_FAIL`,
+                    error,
+                })
             })
         }
     } 
@@ -92,13 +127,23 @@ export function editMeal(meal) {
 }
 
 
-export function fetchMeals(page = 1, per_page = FETCH_COUNT) {
+export function fetchMeals(params = {}) {
+
+    let currentPage = 1;
+    try {
+        currentPage = paginationInfo(store.getState().meals).currentPage
+    } catch(error) {}
+
+    const page = params.page  || currentPage;
+    const perPage = params.perPage || FETCH_COUNT;
+    const search = params.search ? `name:${params.search}` : '';
+
     return {
         type: FETCH_MEALS,
         payload: {
             request: {
                 method: 'get',
-                url: `/meals?per_page=${per_page}&page=${page}`,
+                url: `/meals?per_page=${perPage}&page=${page}&search=${search}`,
             }
         }
     }
