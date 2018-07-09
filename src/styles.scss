@@ -56,6 +56,8 @@
     background-color: #f5ee9e;
 }
 
+.btn-secondary:hover,
+.btn-secondary:focus,
 .btn-secondary {
     color: white;
     background-color: #008080;
@@ -99,6 +101,13 @@ label {
 select.form-control,
 input.form-control {
     margin-bottom: 20px;
+    background-color: #f4f1d6;
+}
+
+select.form-control:focus,
+input.form-control:focus {
+    margin-bottom: 20px;
+    background-color: #f4f1d6;
 }
 
 .logo, 
@@ -115,8 +124,10 @@ input.form-control {
 }
 
 /* table design */
-table, th, td {
-    border: 2px dashed #2d728f;
+.table-holder {
+    table, th, td {
+        border: 2px dashed #2d728f;
+    }
 }
 
 .table thead th {
@@ -150,6 +161,13 @@ th, td {
     padding: 4px;
 }
 
+body {
+    background-color: #eee;
+}
+
 body #root {
     height: 100%;
+}
+.active {
+    background-color: orange;
 }
