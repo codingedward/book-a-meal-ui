@@ -56,10 +56,12 @@ class CreateModal extends React.Component {
                     onImageAdded={this.onImageAdded} 
                     onImageRemoved={this.onImageRemoved}
                 />
-                <label> Name </label>
-                <Input name="name" onChange={this.onChange} type="text" />
-                <label> Cost </label>
-                <Input name="cost" onChange={this.onChange} type="number" />
+                <div className="pl-4 pr-4">
+                    <label> Name </label>
+                    <Input name="name" onChange={this.onChange} type="text" />
+                    <label> Cost </label>
+                    <Input name="cost" onChange={this.onChange} type="number" />
+                </div>
             </div>
         );
 

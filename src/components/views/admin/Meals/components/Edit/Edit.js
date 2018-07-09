@@ -54,7 +54,7 @@ class EditModal extends React.Component {
     }
 
     render() {
-        const { error, editStatus } = this.props
+        const { error, editStatus } = this.props.meals
         const meal = this.props.meal || {}
         const body = (
             <div>
@@ -75,10 +75,12 @@ class EditModal extends React.Component {
                     onImageRemoved={this.onImageRemoved}
                     onPrefillRemoved={this.onPrefillRemoved}
                 />
-                <label> Name </label>
-                <Input defaultValue={meal.name} name="name" onChange={this.onChange} type="text" />
-                <label> Cost </label>
-                <Input defaultValue={meal.cost} name="cost" onChange={this.onChange} type="number" />
+                <div class="pl-4 pr-4">
+                    <label> Name </label>
+                    <Input defaultValue={meal.name} name="name" onChange={this.onChange} type="text" />
+                    <label> Cost </label>
+                    <Input defaultValue={meal.cost} name="cost" onChange={this.onChange} type="number" />
+                </div>
             </div>
         );
 

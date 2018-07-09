@@ -2,14 +2,16 @@ import React from 'react';
 
 import { Alert } from 'reactstrap';
 import Content from 'src/components/common/Content';
-import Sidebar from 'src/components/common/Sidebar';
 import Filter from 'src/components/common/Filter';
+import Paginator from 'src/components/common/Paginator';
 import Table from './components/MealsTable';
+import Sidebar from '../components/Sidebar';
 import CreateModal from './components/Create';
 import EditModal from './components/Edit';
 import DeleteModal from './components/Delete';
 
 import { singleError } from 'src/utils';
+import { paginationInfo } from 'src/utils';
 import { Status } from 'src/constants';
 
 class Meals extends React.Component {
@@ -17,49 +19,80 @@ class Meals extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            createStatus: Status.DEFAULT,
+            page: 1,
+            searchText: '',
             createIsOpen: false,
-            editStatus: Status.DEFAULT,
             editIsOpen: false,
-            deleteStatus: Status.DEFAULT,
             deleteIsOpen: false,
         }
     }
 
-    componentDidUpdate(prevProps) {
-        const statusNames = ['editStatus', 'fetchStatus', 'createStatus'];
-        for (const name of statusNames) {
-            if (prevProps.meals[name] !== this.props.meals[name]) {
-                this.setState({
-                    ...this.state,
-                    [name] : this.props.meals[name]
-                })
+    componentDidUpdate() {
+        if (this.props.meals.requiresFetch) {
+
+            // it is the last item on the page, move back
+            let { page } = this.state;
+            if (this.props.meals.payload.current_count === 1 && page !== 1) {
+                page -= 1;
             }
+            this.props.fetchMeals({
+                page,
+                search: this.state.searchText
+            });
+
+            this.setState({
+                ...this.state,
+                page,
+            });
         }
     }
 
-    toggleAddMeal = (e) => {
+    toggleCreate = (e) => {
         this.setState({
             ...this.state,
             createIsOpen: !this.state.createIsOpen
         });
+        this.props.resetCreateStatus();
     }
 
-    toggleEditMeal = (meal) => {
+    toggleEdit = (meal) => {
         this.setState({
             ...this.state,
-            editMeal: meal || {},
-            editStatus: Status.STARTED,
+            toEdit: meal || {},
             editIsOpen: !this.state.editIsOpen
+        });
+        this.props.resetEditStatus();
+    }
+
+    toggleDelete = (meal) => {
+        this.setState({
+            ...this.state,
+            toDelete: meal || {},
+            deleteIsOpen: !this.state.deleteIsOpen
+        });
+        this.props.resetDeleteStatus();
+    }
+
+    onFilter = (text) => {
+        this.setState({
+            ...this.state,
+            searchText: text,
+        });
+        this.props.fetchMeals({ 
+            search: text,
+            page: this.page
         });
     }
 
-    toggleDeleteMeal = (meal) => {
+    onPageChange = (page) => {
         this.setState({
             ...this.state,
-            deleteMeal: meal || {},
-            deleteStatus: Status.STARTED,
-            deleteIsOpen: !this.state.deleteIsOpen
+            page,
+        });
+
+        this.props.fetchMeals({
+            page: page,
+            search: this.state.searchText
         });
     }
 
@@ -67,52 +100,43 @@ class Meals extends React.Component {
         const contentTop = (
             <div className="col-12 mb-2 pr-0 pr-sm-2">
                 <h5 className="d-inline-block">Manage Meals</h5>
-                <button onClick={() => this.toggleAddMeal()} className="btn btn-secondary float-right">
+                <button onClick={this.toggleCreate} className="btn btn-secondary float-right">
                     Add New
                 </button>
             </div>
         );
 
         const contentFilter = (
-            <Filter />
+            <Filter onFilter={this.onFilter} />
         );
 
         const { error, fetchStatus } = this.props.meals;
         const { 
-            editMeal,
+            toEdit,
             editIsOpen,
-            editStatus,
             createIsOpen,
-            createStatus,
-            deleteMeal,
+            toDelete,
             deleteIsOpen,
-            deleteStatus
         } = this.state;
 
         return (
             <main className="container-fluid">
                 <CreateModal 
                     {...this.props}
-                    error={error}
                     isOpen={createIsOpen} 
-                    createStatus={createStatus}
-                    toggle={this.toggleAddMeal} />
+                    toggle={this.toggleCreate} />
 
                 <EditModal 
                     {...this.props}
-                    error={error}
-                    meal={editMeal} 
+                    meal={toEdit} 
                     isOpen={editIsOpen} 
-                    editStatus={editStatus}
-                    toggle={this.toggleEditMeal}/>
+                    toggle={this.toggleEdit}/>
 
                 <DeleteModal 
                     {...this.props}
-                    error={error}
-                    meal={deleteMeal} 
+                    meal={toDelete} 
                     isOpen={deleteIsOpen} 
-                    deleteStatus={deleteStatus}
-                    toggle={this.toggleDeleteMeal}/>
+                    toggle={this.toggleDelete}/>
 
                  <section className="row">
                      <Sidebar />
@@ -124,8 +148,12 @@ class Meals extends React.Component {
                                  <Alert color="danger"> { singleError(error) }</Alert> }
                                  <Table 
                                      {...this.props} 
-                                     toggleEdit={this.toggleEditMeal} 
-                                     toggleDelete={this.toggleDeleteMeal} />
+                                     toggleEdit={this.toggleEdit} 
+                                     toggleDelete={this.toggleDelete} />
+                                 <Paginator 
+                                     onPrev={this.onPageChange}
+                                     onNext={this.onPageChange} 
+                                     pageInfo={paginationInfo(this.props.meals)} />
                      </Content>
                  </section>
              </main>
