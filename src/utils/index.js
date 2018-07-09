@@ -1,4 +1,5 @@
 import singleError from './singleError';
+import paginationInfo from './paginationInfo';
 
-export { singleError }
+export { singleError, paginationInfo }
 
