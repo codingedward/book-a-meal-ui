@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Button, Alert } from 'reactstrap';
 import { Redirect, Link } from 'react-router-dom';
 
-import AuthPage from '../../../common/AuthPage';
-import { singleError } from '../../../../utils';
+import AuthPage from 'src/components/common/AuthPage';
+import { singleError } from 'src/utils';
 import './styles.css';
 
 class Login extends React.Component {
@@ -26,7 +26,7 @@ class Login extends React.Component {
     render() {
         const { payload, error, loading } = this.props.response;
         if (payload && payload.access_token) {
-            return <Redirect to="/home" />
+            return <Redirect to="/meals" />
         }
 
         return (
