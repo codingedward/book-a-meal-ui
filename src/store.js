@@ -11,6 +11,7 @@ import {
     connectRouter, 
     routerMiddleware 
 } from 'connected-react-router';
+import { loadingBarMiddleware } from 'react-redux-loading-bar';
 
 import appReducer from './reducers';
 import { BASE_URL } from './constants';
@@ -51,6 +52,9 @@ export const store = createStore(
         thunk,
         axiosMiddleware(client, axiosMiddlewareConfig), 
         routerMiddleware(history),
+        loadingBarMiddleware({
+            promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAIL']
+        })
     )
 );
 

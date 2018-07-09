@@ -13,9 +13,9 @@ class App extends React.Component {
             <Router>
                 <Switch>
                     <Route exact path="/" component={Landing} />
+                    <Route path="/meals" component={MealsContainer} />
                     <Route path="/login" component={LoginContainer} />
                     <Route path="/sign-up" component={RegisterContainer} />
-                    <Route path="/home" component={MealsContainer} />
                 </Switch>
             </Router>
         );
