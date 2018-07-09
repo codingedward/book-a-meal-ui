@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Button, Alert } from 'reactstrap';
 import { Redirect, Link } from 'react-router-dom';
 
-import AuthPage from '../../common/AuthPage';
-import { singleError } from '../../../utils';
+import AuthPage from '../../../common/AuthPage';
+import { singleError } from '../../../../utils';
 import './styles.css';
 
 class Login extends React.Component {

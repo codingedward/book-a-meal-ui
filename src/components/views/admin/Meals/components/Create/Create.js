@@ -1,9 +1,9 @@
 import React from 'react';
-import Modal from '../../../../../common/Modal';
-import ImageInput from '../../../../../common/ImageInput';
+import Modal from 'src/components/common/Modal';
+import ImageInput from 'src/components/common/ImageInput';
 import { Alert, Input, Button } from 'reactstrap';
-import { Status } from '../../../../../../constants';
-import { singleError } from '../../../../../../utils';
+import { Status } from 'src/constants';
+import { singleError } from 'src/utils';
 
 import './styles.css';
 

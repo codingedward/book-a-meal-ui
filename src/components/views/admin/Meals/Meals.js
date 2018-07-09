@@ -1,16 +1,16 @@
 import React from 'react';
 
 import { Alert } from 'reactstrap';
-import Content from '../../../common/Content';
-import Sidebar from '../../../common/Sidebar';
-import Filter from '../../../common/Filter';
+import Content from 'src/components/common/Content';
+import Sidebar from 'src/components/common/Sidebar';
+import Filter from 'src/components/common/Filter';
 import Table from './components/MealsTable';
 import CreateModal from './components/Create';
 import EditModal from './components/Edit';
 import DeleteModal from './components/Delete';
 
-import { singleError } from '../../../../utils';
-import { Status } from '../../../../constants';
+import { singleError } from 'src/utils';
+import { Status } from 'src/constants';
 
 class Meals extends React.Component {
 

@@ -28,7 +28,7 @@
 .bg-brown { background-color: #ab3428 !important; }
 
 /* text color */
-* { color: #555; } /* better for contrast */
+* { color: #555;  } /* better for contrast */
 .text-white { color: #fff !important; }
 .text-teal { color: #2d728f !important; }
 .text-blue { color: #3b83a5 !important; }
@@ -112,6 +112,42 @@ input.form-control {
 
 .patterns {
     background-image: url('./assets/food.png');
+}
+
+/* table design */
+table, th, td {
+    border: 2px dashed #2d728f;
+}
+
+.table thead th {
+    border-bottom: 2px dashed #2d728f;
+}
+
+.edit-act,
+.delete-act, 
+.revoke-act, 
+.revoked-state,
+.accept-act {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
+}
+
+/* deletion to have read for warning */
+.delete-act, .revoke-act, .revoked-state {
+    color: #cc0000;
+}
+
+.accept-act,
+.edit-act {
+    color: #2d728f; 
+}
+
+th, td {
+    text-align: center;
+    padding: 4px;
 }
 
 body #root {

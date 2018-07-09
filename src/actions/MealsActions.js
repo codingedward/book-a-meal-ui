@@ -1,5 +1,5 @@
-import axios from '../axios';
-import { IMAGES_UPLOAD_URL } from '../constants';
+import axios from 'src/axios';
+import { IMAGES_UPLOAD_URL } from 'src/constants';
 
 export const CREATE_MEAL = 'ADD_MEAL';
 export const FETCH_MEALS = 'FETCH_MEALS';

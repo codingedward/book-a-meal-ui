@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Alert, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import AuthPage from '../../common/AuthPage';
-import { singleError } from '../../../utils';
+import AuthPage from '../../../common/AuthPage';
+import { singleError } from '../../../../utils';
 import './styles.css';
 
 class Register extends React.Component {

@@ -2,8 +2,8 @@ import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Landing from './components/views/Landing';
-import LoginContainer from './containers/LoginContainer';
-import RegisterContainer from './containers/RegisterContainer';
+import LoginContainer from './containers/auth/LoginContainer';
+import RegisterContainer from './containers/auth/RegisterContainer';
 import MealsContainer from './containers/admin/MealsContainer';
 import './styles.css';
 

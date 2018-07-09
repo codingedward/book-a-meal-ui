@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
-import { loginAct } from '../actions/AuthActions';
-import Login from '../components/views/Login';
+import { loginAct } from 'src/actions/AuthActions';
+import Login from 'src/components/views/auth/Login';
 
 const mapStateToProps = (state) =>  {
     return {

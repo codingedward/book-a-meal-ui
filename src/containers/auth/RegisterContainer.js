@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
-import { signUpAct } from '../actions/AuthActions';
-import Register from '../components/views/Register';
+import { signUpAct } from 'src/actions/AuthActions';
+import Register from 'src/components/views/auth/Register';
 
 const mapStateToProps = (state) =>  {
     return {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../../../../../common/Modal';
+import Modal from 'src/components/common/Modal';
 import { Button } from 'reactstrap';
 import './styles.css';
 
