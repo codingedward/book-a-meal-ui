@@ -163,12 +163,9 @@ class ImageInput extends React.Component {
             content = (
                 <div>
                     <canvas ref={this.canvasRef} onClick={this.onSelectImage} className="preview"></canvas>
-                    <div className="hint">
-                        <small><i>(Tap image to edit)</i></small>
-                    </div>
                     <div className="d-flex justify-content-center">
-                        <button onClick={this.onSelectImage} className="btn btn-secondary change m-3">Change</button>
-                        <button onClick={this.onRemove} className="btn btn-danger remove m-3">Remove</button>
+                        <button onClick={this.onSelectImage} className="btn btn-secondary change m-2">Change</button>
+                        <button onClick={this.onRemove} className="btn btn-danger remove m-2">Remove</button>
                     </div>
                 </div>
             );
@@ -177,8 +174,8 @@ class ImageInput extends React.Component {
                 <div>
                     <img className="preview" onClick={this.onSelectImage} src={prefill} alt="Prefill"/>
                     <div className="d-flex justify-content-center">
-                        <button onClick={this.onSelectImage} className="btn btn-secondary change m-3">Change</button>
-                        <button onClick={this.onRemovePrefill} className="btn btn-danger remove m-3">Remove</button>
+                        <button onClick={this.onSelectImage} className="btn btn-secondary change m-2">Change</button>
+                        <button onClick={this.onRemovePrefill} className="btn btn-danger remove m-2">Remove</button>
                     </div>
                 </div>
             );
