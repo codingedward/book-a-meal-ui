@@ -5,7 +5,7 @@ import './styles.css';
 
 const AuthPage = ({ children,  loading }) => (
     <main className="patterns bg-teal">
-        <Loading show={loading} color="orange" showSpinner={false}/>
+        <Loading show={loading} color="orange" />
         <section className="container login">
             <div className="row pt-5">
                 <div className="col-12 text-center">
