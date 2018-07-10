@@ -1,23 +1,28 @@
-export default function paginationInfo(collection) {
+export default function paginationInfo(page) {
 
-    if (!collection || !collection.payload) {
+    if (!page) {
         return {}
     }
-    const { payload } = collection;
-    let currentPage = 1;
-    if (payload.next_page)
-        currentPage = payload.next_page - 1;
-    else if (payload.prev_page)
-        currentPage = payload.prev_page + 1;
+
+    let currentPage = 1
+    if (page.next_page)
+        currentPage = page.next_page - 1;
+    else if (page.prev_page)
+        currentPage = page.prev_page + 1;
+
+    let pageCount = Math.ceil(page.total / page.per_page);
+    if (Number.isNaN(pageCount) || pageCount === 0)
+        pageCount = 1;
 
     return {
-        hasNext: payload.has_next,
-        hasPrev: payload.has_prev,
-        nextPage: payload.next_page,
-        prevPage: payload.prev_page,
-        total: payload.total,
-        pageCount: Math.ceil(payload.total / payload.per_page),
-        perPage: payload.per_page,
+        pageCount,
         currentPage,
+        total: page.total,
+        perPage: page.per_page,
+        hasNext: page.has_next,
+        hasPrev: page.has_prev,
+        nextPage: page.next_page,
+        prevPage: page.prev_page,
+        currentCount: page.current_count,
     };
 }
