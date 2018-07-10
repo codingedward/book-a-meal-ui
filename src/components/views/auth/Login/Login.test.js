@@ -1,5 +1,6 @@
 import React from 'react';
 import Enzyme, { shallow }  from 'enzyme';
+import 'src/utils/mockLocalStorage'; // order matters!
 import Login from './Login';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -29,5 +30,5 @@ describe('<Login />', () => {
         const login = shallow(<Login {...propsWithError}/>);
         expect(login.find('.alert').length).toBe(1);
     })
-})
+});
 
