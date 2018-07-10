@@ -1,5 +1,5 @@
 import React from 'react';
-import { EntryType } from '../../../constants';
+import { EntryType } from 'src/constants';
 import './styles.css';
 
 const Table = ({ data, onDelete, onEdit }) => {
