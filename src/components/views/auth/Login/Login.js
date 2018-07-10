@@ -20,7 +20,7 @@ class Login extends React.Component {
         const _this = this
         axios.post('auth/login', this.state).then(({ data }) => {
             localStorage.setItem('token', `Bearer ${data.access_token}`)
-            _this.props.history.push('/meals')
+            _this.props.history.push('/admin/meals')
         }).catch(({ response }) => {
             _this.setState({
                 ..._this.state,
@@ -41,7 +41,7 @@ class Login extends React.Component {
         const { error, loading } = this.state
 
         if (authenticated()) {
-            return <Redirect to="/meals" />
+            return <Redirect to="/admin/meals" />
         }
 
         return (
@@ -49,7 +49,6 @@ class Login extends React.Component {
                 <form 
                     className="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 card"
                     onSubmit={this.onSubmit}>
-
                     <h5 className="text-center mb-3 mt-4">Login</h5>
                     {error && <Alert color="danger"> {singleError(error)} </Alert>}
                     <label>Email </label>
