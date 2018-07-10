@@ -1,4 +1,6 @@
 # Book A Meal :pizza:
+[![HoundCI](https://img.shields.io/badge/Protected%20by-HoundCI-brightgreen.svg)](https://houndci.com)
+[![Build Status](https://travis-ci.org/codingedward/book-a-meal-ui.svg?branch=develop)](https://travis-ci.org/codingedward/book-a-meal-ui)
 
 Reimplementation of Andela Book A Meal developer challenge UI.
 
