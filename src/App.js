@@ -2,9 +2,9 @@ import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Landing from './components/views/Landing';
-import LoginContainer from './containers/auth/LoginContainer';
-import RegisterContainer from './containers/auth/RegisterContainer';
-import MealsContainer from './containers/admin/MealsContainer';
+import Login from 'src/components/views/auth/Login';
+import Register from 'src/components/views/auth/Register';
+import Meals from 'src/components/views/admin/Meals';
 import './styles.css';
 
 class App extends React.Component {
@@ -13,9 +13,9 @@ class App extends React.Component {
             <Router>
                 <Switch>
                     <Route exact path="/" component={Landing} />
-                    <Route path="/meals" component={MealsContainer} />
-                    <Route path="/login" component={LoginContainer} />
-                    <Route path="/sign-up" component={RegisterContainer} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/meals" component={Meals} />
+                    <Route path="/sign-up" component={Register} />
                 </Switch>
             </Router>
         );
