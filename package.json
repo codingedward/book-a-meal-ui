@@ -36,6 +36,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "coveralls": "^3.0.2"
+    "coveralls": "^3.0.2",
+    "jest-enzyme": "^6.0.2"
   }
 }

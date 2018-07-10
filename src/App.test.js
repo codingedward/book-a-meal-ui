@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'src/utils/mockLocalStorage'; // order matters!
+import 'src/utils/bootTests'; // order matters!
 import App from './App';
 
 it('renders without crashing', () => {
