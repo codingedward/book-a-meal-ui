@@ -1,8 +1,11 @@
 import React from 'react';
+import Loading from 'react-loading-bar'
+import 'react-loading-bar/dist/index.css'
 import './styles.css';
 
-const AuthPage = ({ children }) => (
+const AuthPage = ({ children,  loading }) => (
     <main className="patterns bg-teal">
+        <Loading show={loading} color="orange" showSpinner={false}/>
         <section className="container login">
             <div className="row pt-5">
                 <div className="col-12 text-center">
