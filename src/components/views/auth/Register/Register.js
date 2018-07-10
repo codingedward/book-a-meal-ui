@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import axios from 'src/axios';
 
 import AuthPage from '../../../common/AuthPage';
 import { singleError } from '../../../../utils';
@@ -11,24 +12,37 @@ class Register extends React.Component {
 
     state = {}
 
-    onSubmit = (evt) => {
-        evt.preventDefault();
-        this.props.signUp(this.state);
-    }
-
-    onChange = (evt) => {
+    onSubmit = (e) => {
+        e.preventDefault();
         this.setState({
             ...this.state,
-            [evt.target.name]: evt.target.value
+            loading: true,
+        })
+        const _this = this;
+        axios.post('auth/signup', this.state).then(({ data }) => {
+            _this.props.history.push('/home');
+        }).catch(({ response }) => {
+            _this.setState({
+                ..._this.state,
+                error: response,
+                loading: false,
+            })
+        })
+    }
+
+    onChange = (e) => {
+        this.setState({
+            ...this.state,
+            [e.target.name]: e.target.value
         })
     }
 
     render() {
 
-        const { loading, error } = this.props.response;
+        const { loading, error } = this.state;
 
         return (
-            <AuthPage>
+            <AuthPage loading={loading}>
                 <form 
                     className="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 card"
                     onSubmit={this.onSubmit}>

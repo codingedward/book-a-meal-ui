@@ -1,19 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Button, Alert } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
+import React from 'react'
+import axios from 'src/axios'
+import { Button, Alert } from 'reactstrap'
+import { Redirect, Link } from 'react-router-dom'
 
-import AuthPage from 'src/components/common/AuthPage';
-import { singleError } from 'src/utils';
-import './styles.css';
+import AuthPage from 'src/components/common/AuthPage'
+import { singleError, authenticated } from 'src/utils'
+import './styles.css'
 
 class Login extends React.Component {
 
     state = {}
 
     onSubmit = (e) => {
-        e.preventDefault();
-        this.props.login(this.state);
+        e.preventDefault()
+        this.setState({
+            ...this.state,
+            loading: true,
+        })
+        const _this = this
+        axios.post('auth/login', this.state).then(({ data }) => {
+            localStorage.setItem('token', `Bearer ${data.access_token}`)
+            _this.props.history.push('/meals')
+        }).catch(({ response }) => {
+            _this.setState({
+                ..._this.state,
+                error: response,
+                loading: false,
+            })
+        })
     }
 
     onChange = (e) => {
@@ -24,13 +38,14 @@ class Login extends React.Component {
     }
 
     render() {
-        const { payload, error, loading } = this.props.response;
-        if (payload && payload.access_token) {
+        const { error, loading } = this.state
+
+        if (authenticated()) {
             return <Redirect to="/meals" />
         }
 
         return (
-            <AuthPage>
+            <AuthPage loading={this.state.loading}>
                 <form 
                     className="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 card"
                     onSubmit={this.onSubmit}>
@@ -55,14 +70,8 @@ class Login extends React.Component {
                     </p>
                 </form>
             </AuthPage>
-        );
+        )
     }
 }
 
-Login.propTypes = {
-    response: PropTypes.object.isRequired,
-    redirect: PropTypes.func.isRequired,
-    login: PropTypes.func.isRequired
-}
-
-export default Login;
+export default Login
