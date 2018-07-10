@@ -1,20 +1,35 @@
 import React from 'react';
+import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import ImageInput from 'src/components/common/ImageInput';
 import { Alert, Input, Button } from 'reactstrap';
-import { Status } from 'src/constants';
 import { singleError } from 'src/utils';
+import { IMAGES_UPLOAD_URL, IMAGE_UPLOAD_PRESET } from 'src/constants';
 
 import './styles.css';
 
 
 class CreateModal extends React.Component {
 
+    state = {
+        name: '',
+        cost: '',
+    }
+
     onImageAdded = (data) => {
         this.setState({
             ...this.state,
             image: data,
         });
+    }
+
+    onOpened = () => {
+        this.setState({
+            ...this.state,
+            error: null,
+            success: false,
+            image: null,
+        })
     }
 
     onImageRemoved = () => {
@@ -24,6 +39,7 @@ class CreateModal extends React.Component {
         })
     }
 
+
     onChange = (e) => {
         this.setState({
             ...this.state,
@@ -31,25 +47,76 @@ class CreateModal extends React.Component {
         })
     }
 
-    onSave = () => {
-        this.props.createMeal({
-            ...this.state,
-        });
+    onCreate = () => {
+        // on success...
+        const resolve = () => {
+            // reset headers
+            axios.auth();
+            this.setState({
+                ...this.state,
+                success: true,
+                error: null,
+                name: '',
+                cost: '',
+            });
+            this.props.onChange();
+        }
+
+        // on failure...
+        const reject = (response) => {
+            this.setState({
+                ...this.state,
+                error: response,
+                success: false,
+            });
+        }
+
+        const { image, name, cost } = this.state;
+        if (image) {
+            const imageUpload = {
+                file: image,
+                upload_preset: IMAGE_UPLOAD_PRESET
+            };
+
+            // first upload the image
+            delete axios.defaults.headers.common.Authorization;
+            axios.post(IMAGES_UPLOAD_URL, imageUpload).then(({ data }) => {
+                axios.auth();
+                axios.post('/meals', { 
+                    name, 
+                    cost, 
+                    img_url: data.secure_url 
+                }).then(() => {
+                    resolve();
+                }).catch(({ response }) => {
+                    reject(response)
+                });
+
+            }).catch(({ response }) => {
+                reject(response);
+            });
+        } else {
+            axios.post('/meals', { name, cost }).then(() => {
+                resolve();
+            }).catch(({ response }) => {
+                reject(response);
+            })
+        }
     }
 
     render() {
-        const { error, createStatus } = this.props.meals;
+        const { error, success } = this.state;
         const body = (
             <div>
-                {createStatus === Status.SUCCESS &&
-                        <Alert className="text-center text-small" color="success">
-                            Successfully added
-                        </Alert>
+                {success &&
+                    <Alert className="text-center text-small" color="success">
+                        Successfully added
+                    </Alert>
                 }
-                {createStatus === Status.FAIL &&
-                        <Alert className="text-center text-small" color="danger">
-                            { singleError(error) }
-                        </Alert>
+                {error &&
+                    <Alert className="text-center text-small" color="danger">
+                        { singleError(error) }
+                    </Alert>
                 }
 
                 <ImageInput 
@@ -58,15 +125,15 @@ class CreateModal extends React.Component {
                 />
                 <div className="pl-4 pr-4">
                     <label> Name </label>
-                    <Input name="name" onChange={this.onChange} type="text" />
+                    <Input name="name" value={this.state.name} onChange={this.onChange} type="text" />
                     <label> Cost </label>
-                    <Input name="cost" onChange={this.onChange} type="number" />
+                    <Input name="cost" value={this.state.cost} onChange={this.onChange} type="number" />
                 </div>
             </div>
         );
 
         const footer = (
-            <Button color="primary" className="m-auto"onClick={this.onSave}>Save Meal</Button>
+            <Button color="primary" className="m-auto"onClick={this.onCreate}>Save Meal</Button>
         )
         const { isOpen, toggle } = this.props;
 
@@ -77,6 +144,7 @@ class CreateModal extends React.Component {
                 footer={footer} 
                 isOpen={isOpen}
                 toggle={toggle}
+                onOpened={this.onOpened}
             />
         );
     }

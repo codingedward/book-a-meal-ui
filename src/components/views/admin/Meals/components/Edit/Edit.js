@@ -1,9 +1,10 @@
 import React from 'react';
+import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import ImageInput from 'src/components/common/ImageInput';
 import { Alert, Input, Button } from 'reactstrap';
-import { Status } from 'src/constants';
 import { singleError } from 'src/utils';
+import { IMAGES_UPLOAD_URL, IMAGE_UPLOAD_PRESET } from 'src/constants';
 import './styles.css';
 
 
@@ -38,6 +39,14 @@ class EditModal extends React.Component {
         });
     }
 
+    onOpened = () => {
+        this.setState({
+            ...this.state,
+            error: null,
+            success: false,
+            image: null,
+        })
+    }
 
     onChange = (e) => {
         this.setState({
@@ -47,23 +56,73 @@ class EditModal extends React.Component {
     }
 
     onEdit = () => {
-        this.props.editMeal({
-            ...this.props.meal,
-            ...this.state,
-        });
+        // on success...
+        const resolve = () => {
+            // reset headers
+            axios.auth();
+            this.setState({
+                ...this.state,
+                success: true,
+                error: null,
+            });
+            this.props.onChange();
+        }
+
+        // on failure...
+        const reject = (response) => {
+            this.setState({
+                ...this.state,
+                error: response,
+                success: false,
+            });
+        }
+
+        this.props.setLoading(true);
+
+        const { image, name, cost, img_url } = this.state;
+        if (image) {
+            const imageUpload = {
+                file: image,
+                upload_preset: IMAGE_UPLOAD_PRESET
+            };
+
+            // first upload the image
+            delete axios.defaults.headers.common.Authorization;
+            axios.post(IMAGES_UPLOAD_URL, imageUpload).then(({ data }) => {
+                axios.auth();
+                axios.put(`/meals/${this.props.meal.id}`, { 
+                    name, 
+                    cost, 
+                    img_url: data.secure_url 
+                }).then(() => {
+                    resolve();
+                }).catch(({ response }) => {
+                    reject(response)
+                });
+
+            }).catch(({ response }) => {
+                reject(response);
+            });
+        } else {
+            axios.put(`/meals/${this.props.meal.id}`, { name, cost, img_url }).then(() => {
+                resolve();
+            }).catch(({ response }) => {
+                reject(response);
+            })
+        }
     }
 
     render() {
-        const { error, editStatus } = this.props.meals
+        const { error, success } = this.state;
         const meal = this.props.meal || {}
         const body = (
             <div>
-                {editStatus === Status.SUCCESS &&
+                {success &&
                         <Alert className="text-center text-small" color="success">
                             Successfully edited meal.
                         </Alert>
                 }
-                {editStatus === Status.FAIL &&
+                {error &&
                         <Alert className="text-center text-small" color="danger">
                             { singleError(error) }
                         </Alert>
@@ -75,7 +134,7 @@ class EditModal extends React.Component {
                     onImageRemoved={this.onImageRemoved}
                     onPrefillRemoved={this.onPrefillRemoved}
                 />
-                <div class="pl-4 pr-4">
+                <div className="pl-4 pr-4">
                     <label> Name </label>
                     <Input defaultValue={meal.name} name="name" onChange={this.onChange} type="text" />
                     <label> Cost </label>
@@ -85,7 +144,7 @@ class EditModal extends React.Component {
         );
 
         const footer = (
-            <Button color="primary" className="m-auto"onClick={this.onEdit}>Update Meal</Button>
+            <Button color="primary" className="m-auto" onClick={this.onEdit}>Update Meal</Button>
         )
         const { isOpen, toggle } = this.props;
 
@@ -96,6 +155,7 @@ class EditModal extends React.Component {
                 footer={footer} 
                 isOpen={isOpen}
                 toggle={toggle}
+                onOpened={this.onOpened}
             />
         );
     }
