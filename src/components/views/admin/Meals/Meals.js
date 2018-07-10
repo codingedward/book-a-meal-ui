@@ -1,12 +1,12 @@
 import React from 'react';
 import { Alert } from 'reactstrap';
 import Filter from 'src/components/common/Filter';
+import Content from 'src/components/common/Content';
 import MealsTable from './components/MealsTable';
 import CreateModal from './components/Create';
 import EditModal from './components/Edit';
 import DeleteModal from './components/Delete';
 import axios from 'src/axios';
-import Layout from '../../admin/components/Layout';
 
 import { singleError, paginationInfo } from 'src/utils';
 
@@ -19,7 +19,6 @@ class Meals extends React.Component {
             data: {},
             search: '',
             perPage: 5,
-            loading: true,
             editIsOpen: false,
             createIsOpen: false,
             deleteIsOpen: false,
@@ -41,19 +40,21 @@ class Meals extends React.Component {
 
         this.setState({
             ...this.state,
-            loading: true,
-        })
+        });
+        this.props.setLoading(true);
+
 
         const _this = this;
+        axios.auth();
         axios.get(link, this.state).then(({ data }) => {
 
             const pageInfo = paginationInfo(data);
             _this.setState({
                 ..._this.state,
                 page: pageInfo.currentPage,
-                loading: false,
                 data,
             });
+            this.props.setLoading(false);
 
             // if we have an empty page and there's data in the previous
             // page...
@@ -67,16 +68,9 @@ class Meals extends React.Component {
             _this.setState({
                 ..._this.state,
                 error: response,
-                loading: false,
             })
+            this.props.setLoading(false);
         })
-    }
-
-    setLoading = (loading) => {
-        this.setState({
-            ...this.state,
-            loading,
-        });
     }
 
     toggleCreate = (e) => {
@@ -130,7 +124,6 @@ class Meals extends React.Component {
             error,
             pageInfo,
             toEdit,
-            loading,
             editIsOpen,
             createIsOpen,
             toDelete,
@@ -152,10 +145,11 @@ class Meals extends React.Component {
         );
 
         return (
-            <Layout {...this.props} 
-                loading={loading}
+            <Content 
+                {...this.props}
                 contentTop={contentTop} 
                 contentFilter={contentFilter}>
+            
                 { error && <Alert color="danger"> { singleError(error) }</Alert> }
                      <MealsTable 
                          data={data}
@@ -167,14 +161,12 @@ class Meals extends React.Component {
                     <CreateModal 
                         {...this.props}
                         onChange={this.fetchMeals}
-                        setLoading={this.setLoading}
                         isOpen={createIsOpen} 
                         toggle={this.toggleCreate} />
 
                     <EditModal 
                         {...this.props}
                         meal={toEdit} 
-                        setLoading={this.setLoading}
                         onChange={this.fetchMeals}
                         isOpen={editIsOpen} 
                         toggle={this.toggleEdit}/>
@@ -182,11 +174,10 @@ class Meals extends React.Component {
                     <DeleteModal 
                         {...this.props}
                         meal={toDelete} 
-                        setLoading={this.setLoading}
                         onChange={this.fetchMeals}
                         isOpen={deleteIsOpen} 
                         toggle={this.toggleDelete}/>
-            </Layout>
+            </Content>
         );
     }
 }
