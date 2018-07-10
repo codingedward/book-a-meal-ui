@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('<Login />', () => {
     it('renders correctly', () => {
-        const login = shallow(<Login {...loginProps} />);
+        const login = shallow(<Login/>);
         expect(login.find('input').length).toBe(2);
         expect(login.find('.btn').length).toBe(1);
     });
