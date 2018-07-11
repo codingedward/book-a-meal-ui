@@ -58,14 +58,15 @@ class EditModal extends React.Component {
     onEdit = () => {
         // on success...
         const resolve = () => {
-            // reset headers
-            axios.auth();
             this.setState({
                 ...this.state,
                 success: true,
                 error: null,
+                image: null,
             });
             this.props.onChange();
+            this.props.setLoading(false);
+            setTimeout(this.props.toggle, 1000);
         }
 
         // on failure...
@@ -75,6 +76,7 @@ class EditModal extends React.Component {
                 error: response,
                 success: false,
             });
+            this.props.setLoading(false);
         }
 
         this.props.setLoading(true);
@@ -86,8 +88,9 @@ class EditModal extends React.Component {
                 upload_preset: IMAGE_UPLOAD_PRESET
             };
 
-            // first upload the image
+            // delete auth headers..
             delete axios.defaults.headers.common.Authorization;
+            // image upload...
             axios.post(IMAGES_UPLOAD_URL, imageUpload).then(({ data }) => {
                 axios.auth();
                 axios.put(`/meals/${this.props.meal.id}`, { 
@@ -101,6 +104,8 @@ class EditModal extends React.Component {
                 });
 
             }).catch(({ response }) => {
+                // restore headers
+                axios.auth();
                 reject(response);
             });
         } else {

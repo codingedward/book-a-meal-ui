@@ -58,6 +58,7 @@ class CreateModal extends React.Component {
                 error: null,
                 name: '',
                 cost: '',
+                image: null,
             });
             this.props.onChange();
         }
@@ -70,6 +71,8 @@ class CreateModal extends React.Component {
                 success: false,
             });
         }
+
+        this.props.setLoading(true);
 
         const { image, name, cost } = this.state;
         if (image) {
