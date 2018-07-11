@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import './styles.css';
 
 class Filter extends React.Component {
@@ -37,7 +38,7 @@ class Filter extends React.Component {
                 <div className="col-9 col-sm-7 col-lg-4 col-xl-3 pl-0">
                     <input 
                         ref={this.inputRef} 
-                        onChange={this.onChange} 
+                        onChange={_.throttle(this.onChange, 500)} 
                         type="text" 
                         className="d-inline form-control ml-0 mb-0"  placeholder="Type to filter..."/>
                 </div>
