@@ -1,7 +1,5 @@
 const singleError = (errorPayload) => {
 
-    console.log(errorPayload.response)
-
     if (errorPayload && errorPayload.data) {
         const response = errorPayload.data;
         // alternative to Object.keys...
