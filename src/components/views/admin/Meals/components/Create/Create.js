@@ -1,11 +1,10 @@
 import React from 'react';
 import axios from 'src/axios';
-import Modal from 'src/components/common/Modal';
-import ImageInput from 'src/components/common/ImageInput';
-import { Alert, Input, Button } from 'reactstrap';
 import { singleError } from 'src/utils';
+import Modal from 'src/components/common/Modal';
+import { Alert, Input, Button } from 'reactstrap';
+import ImageInput from 'src/components/common/ImageInput';
 import { IMAGES_UPLOAD_URL, IMAGE_UPLOAD_PRESET } from 'src/constants';
-
 import './styles.css';
 
 
@@ -14,6 +13,16 @@ class CreateModal extends React.Component {
     state = {
         name: '',
         cost: '',
+    }
+
+    reset = () => {
+        setTimeout(() => {
+            this.setState({
+                ...this.state,
+                success: false,
+                error: null
+            });
+        }, 2000);
     }
 
     onImageAdded = (data) => {
@@ -61,6 +70,7 @@ class CreateModal extends React.Component {
                 image: null,
             });
             this.props.onChange();
+            this.reset();
         }
 
         // on failure...
@@ -70,8 +80,9 @@ class CreateModal extends React.Component {
                 error: response,
                 success: false,
             });
+            this.reset();
+            this.props.setLoading(false);
         }
-
         this.props.setLoading(true);
 
         const { image, name, cost } = this.state;
