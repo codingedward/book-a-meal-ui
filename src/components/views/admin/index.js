@@ -3,6 +3,7 @@ import Loading from 'react-loading-bar';
 import { NavLink } from 'react-router-dom';
 import Sidebar from 'src/components/common/Sidebar';
 import Meals from 'src/components/views/admin/Meals';
+import Menus from 'src/components/views/admin/Menus';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 class Admin extends React.Component {
@@ -22,7 +23,7 @@ class Admin extends React.Component {
         const { loading } = this.state;
         return (
             <main className="container-fluid">
-                <Loading show={loading} color="orange"/>
+                <Loading show={loading} color="orange" showSpinner={true}/>
                  <section className="row">
                     <Sidebar {...this.props}>
                         <NavLink className="btn" to="/admin/meals" activeClassName="active">Manage Meals</NavLink>
@@ -34,6 +35,7 @@ class Admin extends React.Component {
                     <Router>
                         <Switch>
                             <Route exact path="/admin/meals" render={() => <Meals setLoading={this.setLoading} /> } />
+                            <Route exact path="/admin/menus" render={() => <Menus setLoading={this.setLoading} /> } />
                         </Switch>
                     </Router>
                  </section>
