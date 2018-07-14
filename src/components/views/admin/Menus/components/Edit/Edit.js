@@ -9,10 +9,23 @@ import _ from 'lodash';
 import 'react-select/dist/react-select.css';
 import './styles.css';
 
-class CreateModal extends React.Component {
+class EditModal extends React.Component {
 
-    state = {
-        quantity: 1,
+    constructor(props) {
+        super(props);
+        this.state = {
+            quantity: 1,
+        };
+    }
+
+    reset = () => {
+        setTimeout(() => {
+            this.setState({
+                ...this.state,
+                success: false,
+                error: null
+            });
+        }, 2000);
     }
 
     onOpened = () => {
@@ -22,7 +35,34 @@ class CreateModal extends React.Component {
             success: false,
             menus: [],
             meals: [],
-        })
+        });
+
+        if (this.props) {
+            const { menuItem = {} } = this.props;
+            let defaultValues = {
+                meal: null,
+                menu: null,
+            }
+            if (menuItem['meal.id']) {
+                defaultValues.meal = {
+                    value: menuItem['meal.id'], 
+                    label: menuItem['meal.name']
+                }
+            }
+
+            if (menuItem['menu.id']) {
+                defaultValues.menu = {
+                    value: menuItem['menu.id'], 
+                    label: menuItem['menu.name']
+                }
+            }
+
+            this.setState({
+                ...this.state,
+                ...defaultValues,
+                quantity: menuItem.quantity,
+            });
+        }
     }
 
     onChange = (e) => {
@@ -78,41 +118,45 @@ class CreateModal extends React.Component {
         })
     }
 
-    onCreate = () => {
+    onEdit = () => {
         this.props.setLoading(true);
-
+        const { meal = {}, menu = {} } = this.state;
         const menuItem = {
-            meal_id: this.state.meal.value,
-            menu_id: this.state.menu.value,
+            meal_id: meal.value ? meal.value : '',
+            menu_id: menu.value ? menu.value : '',
             quantity: this.state.quantity,
         };
 
         const _this = this;
-        axios.post('/menu-items', menuItem).then(({ data }) => {
+        axios.put(`/menu-items/${this.props.menuItem.id}`, menuItem).then(({ data }) => {
             _this.props.onChange();
             _this.setState({
                 ..._this.state,
                 success: true,
                 error: null,
             });
-            this.props.setLoading(false);
+            _this.reset();
+            _this.props.setLoading(false);
+            setTimeout(_this.props.toggle, 1000);
         }).catch(({ response }) => {
             _this.setState({
                 ..._this.state,
                 error: response,
                 success: false,
             });
-            this.props.setLoading(false);
+            _this.reset();
+            _this.props.setLoading(false);
         });
     }
 
     render() {
-        const { error, success, } = this.state;
+        const { isOpen, toggle } = this.props;
+        const { error, success, meal, menu } = this.state;
         const body = (
             <div>
                 {success &&
                     <Alert className="text-center text-small" color="success">
-                        Successfully added
+                        Successfully updated.
                     </Alert>
                 }
                 {error &&
@@ -124,15 +168,15 @@ class CreateModal extends React.Component {
                     <label> Meal Name </label>
                     <Async 
                         name="meal"
-                        value={this.state.meal}
+                        value={meal}
                         onChange={this.setSelectedMeal}
                         loadOptions={_.throttle(this.fetchMeals, 500)}
                         fitlerOptions={(options) => { return options; }}
                     />
-                    <label className="mt-3"> Select Category </label>
+                    <label className="mt-3"> Select Menu </label>
                     <Async 
                         name="menu"
-                        value={this.state.menu}
+                        value={menu}
                         onChange={this.setSelectedMenu}
                         loadOptions={_.throttle(this.fetchMenus, 500)}
                         fitlerOptions={(options) => { return options; }}
@@ -144,12 +188,11 @@ class CreateModal extends React.Component {
         );
 
         const footer = (
-            <Button color="primary" className="m-auto"onClick={this.onCreate}>Save Item</Button>
-        )
-        const { isOpen, toggle } = this.props;
+            <Button color="primary" className="m-auto"onClick={this.onEdit}>Update Item</Button>
+        );
         return (
             <Modal 
-                title="Add Menu Item" 
+                title="Edit Menu Item" 
                 body={body} 
                 footer={footer} 
                 isOpen={isOpen}
@@ -160,4 +203,4 @@ class CreateModal extends React.Component {
     }
 }
 
-export default CreateModal;
+export default EditModal;

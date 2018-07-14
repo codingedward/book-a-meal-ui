@@ -7,16 +7,17 @@ import { Alert,
 } from 'reactstrap';
 import Filter from 'src/components/common/Filter';
 import Content from 'src/components/common/Content';
-import MenuItemsTable from './components/MenuItemsTable';
+import MenusTable from './components/MenusTable';
 import CreateModal from './components/Create';
 import EditModal from './components/Edit';
 import DeleteModal from './components/Delete';
+import MenuTypes from './components/MenuTypes';
 import axios from 'src/axios';
 import './styles.css';
 
 import { singleError, paginationInfo } from 'src/utils';
 
-class MenuItems extends React.Component {
+class Menus extends React.Component {
 
     bubbleBlocked = false;
 
@@ -31,10 +32,10 @@ class MenuItems extends React.Component {
     }
 
     componentWillMount() {
-        this.fetchMenuItems()
+        this.fetchMenus()
     }
 
-    fetchMenuItems = (config = {}) => {
+    fetchMenus = (config = {}) => {
         let { 
             page = this.state.page, 
             perPage = this.state.perPage,
@@ -42,38 +43,52 @@ class MenuItems extends React.Component {
         } = config;
         search = (search) ? `name:${search}` : '';
         const link = `/menu-items?page=${page}&search=${search}&per_page=${perPage}`;
-
-        this.setState({
-            ...this.state,
-        });
         this.props.setLoading(true);
-
 
         const _this = this;
         axios.auth();
         axios.get(link, this.state).then(({ data }) => {
-
             const pageInfo = paginationInfo(data);
             _this.setState({
                 ..._this.state,
                 page: pageInfo.currentPage,
                 data,
             });
-            this.props.setLoading(false);
+            _this.props.setLoading(false);
 
             if (pageInfo.currentCount === 0 && pageInfo.currentPage !== 1) {
-                _this.fetchMenuItems({
+                _this.fetchMenus({
                     page: pageInfo.currentPage - 1
                 })
             }
-
         }).catch(({ response }) => {
             _this.setState({
                 ..._this.state,
                 error: response,
             })
-            this.props.setLoading(false);
+            _this.props.setLoading(false);
         })
+    }
+
+    blockBubbling = () => {
+        /** 
+         * workaround e.stopPropagation()
+         * @see https://github.com/facebook/react/issues/1691
+         */
+        this.bubbleBlocked = true;
+        setTimeout(() => {
+            this.bubbleBlocked = false;
+        }, 500);
+
+    }
+
+    toggleMenuTypes = (e) => {
+        this.blockBubbling();
+        this.setState({
+            ...this.state,
+            manageIsOpen: false,
+            menuTypesIsOpen: !this.state.menuTypesIsOpen
+        });
     }
 
     toggleManage = (e) => {
@@ -86,16 +101,7 @@ class MenuItems extends React.Component {
     }
     
     toggleCreate = (e) => {
-
-        /** 
-         * workaround e.stopPropagation()
-         * @see https://github.com/facebook/react/issues/1691
-         */
-        this.bubbleBlocked = true;
-        setTimeout(() => {
-            this.bubbleBlocked = false;
-        }, 500);
-
+        this.blockBubbling();
         this.setState({
             ...this.state,
             manageIsOpen: false,
@@ -111,7 +117,6 @@ class MenuItems extends React.Component {
         });
     }
 
-
     toggleDelete = (menuItem) => {
         this.setState({
             ...this.state,
@@ -120,13 +125,12 @@ class MenuItems extends React.Component {
         });
     }
 
-
     onFilter = (text) => {
         this.setState({
             ...this.state,
             search: text,
         });
-        this.fetchMenuItems({search: text});
+        this.fetchMenus({search: text});
     }
 
     blockBubble = () => {
@@ -139,7 +143,7 @@ class MenuItems extends React.Component {
             page,
         });
 
-        this.fetchMenuItems({
+        this.fetchMenus({
             page: page,
             search: this.state.search
         });
@@ -155,7 +159,8 @@ class MenuItems extends React.Component {
             createIsOpen,
             toDelete,
             deleteIsOpen,
-            manageIsOpen
+            manageIsOpen,
+            menuTypesIsOpen,
         } = this.state;
 
         const contentTop = (
@@ -166,8 +171,8 @@ class MenuItems extends React.Component {
                         Manage
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem onClick={this.toggleCreate}>Add Menu Item</DropdownItem>
-                        <DropdownItem>Edit Categories</DropdownItem>
+                        <DropdownItem onClick={this.toggleMenuTypes}>Manage Menus</DropdownItem>
+                        <DropdownItem onClick={this.toggleCreate}>Add Meal To Menu</DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
 
@@ -185,7 +190,7 @@ class MenuItems extends React.Component {
                 contentFilter={contentFilter}>
             
                 { error && <Alert color="danger"> { singleError(error) }</Alert> }
-                     <MenuItemsTable 
+                     <MenusTable 
                          data={data}
                          pageInfo={pageInfo}
                          onPrev={this.onPageChange}
@@ -195,26 +200,31 @@ class MenuItems extends React.Component {
 
                     <CreateModal 
                         {...this.props}
-                        onChange={this.fetchMenuItems}
+                        onChange={this.fetchMenus}
                         isOpen={createIsOpen} 
                         toggle={this.toggleCreate} />
 
                     <EditModal 
                         {...this.props}
                         menuItem={toEdit} 
-                        onChange={this.fetchMenuItems}
+                        onChange={this.fetchMenus}
                         isOpen={editIsOpen} 
                         toggle={this.toggleEdit}/>
 
                     <DeleteModal 
                         {...this.props}
                         menuItem={toDelete} 
-                        onChange={this.fetchMenuItems}
+                        onChange={this.fetchMenus}
                         isOpen={deleteIsOpen} 
                         toggle={this.toggleDelete}/>
+
+                    <MenuTypes
+                        {...this.props}
+                        isOpen={menuTypesIsOpen}
+                        toggle={this.toggleMenuTypes}/>
             </Content>
         );
     }
 }
 
-export default MenuItems;
+export default Menus;
