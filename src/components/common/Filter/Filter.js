@@ -35,7 +35,7 @@ class Filter extends React.Component {
                 <div className="col-3 col-sm-2 col-lg-1 text-right">
                     <label className="pt-2">Text:</label>
                 </div>
-                <div className="col-9 col-sm-7 col-lg-4 col-xl-3 pl-0">
+                <div className="col-9 col-sm-7 col-lg-4 col-xl-3 pl-0 pr-1">
                     <input 
                         ref={this.inputRef} 
                         onChange={_.throttle(this.onChange, 500)} 
@@ -43,7 +43,7 @@ class Filter extends React.Component {
                         className="d-inline form-control ml-0 mb-0"  placeholder="Type to filter..."/>
                 </div>
                 {this.state.text &&
-                    <div className="animated fadeIn btn-reset col-12 col-sm-1 col-lg-1 pt-3 pt-sm-0">
+                    <div className="animated fadeIn btn-reset col-12 col-sm-1 col-lg-1 pt-3 pt-sm-0 pl-0">
                         <button onClick={this.onReset} className="btn btn-secondary d-block m-auto">Reset </button>
                     </div>
                 }
