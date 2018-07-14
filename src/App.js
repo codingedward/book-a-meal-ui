@@ -1,10 +1,10 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-
-import Landing from './components/views/Landing';
+import Admin from 'src/components/views/admin';
+import Landing from 'src/components/views/Landing';
 import Login from 'src/components/views/auth/Login';
 import Register from 'src/components/views/auth/Register';
-import Admin from 'src/components/views/admin';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './styles.css';
 
 class App extends React.Component {
