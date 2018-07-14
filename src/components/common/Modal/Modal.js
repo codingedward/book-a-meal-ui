@@ -7,8 +7,8 @@ import {
 } from 'reactstrap';
 import './styles.css';
 
-const Modal = ({ onOpened, title, body, footer, isOpen, toggle }) => (
-    <BModal isOpen={isOpen} onOpened={onOpened} toggle={toggle} fade={false}>
+const Modal = ({ size="md", onOpened, title, body, footer, isOpen, toggle }) => (
+    <BModal size={size} isOpen={isOpen} onOpened={onOpened} toggle={toggle} fade={false}>
         <ModalHeader toggle={toggle}>
             {title}
             <button onClick={() => toggle()} type="button" className="close">
