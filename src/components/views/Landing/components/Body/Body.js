@@ -43,12 +43,12 @@ class Body extends React.Component {
                             </p>
                         </div>
                         <div className="col-md-3 text-md-left order-1 order-md-2">
-                            <Ionicon icon="ios-pizza-outline" fontSize="150px" color="#008080" />
+                            <Ionicon icon="ios-pizza" fontSize="150px" color="#008080" />
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-md-3 text-md-right">
-                            <Ionicon icon="ios-notifications-outline" fontSize="150px" color="#008080" />
+                            <Ionicon icon="ios-notifications" fontSize="150px" color="#008080" />
                         </div>
                         <div className="col-md-9 text-md-left">
                             <h5>Get Notified!</h5>
