@@ -139,6 +139,7 @@ input.form-control:focus {
 .logo-small {
   font-size: 28px; }
 
+.menu-modal .modal-content,
 .patterns {
   background-image: url("./assets/food.png"); }
 
@@ -205,3 +206,42 @@ body #root {
 
 .notice h5 {
   padding-top: 5px; }
+
+.menu-modal .modal-content {
+  background-color: #2d728f; }
+  .menu-modal .modal-content .modal-header span {
+    color: white !important; }
+  .menu-modal .modal-content .btn {
+    display: block;
+    margin-top: 5.5vh;
+    margin-right: 40px;
+    margin-left: 40px;
+    transition: 0.1s all; }
+  .menu-modal .modal-content .btn:first-of-type {
+    margin-top: 2vh; }
+  .menu-modal .modal-content .btn:hover {
+    color: black;
+    background-color: orange; }
+  .menu-modal .modal-content .btn-logout,
+  .menu-modal .modal-content .btn-logout:hover {
+    background-color: rgba(0, 0, 0, 0.5); }
+  .menu-modal .modal-content .btn-logout:hover {
+    color: white; }
+  .menu-modal .modal-content .btn-logout {
+    margin: auto;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-bottom: 100px;
+    margin-top: 30px !important;
+    width: 70%; }
+  .menu-modal .modal-content .btn.active {
+    background-color: orange; }
+  .menu-modal .modal-content hr {
+    width: 60%;
+    display: block;
+    border-top: 2px solid #ddd; }
+  .menu-modal .modal-content .logo {
+    text-align: center;
+    display: inline-block; }

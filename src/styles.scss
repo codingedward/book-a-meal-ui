@@ -119,6 +119,7 @@ input.form-control:focus {
 .logo-medium { font-size: 30px; }
 .logo-small { font-size: 28px; }
 
+.menu-modal .modal-content,
 .patterns {
     background-image: url('./assets/food.png');
 }
@@ -199,4 +200,66 @@ body #root {
 
 .notice h5 {
     padding-top: 5px;
+}
+.menu-modal  {
+    .modal-content {
+        background-color: #2d728f;
+
+        .modal-header span {
+            color: white !important;
+        }
+
+       .btn {
+            display: block;
+            margin-top: 5.5vh;
+            margin-right: 40px;
+            margin-left: 40px;
+            transition: 0.1s all;
+        }
+        .btn:first-of-type {
+            margin-top: 2vh;
+        }
+
+        .btn:hover {
+            color: black;
+            background-color: orange;
+        }
+        .btn-logout,
+        .btn-logout:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-logout:hover {
+            color: white;
+        }
+
+        .btn-logout {
+            margin: auto;
+            font-size: 18px;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-bottom: 100px;
+            margin-top: 30px !important;
+            width: 70%;
+        }
+
+        .btn.active {
+            background-color: orange;
+        }
+
+        hr {
+            width: 60%; 
+            display: block; 
+            border-top: 2px solid #ddd; 
+        }
+
+        .logo {
+            text-align: center;
+            display: inline-block;
+        }
+
+    }
+
+
 }
