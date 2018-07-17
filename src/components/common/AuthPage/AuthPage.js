@@ -3,8 +3,8 @@ import Loading from 'react-loading-bar'
 import 'react-loading-bar/dist/index.css'
 import './styles.css';
 
-const AuthPage = ({ children,  loading }) => (
-    <main className="patterns bg-teal">
+const AuthPage = ({ styles = {}, children,  loading }) => (
+    <main style={{...styles}} className="patterns bg-teal">
         <Loading show={loading} color="orange" />
         <section className="container login">
             <div className="row pt-5">
