@@ -134,6 +134,12 @@ input.form-control:focus {
     border-bottom: 2px dashed #2d728f;
 }
 
+.user,
+.super-admin,
+.admin,
+.accepted,
+.rejected,
+.pending,
 .edit-act,
 .delete-act, 
 .revoke-act, 
@@ -146,11 +152,16 @@ input.form-control:focus {
     cursor: pointer;
 }
 
-/* deletion to have read for warning */
-.delete-act, .revoke-act, .revoked-state {
+.super-admin,
+.rejected,
+.delete-act, 
+.revoke-act, .revoked-state {
     color: #cc0000;
 }
 
+
+.admin,
+.accepted,
 .accept-act,
 .edit-act {
     color: #2d728f; 
@@ -170,4 +181,22 @@ body #root {
 }
 .active {
     background-color: orange;
+}
+
+.notice {
+    text-align: center;
+    border: 2px dashed #008080;
+}
+
+.notice-close {
+    color: #666;
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.notice h5 {
+    padding-top: 5px;
 }
