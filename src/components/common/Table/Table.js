@@ -1,15 +1,65 @@
 import React from 'react';
-import { EntryType } from 'src/constants';
+import { ToggleState, EntryType, Role } from 'src/constants';
 import './styles.css';
 
-const Table = ({ data, onDelete, onEdit }) => {
+const Table = ({ data, onDelete, onEdit, onToggle }) => {
 
-    const renderEntry = (value, type) => {
+    const renderEntry = (value, type, row) => {
         switch (type) {
             case EntryType.IMAGE:
                 return <img src={value} />; // eslint-disable-line
             case EntryType.DATE:
                 return new Date(value).toDateString()
+            case EntryType.ROLE:
+                if (value === Role.ADMIN)
+                    return (
+                        <button 
+                            onClick={() => onToggle(row)} 
+                            className="admin">
+                            Admin
+                        </button>
+                    )
+                if (value === Role.SUPER_ADMIN)
+                    return (
+                        <button 
+                            onClick={() => onToggle(row)} 
+                            className="super-admin">
+                            Super Admin
+                        </button>
+                    )
+                return (
+                    <button 
+                        onClick={() => onToggle(row)} 
+                        className="user">
+                        User
+                    </button>
+                )
+            case EntryType.TOGGLE:
+                if (value === ToggleState.PENDING) 
+                    return (
+                        <button 
+                            onClick={() => onToggle(row)} 
+                            className="pending">
+                            Pending
+                        </button>
+                    );
+                if (value === ToggleState.ACCEPTED)
+                    return (
+                        <button 
+                            onClick={() => onToggle(row)} 
+                            className="accepted">
+                            Accepted
+                        </button>
+                    );
+
+                /* else ... */
+                return (
+                    <button 
+                        onClick={() => onToggle(row)} 
+                        className="rejected">
+                        Rejected
+                    </button>
+                );
             case EntryType.TEXT:
             case EntryType.NUMBER:
             default:
@@ -38,7 +88,7 @@ const Table = ({ data, onDelete, onEdit }) => {
                         <tr key={rIndex}>
                             {data.columns.map((column, cIndex) => (
                                 <td key={`${rIndex}${cIndex}`}>
-                                    { renderEntry(row[column.key], column.type) }
+                                    { renderEntry(row[column.key], column.type, row) }
                                 </td>
                             ))}
 
