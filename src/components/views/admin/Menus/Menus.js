@@ -42,7 +42,7 @@ class Menus extends React.Component {
             search = this.state.search, 
         } = config;
         search = (search) ? `name:${search}` : '';
-        const link = `/menu-items?page=${page}&search=${search}&per_page=${perPage}`;
+        const link = `/menu-items?page=${page}&search=${search}&per_page=${perPage}&time=today`;
         this.props.setLoading(true);
 
         const _this = this;
