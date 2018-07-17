@@ -1,3 +1,7 @@
 export default function authenticated() {
-    return localStorage.getItem('token') !== null;
+    try {
+        return JSON.parse(localStorage.getItem('user'));
+    } catch (error) {
+    }
+    return null;
 }
