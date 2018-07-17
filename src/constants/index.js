@@ -21,5 +21,13 @@ export  const EntryType = {
     NUMBER: 1,
     IMAGE: 2,
     DATE: 3,
+    TOGGLE: 4,
+    ROLE: 5,
 }
 
+export const ToggleState = {
+    PENDING: 1,
+    ACCEPTED: 2,
+    REJECTED: 3,
+    TOGGLE: 4,
+}
