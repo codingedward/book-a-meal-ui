@@ -1,11 +1,12 @@
-import React from 'react'
-import axios from 'src/axios'
-import { Button, Alert } from 'reactstrap'
-import { Redirect, Link } from 'react-router-dom'
+import React from 'react';
+import axios from 'src/axios';
+import { Button, Alert } from 'reactstrap';
+import { Redirect, Link } from 'react-router-dom';
+import { Role } from 'src/constants';
 
-import AuthPage from 'src/components/common/AuthPage'
-import { singleError, authenticated } from 'src/utils'
-import './styles.css'
+import AuthPage from 'src/components/common/AuthPage';
+import { singleError, authenticated } from 'src/utils';
+import './styles.css';
 
 class Login extends React.Component {
 
@@ -16,36 +17,58 @@ class Login extends React.Component {
         this.setState({
             ...this.state,
             loading: true,
-        })
-        const _this = this
+        });
+        const _this = this;
         axios.post('auth/login', this.state).then(({ data }) => {
-            localStorage.setItem('token', `Bearer ${data.access_token}`)
-            _this.props.history.push('/admin/meals')
+            localStorage.setItem('token', `Bearer ${data.access_token}`);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            // fix localstorage slow write...
+            setTimeout(() => {
+                switch(data.user.role) {
+                    case Role.SUPER_ADMIN:
+                    case Role.ADMIN:
+                        _this.props.history.push('/admin/meals');
+                        break;
+                    case Role.USER:
+                        _this.props.history.push('/user/menus');
+                        break;
+                    default:
+                        break;
+                }
+            }, 400);
         }).catch(({ response }) => {
             _this.setState({
                 ..._this.state,
                 error: response,
                 loading: false,
-            })
-        })
+            });
+        });
     }
 
     onChange = (e) => {
         this.setState({
             ...this.state,
             [e.target.name]: e.target.value
-        })
+        });
     }
 
     render() {
         const { error, loading } = this.state
-
-        if (authenticated()) {
-            return <Redirect to="/admin/meals" />
+        const user = authenticated();
+        if (user) {
+            switch(user.role) {
+                case Role.SUPER_ADMIN:
+                case Role.ADMIN:
+                    return <Redirect to="/admin/meals" />;
+                case Role.USER:
+                    return <Redirect to="/user/menu" />;
+                default:
+                    break;
+            }
         }
 
         return (
-            <AuthPage loading={this.state.loading}>
+            <AuthPage styles={{ minHeight: '780px', height: '100vh' }} loading={loading}>
                 <form 
                     className="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 card"
                     onSubmit={this.onSubmit}>
@@ -60,17 +83,18 @@ class Login extends React.Component {
                     <label>Password </label>
                     <input 
                         type="password" 
-                        className="form-control" 
+                        className="mb-3 form-control" 
                         name="password" 
                         onChange={this.onChange} />
+                    <Link className="mb-2" to="/request-password-reset"> Forgot password? </Link>
                     <Button disabled={loading} className="btn btn-primary mt-2">Continue </Button>
                     <p className="text-center pt-3"> 
                         <Link to="/sign-up"> Create Account? </Link>
                     </p>
                 </form>
             </AuthPage>
-        )
+        );
     }
 }
 
-export default Login
+export default Login;
