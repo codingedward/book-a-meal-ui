@@ -30,7 +30,6 @@ class Orders extends React.Component {
             perPage = this.state.perPage,
             search = this.state.search, 
         } = config;
-        search = (search) ? `name:${search}` : '';
         const link = 
             `/orders?related=menu_item|user&page=${page}&search=${search}&per_page=${perPage}&time=today`;
         this.props.setLoading(true);

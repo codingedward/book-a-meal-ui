@@ -20,6 +20,7 @@ class OrdersTable extends React.Component {
                 { key: 'id', title: 'ID', type: EntryType.NUMBER },
                 { key: 'user.email', title: 'User', type: EntryType.TEXT },
                 { key: 'menu_item.meal.name', title: 'Meal Name', type: EntryType.TEXT },
+                { key: 'menu_item.menu.name', title: 'Menu', type: EntryType.TEXT },
                 { key: 'quantity', title: 'Quantity', type: EntryType.NUMBER },
                 { key: 'menu_item.meal.cost', title: 'Cost/Meal', type: EntryType.NUMBER },
                 { key: 'created_at', title: 'Created On', type: EntryType.DATE },
