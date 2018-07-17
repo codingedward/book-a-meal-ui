@@ -19,7 +19,7 @@ class Register extends React.Component {
         })
         const _this = this;
         axios.post('auth/signup', this.state).then(({ data }) => {
-            _this.props.history.push('/verify-email');
+            _this.props.history.push('/account-created');
         }).catch(({ response }) => {
             _this.setState({
                 ..._this.state,
