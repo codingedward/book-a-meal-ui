@@ -1,10 +1,15 @@
 import React from 'react';
 import Loading from 'react-loading-bar';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import Sidebar from 'src/components/common/Sidebar';
 import Meals from 'src/components/views/admin/Meals';
 import Menus from 'src/components/views/admin/Menus';
+import Orders from 'src/components/views/admin/Orders';
+import Users from 'src/components/views/admin/Users';
+import OrdersHistory from 'src/components/views/admin/OrdersHistory';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { authenticated } from 'src/utils';
+import { Role } from 'src/constants';
 
 class Admin extends React.Component {
 
@@ -21,6 +26,14 @@ class Admin extends React.Component {
 
     render() {
         const { loading } = this.state;
+        const user = authenticated();
+        if (! user) {
+            return <Redirect to="/login" />;
+        }
+
+        if (user.role === Role.USER) {
+            return <Redirect to="/user/menus" />;
+        }
         return (
             <main className="container-fluid">
                 <Loading show={loading} color="orange" showSpinner={true}/>
@@ -34,8 +47,16 @@ class Admin extends React.Component {
                     </Sidebar>
                     <Router>
                         <Switch>
-                            <Route exact path="/admin/meals" render={() => <Meals setLoading={this.setLoading} /> } />
-                            <Route exact path="/admin/menus" render={() => <Menus setLoading={this.setLoading} /> } />
+                            <Route exact path="/admin/meals" 
+                                render={() => <Meals setLoading={this.setLoading} /> } />
+                            <Route exact path="/admin/menus" 
+                                render={() => <Menus setLoading={this.setLoading} /> } />
+                            <Route exact path="/admin/orders" 
+                                render={() => <Orders setLoading={this.setLoading} /> } />
+                            <Route exact path="/admin/users" 
+                                render={() => <Users {...this.props} setLoading={this.setLoading} /> } />
+                            <Route exact path="/admin/orders-history" 
+                                render={() => <OrdersHistory setLoading={this.setLoading} /> } />
                         </Switch>
                     </Router>
                  </section>
