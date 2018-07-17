@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Alert, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from 'src/axios';
@@ -20,7 +19,7 @@ class Register extends React.Component {
         })
         const _this = this;
         axios.post('auth/signup', this.state).then(({ data }) => {
-            _this.props.history.push('/home');
+            _this.props.history.push('/verify-email');
         }).catch(({ response }) => {
             _this.setState({
                 ..._this.state,
@@ -42,7 +41,7 @@ class Register extends React.Component {
         const { loading, error } = this.state;
 
         return (
-            <AuthPage loading={loading}>
+            <AuthPage styles={{ minHeight: '780px', height: '100vh' }} loading={loading}>
                 <form 
                     className="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 card"
                     onSubmit={this.onSubmit}>
@@ -81,12 +80,6 @@ class Register extends React.Component {
             </AuthPage>
         );
     }
-}
-
-Register.propTypes = {
-    response: PropTypes.object.isRequired,
-    redirect: PropTypes.func.isRequired,
-    signUp: PropTypes.func.isRequired
 }
 
 export default Register;
