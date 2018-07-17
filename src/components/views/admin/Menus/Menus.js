@@ -189,7 +189,7 @@ class Menus extends React.Component {
                 contentTop={contentTop} 
                 contentFilter={contentFilter}>
             
-                { error && <Alert color="danger"> { singleError(error) }</Alert> }
+                    { error && <Alert color="danger"> { singleError(error) }</Alert> }
                      <MenusTable 
                          data={data}
                          pageInfo={pageInfo}

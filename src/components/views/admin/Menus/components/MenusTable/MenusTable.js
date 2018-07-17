@@ -13,7 +13,7 @@ class MenuItemsTable extends React.Component {
 
         rows = rows.map(row => {
             return flattenObject(row);
-        })
+        });
 
         const tableData = {
             columns: [
@@ -21,7 +21,7 @@ class MenuItemsTable extends React.Component {
                 { key: 'meal.img_url', title: 'Meal Image', type: EntryType.IMAGE },
                 { key: 'meal.name', title: 'Meal Name', type: EntryType.TEXT },
                 { key: 'quantity', title: 'Quantity', type: EntryType.NUMBER },
-                { key: 'menu.name', title: 'Category', type: EntryType.TEXT },
+                { key: 'menu.name', title: 'Menu', type: EntryType.TEXT },
                 { key: 'created_at', title: 'Created On', type: EntryType.DATE }
             ],
             rows,
@@ -38,4 +38,3 @@ class MenuItemsTable extends React.Component {
 }
 
 export default MenuItemsTable;
-
