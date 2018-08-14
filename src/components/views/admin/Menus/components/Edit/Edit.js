@@ -73,15 +73,14 @@ class EditModal extends React.Component {
     }
 
     fetchMenus = (input, callback) => {
-        const _this = this;
         axios.get(`/menus?search=${input}&per_page=5`).then(({ data }) => {
             const menus = data.menus.map((menu) => {
                 return { value: menu.id, label: menu.name }
             });
             callback(null, { options: menus });
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response
             });
             callback(response, null);
@@ -89,15 +88,14 @@ class EditModal extends React.Component {
     }
 
     fetchMeals = (input, callback) => {
-        const _this = this;
         axios.get(`/meals?search=name:${input}&per_page=5`).then(({ data }) => {
             const meals = data.meals.map((meal) => {
                 return { value: meal.id, label: meal.name }
             });
             callback(null, { options: meals });
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response
             });
             callback(response, null);
@@ -127,25 +125,24 @@ class EditModal extends React.Component {
             quantity: this.state.quantity,
         };
 
-        const _this = this;
         axios.put(`/menu-items/${this.props.menuItem.id}`, menuItem).then(({ data }) => {
-            _this.props.onChange();
-            _this.setState({
-                ..._this.state,
+            this.props.onChange();
+            this.setState({
+                ...this.state,
                 success: true,
                 error: null,
             });
-            _this.reset();
-            _this.props.setLoading(false);
-            setTimeout(_this.props.toggle, 1000);
+            this.reset();
+            this.props.setLoading(false);
+            setTimeout(this.props.toggle, 1000);
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
                 success: false,
             });
-            _this.reset();
-            _this.props.setLoading(false);
+            this.reset();
+            this.props.setLoading(false);
         });
     }
 

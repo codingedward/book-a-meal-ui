@@ -39,11 +39,18 @@ ShallowWrapper {
                 Password 
         </label>
         <input
-                className="form-control"
+                className="mb-3 form-control"
                 name="password"
                 onChange={[Function]}
                 type="password"
         />
+        <Link
+                className="mb-2"
+                replace={false}
+                to="/request-password-reset"
+        >
+                 Forgot password? 
+        </Link>
         <Button
                 className="btn btn-primary mt-2"
                 color="secondary"
@@ -64,6 +71,10 @@ ShallowWrapper {
         </p>
 </form>,
       "loading": undefined,
+      "styles": Object {
+        "height": "100vh",
+        "minHeight": "780px",
+      },
     },
     "ref": null,
     "rendered": Object {
@@ -91,11 +102,18 @@ ShallowWrapper {
             Password 
 </label>,
           <input
-            className="form-control"
+            className="mb-3 form-control"
             name="password"
             onChange={[Function]}
             type="password"
 />,
+          <Link
+            className="mb-2"
+            replace={false}
+            to="/request-password-reset"
+>
+             Forgot password? 
+</Link>,
           <Button
             className="btn btn-primary mt-2"
             color="secondary"
@@ -174,7 +192,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "className": "form-control",
+            "className": "mb-3 form-control",
             "name": "password",
             "onChange": [Function],
             "type": "password",
@@ -182,6 +200,20 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": " Forgot password? ",
+            "className": "mb-2",
+            "replace": false,
+            "to": "/request-password-reset",
+          },
+          "ref": null,
+          "rendered": " Forgot password? ",
+          "type": [Function],
         },
         Object {
           "instance": null,
@@ -260,11 +292,18 @@ ShallowWrapper {
                     Password 
           </label>
           <input
-                    className="form-control"
+                    className="mb-3 form-control"
                     name="password"
                     onChange={[Function]}
                     type="password"
           />
+          <Link
+                    className="mb-2"
+                    replace={false}
+                    to="/request-password-reset"
+          >
+                     Forgot password? 
+          </Link>
           <Button
                     className="btn btn-primary mt-2"
                     color="secondary"
@@ -285,6 +324,10 @@ ShallowWrapper {
           </p>
 </form>,
         "loading": undefined,
+        "styles": Object {
+          "height": "100vh",
+          "minHeight": "780px",
+        },
       },
       "ref": null,
       "rendered": Object {
@@ -312,11 +355,18 @@ ShallowWrapper {
               Password 
 </label>,
             <input
-              className="form-control"
+              className="mb-3 form-control"
               name="password"
               onChange={[Function]}
               type="password"
 />,
+            <Link
+              className="mb-2"
+              replace={false}
+              to="/request-password-reset"
+>
+               Forgot password? 
+</Link>,
             <Button
               className="btn btn-primary mt-2"
               color="secondary"
@@ -395,7 +445,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "className": "form-control",
+              "className": "mb-3 form-control",
               "name": "password",
               "onChange": [Function],
               "type": "password",
@@ -403,6 +453,20 @@ ShallowWrapper {
             "ref": null,
             "rendered": null,
             "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": " Forgot password? ",
+              "className": "mb-2",
+              "replace": false,
+              "to": "/request-password-reset",
+            },
+            "ref": null,
+            "rendered": " Forgot password? ",
+            "type": [Function],
           },
           Object {
             "instance": null,

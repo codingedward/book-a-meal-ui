@@ -39,20 +39,19 @@ class OrderModal extends React.Component {
         }
         this.props.setLoading(true);
 
-        const _this = this;
         axios.post('orders', order).then(({ data }) => {
-            _this.props.setLoading(false);
-            _this.setState({
-                ..._this.state,
+            this.props.setLoading(false);
+            this.setState({
+                ...this.state,
                 success: true,
             });
-            setTimeout(_this.props.toggle, 1000);
+            setTimeout(this.props.toggle, 1000);
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         });
     }
 

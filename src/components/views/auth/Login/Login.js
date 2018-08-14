@@ -18,7 +18,6 @@ class Login extends React.Component {
             ...this.state,
             loading: true,
         });
-        const _this = this;
         axios.post('auth/login', this.state).then(({ data }) => {
             localStorage.setItem('token', `Bearer ${data.access_token}`);
             localStorage.setItem('user', JSON.stringify(data.user));
@@ -27,18 +26,18 @@ class Login extends React.Component {
                 switch(data.user.role) {
                     case Role.SUPER_ADMIN:
                     case Role.ADMIN:
-                        _this.props.history.push('/admin/meals');
+                        this.props.history.push('/admin/meals');
                         break;
                     case Role.USER:
-                        _this.props.history.push('/user/menus');
+                        this.props.history.push('/user/menus');
                         break;
                     default:
                         break;
                 }
             }, 400);
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
                 loading: false,
             });

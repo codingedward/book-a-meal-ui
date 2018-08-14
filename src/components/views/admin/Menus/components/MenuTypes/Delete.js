@@ -12,22 +12,21 @@ class Delete extends React.Component {
 
     onDelete = () => {
         this.props.setLoading(true);
-        const _this = this;
         axios.delete(`/menus/${this.props.menu.id}`).then(() => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 toDelete: null,
                 deleteIsOpen: false,
             });
-            _this.props.setLoading(false);
-            _this.props.toggle();
-            _this.props.onChange();
+            this.props.setLoading(false);
+            this.props.toggle();
+            this.props.onChange();
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         });
     }
 

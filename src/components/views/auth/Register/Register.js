@@ -17,12 +17,11 @@ class Register extends React.Component {
             ...this.state,
             loading: true,
         })
-        const _this = this;
         axios.post('auth/signup', this.state).then(({ data }) => {
-            _this.props.history.push('/account-created');
+            this.props.history.push('/account-created');
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
                 loading: false,
             })

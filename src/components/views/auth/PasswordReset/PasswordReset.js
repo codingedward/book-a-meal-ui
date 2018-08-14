@@ -26,16 +26,15 @@ class PasswordReset extends React.Component {
             ...this.state,
             loading: true,
         });
-        const _this = this;
         axios.put('auth/password-reset', this.state).then(({ data }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 success: true,
                 loading: false,
             });
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
                 loading: false,
             });

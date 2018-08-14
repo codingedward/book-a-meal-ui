@@ -18,15 +18,14 @@ class VerifyMail extends React.Component {
                 ...this.state,
                 token,
             });
-            const _this = this;
             axios.post('auth/verify-email', { token }).then(({ data }) => {
-                _this.setState({
-                    ..._this.state,
+                this.setState({
+                    ...this.state,
                     success: true,
                 })
             }).catch(({ response }) => {
-                _this.setState({
-                    ..._this.state,
+                this.setState({
+                    ...this.state,
                     error: response
                 });
             })

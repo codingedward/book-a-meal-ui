@@ -46,6 +46,7 @@ ShallowWrapper {
 </section>,
       ],
       "className": "patterns bg-teal",
+      "style": Object {},
     },
     "ref": null,
     "rendered": Array [
@@ -189,6 +190,7 @@ ShallowWrapper {
 </section>,
         ],
         "className": "patterns bg-teal",
+        "style": Object {},
       },
       "ref": null,
       "rendered": Array [

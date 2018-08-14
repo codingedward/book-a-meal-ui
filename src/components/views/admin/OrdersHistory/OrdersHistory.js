@@ -33,27 +33,26 @@ class OrdersHistory extends React.Component {
             `/orders?related=menu_item|user&page=${page}&search=${search}&per_page=${perPage}&time=history`;
         this.props.setLoading(true);
 
-        const _this = this;
         axios.auth();
         axios.get(link, this.state).then(({ data }) => {
             const pageInfo = paginationInfo(data);
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 page: pageInfo.currentPage,
                 data,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
             if (pageInfo.currentCount === 0 && pageInfo.currentPage !== 1) {
-                _this.fetchOrdersHistory({
+                this.fetchOrdersHistory({
                     page: pageInfo.currentPage - 1
                 });
             }
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             })
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         })
     }
 

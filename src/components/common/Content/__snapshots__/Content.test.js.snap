@@ -27,6 +27,7 @@ ShallowWrapper {
                     <img
                               alt="Menu"
                               className="d-md-none controls-icon pb-3"
+                              onClick={undefined}
                               src="menu.png"
                     />
           </div>
@@ -56,6 +57,7 @@ ShallowWrapper {
               <img
                             alt="Menu"
                             className="d-md-none controls-icon pb-3"
+                            onClick={undefined}
                             src="menu.png"
               />
 </div>,
@@ -73,6 +75,7 @@ ShallowWrapper {
               "children": <img
                 alt="Menu"
                 className="d-md-none controls-icon pb-3"
+                onClick={undefined}
                 src="menu.png"
 />,
               "className": "col-12",
@@ -85,6 +88,7 @@ ShallowWrapper {
               "props": Object {
                 "alt": "Menu",
                 "className": "d-md-none controls-icon pb-3",
+                "onClick": undefined,
                 "src": "menu.png",
               },
               "ref": null,
@@ -142,6 +146,7 @@ ShallowWrapper {
                         <img
                                     alt="Menu"
                                     className="d-md-none controls-icon pb-3"
+                                    onClick={undefined}
                                     src="menu.png"
                         />
             </div>
@@ -171,6 +176,7 @@ ShallowWrapper {
                 <img
                                 alt="Menu"
                                 className="d-md-none controls-icon pb-3"
+                                onClick={undefined}
                                 src="menu.png"
                 />
 </div>,
@@ -188,6 +194,7 @@ ShallowWrapper {
                 "children": <img
                   alt="Menu"
                   className="d-md-none controls-icon pb-3"
+                  onClick={undefined}
                   src="menu.png"
 />,
                 "className": "col-12",
@@ -200,6 +207,7 @@ ShallowWrapper {
                 "props": Object {
                   "alt": "Menu",
                   "className": "d-md-none controls-icon pb-3",
+                  "onClick": undefined,
                   "src": "menu.png",
                 },
                 "ref": null,

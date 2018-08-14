@@ -31,7 +31,7 @@ ShallowWrapper {
         <img
                 alt="Food"
                 className="img-fluid"
-                src="#"
+                src="placeholder.png"
         />
         <table
                 className="table"
@@ -42,27 +42,23 @@ ShallowWrapper {
                                         className="p-2"
                                 >
                                         Ksh. 
-                                        50
                                 </td>
                         </tr>
                         <tr>
                                 <td
                                         className="p-2"
-                                >
-                                        name2
-                                </td>
+                                />
                         </tr>
                         <tr>
                                 <td
                                         className="pb-0"
                                 >
-                                        <Link
+                                        <button
                                                 className="btn btn-primary"
-                                                replace={false}
-                                                to="/login"
+                                                onClick={[Function]}
                                         >
-                                                 Order Now
-                                        </Link>
+                                                Order Now
+                                        </button>
                                 </td>
                         </tr>
                 </tbody>
@@ -80,7 +76,7 @@ ShallowWrapper {
           <img
             alt="Food"
             className="img-fluid"
-            src="#"
+            src="placeholder.png"
 />,
           <table
             className="table"
@@ -91,27 +87,23 @@ ShallowWrapper {
                                                 className="p-2"
                                     >
                                                 Ksh. 
-                                                50
                                     </td>
                         </tr>
                         <tr>
                                     <td
                                                 className="p-2"
-                                    >
-                                                name2
-                                    </td>
+                                    />
                         </tr>
                         <tr>
                                     <td
                                                 className="pb-0"
                                     >
-                                                <Link
+                                                <button
                                                             className="btn btn-primary"
-                                                            replace={false}
-                                                            to="/login"
+                                                            onClick={[Function]}
                                                 >
-                                                             Order Now
-                                                </Link>
+                                                            Order Now
+                                                </button>
                                     </td>
                         </tr>
             </tbody>
@@ -128,7 +120,7 @@ ShallowWrapper {
           "props": Object {
             "alt": "Food",
             "className": "img-fluid",
-            "src": "#",
+            "src": "placeholder.png",
           },
           "ref": null,
           "rendered": null,
@@ -145,27 +137,23 @@ ShallowWrapper {
                                           className="p-2"
                             >
                                           Ksh. 
-                                          50
                             </td>
               </tr>
               <tr>
                             <td
                                           className="p-2"
-                            >
-                                          name2
-                            </td>
+                            />
               </tr>
               <tr>
                             <td
                                           className="pb-0"
                             >
-                                          <Link
+                                          <button
                                                         className="btn btn-primary"
-                                                        replace={false}
-                                                        to="/login"
+                                                        onClick={[Function]}
                                           >
-                                                         Order Now
-                                          </Link>
+                                                        Order Now
+                                          </button>
                             </td>
               </tr>
 </tbody>,
@@ -183,27 +171,23 @@ ShallowWrapper {
                                     className="p-2"
                   >
                                     Ksh. 
-                                    50
                   </td>
 </tr>,
                 <tr>
                   <td
                                     className="p-2"
-                  >
-                                    name2
-                  </td>
+                  />
 </tr>,
                 <tr>
                   <td
                                     className="pb-0"
                   >
-                                    <Link
+                                    <button
                                                       className="btn btn-primary"
-                                                      replace={false}
-                                                      to="/login"
+                                                      onClick={[Function]}
                                     >
-                                                       Order Now
-                                    </Link>
+                                                      Order Now
+                                    </button>
                   </td>
 </tr>,
               ],
@@ -219,7 +203,6 @@ ShallowWrapper {
                     className="p-2"
 >
                     Ksh. 
-                    50
 </td>,
                 },
                 "ref": null,
@@ -230,14 +213,14 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       "Ksh. ",
-                      50,
+                      undefined,
                     ],
                     "className": "p-2",
                   },
                   "ref": null,
                   "rendered": Array [
                     "Ksh. ",
-                    50,
+                    undefined,
                   ],
                   "type": "td",
                 },
@@ -250,9 +233,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": <td
                     className="p-2"
->
-                    name2
-</td>,
+/>,
                 },
                 "ref": null,
                 "rendered": Object {
@@ -260,11 +241,11 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "name2",
+                    "children": undefined,
                     "className": "p-2",
                   },
                   "ref": null,
-                  "rendered": "name2",
+                  "rendered": null,
                   "type": "td",
                 },
                 "type": "tr",
@@ -277,13 +258,12 @@ ShallowWrapper {
                   "children": <td
                     className="pb-0"
 >
-                    <Link
+                    <button
                                         className="btn btn-primary"
-                                        replace={false}
-                                        to="/login"
+                                        onClick={[Function]}
                     >
-                                         Order Now
-                    </Link>
+                                        Order Now
+                    </button>
 </td>,
                 },
                 "ref": null,
@@ -292,29 +272,27 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": <Link
+                    "children": <button
                       className="btn btn-primary"
-                      replace={false}
-                      to="/login"
+                      onClick={[Function]}
 >
-                       Order Now
-</Link>,
+                      Order Now
+</button>,
                     "className": "pb-0",
                   },
                   "ref": null,
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "host",
                     "props": Object {
-                      "children": " Order Now",
+                      "children": "Order Now",
                       "className": "btn btn-primary",
-                      "replace": false,
-                      "to": "/login",
+                      "onClick": [Function],
                     },
                     "ref": null,
-                    "rendered": " Order Now",
-                    "type": [Function],
+                    "rendered": "Order Now",
+                    "type": "button",
                   },
                   "type": "td",
                 },
@@ -342,7 +320,7 @@ ShallowWrapper {
           <img
                     alt="Food"
                     className="img-fluid"
-                    src="#"
+                    src="placeholder.png"
           />
           <table
                     className="table"
@@ -353,27 +331,23 @@ ShallowWrapper {
                                                   className="p-2"
                                         >
                                                   Ksh. 
-                                                  50
                                         </td>
                               </tr>
                               <tr>
                                         <td
                                                   className="p-2"
-                                        >
-                                                  name2
-                                        </td>
+                                        />
                               </tr>
                               <tr>
                                         <td
                                                   className="pb-0"
                                         >
-                                                  <Link
+                                                  <button
                                                             className="btn btn-primary"
-                                                            replace={false}
-                                                            to="/login"
+                                                            onClick={[Function]}
                                                   >
-                                                             Order Now
-                                                  </Link>
+                                                            Order Now
+                                                  </button>
                                         </td>
                               </tr>
                     </tbody>
@@ -391,7 +365,7 @@ ShallowWrapper {
             <img
               alt="Food"
               className="img-fluid"
-              src="#"
+              src="placeholder.png"
 />,
             <table
               className="table"
@@ -402,27 +376,23 @@ ShallowWrapper {
                                                         className="p-2"
                                           >
                                                         Ksh. 
-                                                        50
                                           </td>
                             </tr>
                             <tr>
                                           <td
                                                         className="p-2"
-                                          >
-                                                        name2
-                                          </td>
+                                          />
                             </tr>
                             <tr>
                                           <td
                                                         className="pb-0"
                                           >
-                                                        <Link
+                                                        <button
                                                                       className="btn btn-primary"
-                                                                      replace={false}
-                                                                      to="/login"
+                                                                      onClick={[Function]}
                                                         >
-                                                                       Order Now
-                                                        </Link>
+                                                                      Order Now
+                                                        </button>
                                           </td>
                             </tr>
               </tbody>
@@ -439,7 +409,7 @@ ShallowWrapper {
             "props": Object {
               "alt": "Food",
               "className": "img-fluid",
-              "src": "#",
+              "src": "placeholder.png",
             },
             "ref": null,
             "rendered": null,
@@ -456,27 +426,23 @@ ShallowWrapper {
                                                 className="p-2"
                                 >
                                                 Ksh. 
-                                                50
                                 </td>
                 </tr>
                 <tr>
                                 <td
                                                 className="p-2"
-                                >
-                                                name2
-                                </td>
+                                />
                 </tr>
                 <tr>
                                 <td
                                                 className="pb-0"
                                 >
-                                                <Link
+                                                <button
                                                                 className="btn btn-primary"
-                                                                replace={false}
-                                                                to="/login"
+                                                                onClick={[Function]}
                                                 >
-                                                                 Order Now
-                                                </Link>
+                                                                Order Now
+                                                </button>
                                 </td>
                 </tr>
 </tbody>,
@@ -494,27 +460,23 @@ ShallowWrapper {
                                         className="p-2"
                     >
                                         Ksh. 
-                                        50
                     </td>
 </tr>,
                   <tr>
                     <td
                                         className="p-2"
-                    >
-                                        name2
-                    </td>
+                    />
 </tr>,
                   <tr>
                     <td
                                         className="pb-0"
                     >
-                                        <Link
+                                        <button
                                                             className="btn btn-primary"
-                                                            replace={false}
-                                                            to="/login"
+                                                            onClick={[Function]}
                                         >
-                                                             Order Now
-                                        </Link>
+                                                            Order Now
+                                        </button>
                     </td>
 </tr>,
                 ],
@@ -530,7 +492,6 @@ ShallowWrapper {
                       className="p-2"
 >
                       Ksh. 
-                      50
 </td>,
                   },
                   "ref": null,
@@ -541,14 +502,14 @@ ShallowWrapper {
                     "props": Object {
                       "children": Array [
                         "Ksh. ",
-                        50,
+                        undefined,
                       ],
                       "className": "p-2",
                     },
                     "ref": null,
                     "rendered": Array [
                       "Ksh. ",
-                      50,
+                      undefined,
                     ],
                     "type": "td",
                   },
@@ -561,9 +522,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": <td
                       className="p-2"
->
-                      name2
-</td>,
+/>,
                   },
                   "ref": null,
                   "rendered": Object {
@@ -571,11 +530,11 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "name2",
+                      "children": undefined,
                       "className": "p-2",
                     },
                     "ref": null,
-                    "rendered": "name2",
+                    "rendered": null,
                     "type": "td",
                   },
                   "type": "tr",
@@ -588,13 +547,12 @@ ShallowWrapper {
                     "children": <td
                       className="pb-0"
 >
-                      <Link
+                      <button
                                             className="btn btn-primary"
-                                            replace={false}
-                                            to="/login"
+                                            onClick={[Function]}
                       >
-                                             Order Now
-                      </Link>
+                                            Order Now
+                      </button>
 </td>,
                   },
                   "ref": null,
@@ -603,29 +561,27 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": <Link
+                      "children": <button
                         className="btn btn-primary"
-                        replace={false}
-                        to="/login"
+                        onClick={[Function]}
 >
-                         Order Now
-</Link>,
+                        Order Now
+</button>,
                       "className": "pb-0",
                     },
                     "ref": null,
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
+                      "nodeType": "host",
                       "props": Object {
-                        "children": " Order Now",
+                        "children": "Order Now",
                         "className": "btn btn-primary",
-                        "replace": false,
-                        "to": "/login",
+                        "onClick": [Function],
                       },
                       "ref": null,
-                      "rendered": " Order Now",
-                      "type": [Function],
+                      "rendered": "Order Now",
+                      "type": "button",
                     },
                     "type": "td",
                   },

@@ -26,27 +26,26 @@ class ManageModal extends React.Component {
         }
         const authUser = authenticated();
         this.props.setLoading(true);
-        const _this = this;
         axios.put(`users/${user.id}`, newUser).then(() => {
 
             if (authUser.id === user.id) {
                 localStorage.clear();
-                _this.props.setLoading(false);
+                this.props.setLoading(false);
                 setTimeout(() => {
-                    _this.props.history.push('/login');
-                    _this.props.toggle();
+                    this.props.history.push('/login');
+                    this.props.toggle();
                 }, 1000);
             } else {
-                _this.props.toggle();
-                _this.props.setLoading(false);
-                _this.props.onChange();
+                this.props.toggle();
+                this.props.setLoading(false);
+                this.props.onChange();
             }
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         });
     }
 

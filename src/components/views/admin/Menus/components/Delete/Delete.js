@@ -18,13 +18,12 @@ class DeleteModal extends React.Component {
     }
 
     onDelete = () => {
-        const _this = this;
         axios.delete(`/menu-items/${this.props.menuItem.id}`).then(() => {
-            _this.props.onChange();
-            _this.props.toggle();
+            this.props.onChange();
+            this.props.toggle();
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             })
         })

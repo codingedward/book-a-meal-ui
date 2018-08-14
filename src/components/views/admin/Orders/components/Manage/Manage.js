@@ -27,17 +27,16 @@ class DeleteModal extends React.Component {
             status,
         }
         this.props.setLoading(true);
-        const _this = this;
         axios.put(`/orders/${order.id}`, newOrder).then(() => {
-            _this.props.onChange();
-            _this.props.toggle();
-            _this.props.setLoading(false);
+            this.props.onChange();
+            this.props.toggle();
+            this.props.setLoading(false);
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         });
     }
 

@@ -30,16 +30,15 @@ class Notifications extends React.Component {
 
         const link = 
             `/notifications?per_page=${perPage}&search=${search}&page=${page}`;
-        const _this = this;
         axios.get(link).then(({ data }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 data,
                 pageInfo: paginationInfo(data)
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         }).catch(({ response }) =>  {
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         })
     }
 
@@ -79,16 +78,15 @@ class Notifications extends React.Component {
         } else {
             link = 'notifications';
         }
-        const _this = this;
         axios.delete(link).then(() => {
-            _this.fetchNotifications();
-            _this.props.setLoading(false);
+            this.fetchNotifications();
+            this.props.setLoading(false);
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         });
     }
 

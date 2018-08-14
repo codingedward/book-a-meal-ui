@@ -44,13 +44,12 @@ class Meals extends React.Component {
         this.props.setLoading(true);
 
 
-        const _this = this;
         axios.auth();
         axios.get(link, this.state).then(({ data }) => {
 
             const pageInfo = paginationInfo(data);
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 page: pageInfo.currentPage,
                 data,
             });
@@ -59,14 +58,14 @@ class Meals extends React.Component {
             // if we have an empty page and there's data in the previous
             // page...
             if (pageInfo.currentCount === 0 && pageInfo.currentPage !== 1) {
-                _this.fetchMeals({
+                this.fetchMeals({
                     page: pageInfo.currentPage - 1
                 })
             }
 
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             })
             this.props.setLoading(false);

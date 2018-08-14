@@ -17,15 +17,14 @@ class Menu extends React.Component {
 
     fetchMenus = () => {
         this.props.setLoading(true);
-        const _this = this;
         axios.get('/menus?time=all').then(({ data }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 data
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         }).catch(({ response }) =>  {
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         })
     }
 
