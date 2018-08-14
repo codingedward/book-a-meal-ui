@@ -12,7 +12,8 @@ class VerifyMail extends React.Component {
     state = {}
 
     componentWillMount() {
-        const { token } = this.props.match.params;
+        const { match } = this.props;
+        const token = match ? match.params.token : null;
         if (token) {
             this.setState({
                 ...this.state,

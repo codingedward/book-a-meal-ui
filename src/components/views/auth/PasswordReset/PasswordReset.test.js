@@ -1,13 +1,11 @@
 import React from 'react';
 import { shallow }  from 'enzyme';
 import 'src/utils/bootTests'; // order matters!
-import Login from './Login';
+import PasswordReset from './PasswordReset';
 
-describe('<Login />', () => {
+describe('<PasswordReset />', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Login/>);
-        expect(wrapper.find('input').length).toBe(2);
-        expect(wrapper.find('.btn').length).toBe(1);
+        const wrapper = shallow(<PasswordReset/>);
         expect(wrapper).toMatchSnapshot();
     });
 });

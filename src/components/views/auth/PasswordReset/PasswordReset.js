@@ -13,7 +13,8 @@ class PasswordReset extends React.Component {
     state = {}
 
     componentWillMount() {
-        const { token } = this.props.match.params;
+        const { match } = this.props;
+        const token = match ? match.params.null : null;
         this.setState({
             ...this.state,
             token,

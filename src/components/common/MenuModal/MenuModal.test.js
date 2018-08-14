@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow }  from 'enzyme';
 import 'src/utils/bootTests'; // order matters!
-import Modal from './Modal';
+import MenuModal from './MenuModal';
 import Adapter from 'enzyme-adapter-react-16';
 
-describe('<Modal />', () => {
+describe('<MenuModal />', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Modal />);
+        const wrapper = shallow(<MenuModal />);
         expect(wrapper).toMatchSnapshot();
     });
 });
