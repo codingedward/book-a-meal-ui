@@ -36,21 +36,21 @@ ShallowWrapper {
             ],
             "rows": Array [
               Object {
-                "date": "Sat Aug 18 2018",
+                "date": "Sun Aug 19 2018",
                 "image": "https://placehold.it/10x10",
                 "role": 1,
                 "text": "test",
                 "toggle": 2,
               },
               Object {
-                "date": "Sat Aug 18 2018",
+                "date": "Sun Aug 19 2018",
                 "image": "https://placehold.it/10x10",
                 "role": 0,
                 "text": "test",
                 "toggle": 1,
               },
               Object {
-                "date": "Sat Aug 18 2018",
+                "date": "Sun Aug 19 2018",
                 "image": "https://placehold.it/10x10",
                 "role": 1000,
                 "text": "test",
@@ -108,7 +108,7 @@ ShallowWrapper {
           <tbody>
                     <tr>
                               <td>
-                                        Sat Aug 18 2018
+                                        Sun Aug 19 2018
                               </td>
                               <td>
                                         <img
@@ -137,7 +137,7 @@ ShallowWrapper {
                     </tr>
                     <tr>
                               <td>
-                                        Sat Aug 18 2018
+                                        Sun Aug 19 2018
                               </td>
                               <td>
                                         <img
@@ -166,7 +166,7 @@ ShallowWrapper {
                     </tr>
                     <tr>
                               <td>
-                                        Sat Aug 18 2018
+                                        Sun Aug 19 2018
                               </td>
                               <td>
                                         <img
@@ -239,7 +239,7 @@ ShallowWrapper {
             <tbody>
               <tr>
                             <td>
-                                          Sat Aug 18 2018
+                                          Sun Aug 19 2018
                             </td>
                             <td>
                                           <img
@@ -268,7 +268,7 @@ ShallowWrapper {
               </tr>
               <tr>
                             <td>
-                                          Sat Aug 18 2018
+                                          Sun Aug 19 2018
                             </td>
                             <td>
                                           <img
@@ -297,7 +297,7 @@ ShallowWrapper {
               </tr>
               <tr>
                             <td>
-                                          Sat Aug 18 2018
+                                          Sun Aug 19 2018
                             </td>
                             <td>
                                           <img
@@ -513,7 +513,7 @@ ShallowWrapper {
               "children": Array [
                 <tr>
                   <td>
-                                    Sat Aug 18 2018
+                                    Sun Aug 19 2018
                   </td>
                   <td>
                                     <img
@@ -542,7 +542,7 @@ ShallowWrapper {
 </tr>,
                 <tr>
                   <td>
-                                    Sat Aug 18 2018
+                                    Sun Aug 19 2018
                   </td>
                   <td>
                                     <img
@@ -571,7 +571,7 @@ ShallowWrapper {
 </tr>,
                 <tr>
                   <td>
-                                    Sat Aug 18 2018
+                                    Sun Aug 19 2018
                   </td>
                   <td>
                                     <img
@@ -610,7 +610,7 @@ ShallowWrapper {
                   "children": Array [
                     Array [
                       <td>
-                        Sat Aug 18 2018
+                        Sun Aug 19 2018
 </td>,
                       <td>
                         <img
@@ -648,10 +648,10 @@ ShallowWrapper {
                     "key": "00",
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Sat Aug 18 2018",
+                      "children": "Sun Aug 19 2018",
                     },
                     "ref": null,
-                    "rendered": "Sat Aug 18 2018",
+                    "rendered": "Sun Aug 19 2018",
                     "type": "td",
                   },
                   Object {
@@ -757,7 +757,7 @@ ShallowWrapper {
                   "children": Array [
                     Array [
                       <td>
-                        Sat Aug 18 2018
+                        Sun Aug 19 2018
 </td>,
                       <td>
                         <img
@@ -795,10 +795,10 @@ ShallowWrapper {
                     "key": "10",
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Sat Aug 18 2018",
+                      "children": "Sun Aug 19 2018",
                     },
                     "ref": null,
-                    "rendered": "Sat Aug 18 2018",
+                    "rendered": "Sun Aug 19 2018",
                     "type": "td",
                   },
                   Object {
@@ -904,7 +904,7 @@ ShallowWrapper {
                   "children": Array [
                     Array [
                       <td>
-                        Sat Aug 18 2018
+                        Sun Aug 19 2018
 </td>,
                       <td>
                         <img
@@ -942,10 +942,10 @@ ShallowWrapper {
                     "key": "20",
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Sat Aug 18 2018",
+                      "children": "Sun Aug 19 2018",
                     },
                     "ref": null,
-                    "rendered": "Sat Aug 18 2018",
+                    "rendered": "Sun Aug 19 2018",
                     "type": "td",
                   },
                   Object {
@@ -1095,7 +1095,7 @@ ShallowWrapper {
             <tbody>
                         <tr>
                                     <td>
-                                                Sat Aug 18 2018
+                                                Sun Aug 19 2018
                                     </td>
                                     <td>
                                                 <img
@@ -1124,7 +1124,7 @@ ShallowWrapper {
                         </tr>
                         <tr>
                                     <td>
-                                                Sat Aug 18 2018
+                                                Sun Aug 19 2018
                                     </td>
                                     <td>
                                                 <img
@@ -1153,7 +1153,7 @@ ShallowWrapper {
                         </tr>
                         <tr>
                                     <td>
-                                                Sat Aug 18 2018
+                                                Sun Aug 19 2018
                                     </td>
                                     <td>
                                                 <img
@@ -1226,7 +1226,7 @@ ShallowWrapper {
               <tbody>
                 <tr>
                                 <td>
-                                                Sat Aug 18 2018
+                                                Sun Aug 19 2018
                                 </td>
                                 <td>
                                                 <img
@@ -1255,7 +1255,7 @@ ShallowWrapper {
                 </tr>
                 <tr>
                                 <td>
-                                                Sat Aug 18 2018
+                                                Sun Aug 19 2018
                                 </td>
                                 <td>
                                                 <img
@@ -1284,7 +1284,7 @@ ShallowWrapper {
                 </tr>
                 <tr>
                                 <td>
-                                                Sat Aug 18 2018
+                                                Sun Aug 19 2018
                                 </td>
                                 <td>
                                                 <img
@@ -1500,7 +1500,7 @@ ShallowWrapper {
                 "children": Array [
                   <tr>
                     <td>
-                                        Sat Aug 18 2018
+                                        Sun Aug 19 2018
                     </td>
                     <td>
                                         <img
@@ -1529,7 +1529,7 @@ ShallowWrapper {
 </tr>,
                   <tr>
                     <td>
-                                        Sat Aug 18 2018
+                                        Sun Aug 19 2018
                     </td>
                     <td>
                                         <img
@@ -1558,7 +1558,7 @@ ShallowWrapper {
 </tr>,
                   <tr>
                     <td>
-                                        Sat Aug 18 2018
+                                        Sun Aug 19 2018
                     </td>
                     <td>
                                         <img
@@ -1597,7 +1597,7 @@ ShallowWrapper {
                     "children": Array [
                       Array [
                         <td>
-                          Sat Aug 18 2018
+                          Sun Aug 19 2018
 </td>,
                         <td>
                           <img
@@ -1635,10 +1635,10 @@ ShallowWrapper {
                       "key": "00",
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Sat Aug 18 2018",
+                        "children": "Sun Aug 19 2018",
                       },
                       "ref": null,
-                      "rendered": "Sat Aug 18 2018",
+                      "rendered": "Sun Aug 19 2018",
                       "type": "td",
                     },
                     Object {
@@ -1744,7 +1744,7 @@ ShallowWrapper {
                     "children": Array [
                       Array [
                         <td>
-                          Sat Aug 18 2018
+                          Sun Aug 19 2018
 </td>,
                         <td>
                           <img
@@ -1782,10 +1782,10 @@ ShallowWrapper {
                       "key": "10",
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Sat Aug 18 2018",
+                        "children": "Sun Aug 19 2018",
                       },
                       "ref": null,
-                      "rendered": "Sat Aug 18 2018",
+                      "rendered": "Sun Aug 19 2018",
                       "type": "td",
                     },
                     Object {
@@ -1891,7 +1891,7 @@ ShallowWrapper {
                     "children": Array [
                       Array [
                         <td>
-                          Sat Aug 18 2018
+                          Sun Aug 19 2018
 </td>,
                         <td>
                           <img
@@ -1929,10 +1929,10 @@ ShallowWrapper {
                       "key": "20",
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Sat Aug 18 2018",
+                        "children": "Sun Aug 19 2018",
                       },
                       "ref": null,
-                      "rendered": "Sat Aug 18 2018",
+                      "rendered": "Sun Aug 19 2018",
                       "type": "td",
                     },
                     Object {

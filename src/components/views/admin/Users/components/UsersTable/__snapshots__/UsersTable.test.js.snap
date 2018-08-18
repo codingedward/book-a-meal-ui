@@ -9,7 +9,7 @@ ShallowWrapper {
         Object {
             "users": Array [
               Object {
-                "created_at": "Sat Aug 18 2018",
+                "created_at": "Sun Aug 19 2018",
                 "email": "mail@test.com",
                 "id": 1,
                 "role": 1,
@@ -69,7 +69,7 @@ ShallowWrapper {
                               ],
                               "rows": Array [
                                 Object {
-                                  "created_at": "Sat Aug 18 2018",
+                                  "created_at": "Sun Aug 19 2018",
                                   "email": "mail@test.com",
                                   "id": 1,
                                   "role": 1,
@@ -85,7 +85,7 @@ ShallowWrapper {
                     Object {
                               "users": Array [
                                 Object {
-                                  "created_at": "Sat Aug 18 2018",
+                                  "created_at": "Sun Aug 19 2018",
                                   "email": "mail@test.com",
                                   "id": 1,
                                   "role": 1,
@@ -152,7 +152,7 @@ ShallowWrapper {
             ],
             "rows": Array [
               Object {
-                "created_at": "Sat Aug 18 2018",
+                "created_at": "Sun Aug 19 2018",
                 "email": "mail@test.com",
                 "id": 1,
                 "role": 1,
@@ -174,7 +174,7 @@ ShallowWrapper {
           "data": Object {
             "users": Array [
               Object {
-                "created_at": "Sat Aug 18 2018",
+                "created_at": "Sun Aug 19 2018",
                 "email": "mail@test.com",
                 "id": 1,
                 "role": 1,
@@ -245,7 +245,7 @@ ShallowWrapper {
                                     ],
                                     "rows": Array [
                                       Object {
-                                        "created_at": "Sat Aug 18 2018",
+                                        "created_at": "Sun Aug 19 2018",
                                         "email": "mail@test.com",
                                         "id": 1,
                                         "role": 1,
@@ -261,7 +261,7 @@ ShallowWrapper {
                         Object {
                                     "users": Array [
                                       Object {
-                                        "created_at": "Sat Aug 18 2018",
+                                        "created_at": "Sun Aug 19 2018",
                                         "email": "mail@test.com",
                                         "id": 1,
                                         "role": 1,
@@ -328,7 +328,7 @@ ShallowWrapper {
               ],
               "rows": Array [
                 Object {
-                  "created_at": "Sat Aug 18 2018",
+                  "created_at": "Sun Aug 19 2018",
                   "email": "mail@test.com",
                   "id": 1,
                   "role": 1,
@@ -350,7 +350,7 @@ ShallowWrapper {
             "data": Object {
               "users": Array [
                 Object {
-                  "created_at": "Sat Aug 18 2018",
+                  "created_at": "Sun Aug 19 2018",
                   "email": "mail@test.com",
                   "id": 1,
                   "role": 1,
