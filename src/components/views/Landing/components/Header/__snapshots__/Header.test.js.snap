@@ -42,10 +42,11 @@ ShallowWrapper {
                                         strings={
                                                 Array [
                                                         "Welcome to yummy stuff!",
+                                                        "Welcome to where food lives!",
                                                         "Welcome to book a meal.",
                                                       ]
                                         }
-                                        typeSpeed={40}
+                                        typeSpeed={50}
                                 />
                         </h3>
                 </div>
@@ -108,10 +109,11 @@ ShallowWrapper {
                                                 strings={
                                                             Array [
                                                                         "Welcome to yummy stuff!",
+                                                                        "Welcome to where food lives!",
                                                                         "Welcome to book a meal.",
                                                                       ]
                                                 }
-                                                typeSpeed={40}
+                                                typeSpeed={50}
                                     />
                         </h3>
             </div>
@@ -171,10 +173,11 @@ ShallowWrapper {
                                           strings={
                                                         Array [
                                                                       "Welcome to yummy stuff!",
+                                                                      "Welcome to where food lives!",
                                                                       "Welcome to book a meal.",
                                                                     ]
                                           }
-                                          typeSpeed={40}
+                                          typeSpeed={50}
                             />
               </h3>
 </div>,
@@ -203,10 +206,11 @@ ShallowWrapper {
                                     strings={
                                                       Array [
                                                                         "Welcome to yummy stuff!",
+                                                                        "Welcome to where food lives!",
                                                                         "Welcome to book a meal.",
                                                                       ]
                                     }
-                                    typeSpeed={40}
+                                    typeSpeed={50}
                   />
 </h3>,
               ],
@@ -238,10 +242,11 @@ ShallowWrapper {
                     strings={
                                         Array [
                                                             "Welcome to yummy stuff!",
+                                                            "Welcome to where food lives!",
                                                             "Welcome to book a meal.",
                                                           ]
                     }
-                    typeSpeed={40}
+                    typeSpeed={50}
 />,
                   "className": "animated fadeInDown text-flav mb-md-4",
                   "id": "slogan",
@@ -257,9 +262,10 @@ ShallowWrapper {
                     "startDelay": 200,
                     "strings": Array [
                       "Welcome to yummy stuff!",
+                      "Welcome to where food lives!",
                       "Welcome to book a meal.",
                     ],
-                    "typeSpeed": 40,
+                    "typeSpeed": 50,
                   },
                   "ref": null,
                   "rendered": null,
@@ -406,10 +412,11 @@ ShallowWrapper {
                                                   strings={
                                                             Array [
                                                                       "Welcome to yummy stuff!",
+                                                                      "Welcome to where food lives!",
                                                                       "Welcome to book a meal.",
                                                                     ]
                                                   }
-                                                  typeSpeed={40}
+                                                  typeSpeed={50}
                                         />
                               </h3>
                     </div>
@@ -472,10 +479,11 @@ ShallowWrapper {
                                                         strings={
                                                                       Array [
                                                                                     "Welcome to yummy stuff!",
+                                                                                    "Welcome to where food lives!",
                                                                                     "Welcome to book a meal.",
                                                                                   ]
                                                         }
-                                                        typeSpeed={40}
+                                                        typeSpeed={50}
                                           />
                             </h3>
               </div>
@@ -535,10 +543,11 @@ ShallowWrapper {
                                                 strings={
                                                                 Array [
                                                                                 "Welcome to yummy stuff!",
+                                                                                "Welcome to where food lives!",
                                                                                 "Welcome to book a meal.",
                                                                               ]
                                                 }
-                                                typeSpeed={40}
+                                                typeSpeed={50}
                                 />
                 </h3>
 </div>,
@@ -567,10 +576,11 @@ ShallowWrapper {
                                         strings={
                                                             Array [
                                                                                 "Welcome to yummy stuff!",
+                                                                                "Welcome to where food lives!",
                                                                                 "Welcome to book a meal.",
                                                                               ]
                                         }
-                                        typeSpeed={40}
+                                        typeSpeed={50}
                     />
 </h3>,
                 ],
@@ -602,10 +612,11 @@ ShallowWrapper {
                       strings={
                                             Array [
                                                                   "Welcome to yummy stuff!",
+                                                                  "Welcome to where food lives!",
                                                                   "Welcome to book a meal.",
                                                                 ]
                       }
-                      typeSpeed={40}
+                      typeSpeed={50}
 />,
                     "className": "animated fadeInDown text-flav mb-md-4",
                     "id": "slogan",
@@ -621,9 +632,10 @@ ShallowWrapper {
                       "startDelay": 200,
                       "strings": Array [
                         "Welcome to yummy stuff!",
+                        "Welcome to where food lives!",
                         "Welcome to book a meal.",
                       ],
-                      "typeSpeed": 40,
+                      "typeSpeed": 50,
                     },
                     "ref": null,
                     "rendered": null,
