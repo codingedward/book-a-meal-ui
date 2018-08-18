@@ -51,7 +51,7 @@ const data = {
 
         },
         {
-            date: new Date().toDateString(),
+            date: '10-08-2018',
             image: 'https://placehold.it/10x10',
             text: 'test',
             role: 1000,

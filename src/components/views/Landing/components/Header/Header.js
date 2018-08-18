@@ -6,15 +6,15 @@ import './styles.css';
 class Header extends React.Component {
 
     render() {
-        const first = [
+        const strings = [
             "Welcome to yummy stuff!",
             "Welcome to where food lives!",
+            "Welcome to book a meal." 
         ];
-        const randIndex = Math.trunc(Math.random() * first.length);
         const settings = {
-            strings: [first[randIndex], "Welcome to book a meal." ],
+            strings,
             startDelay: 200,
-            typeSpeed: 40,
+            typeSpeed: 50,
             backSpeed: 40,
             showCursor: false,
         }

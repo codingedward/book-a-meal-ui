@@ -9,7 +9,7 @@ const props = {
             id: 1,
             email: 'mail@test.com',
             username: 'edward',
-            created_at: new Date().toDateString(),
+            created_at: '10-08-2018',
             role: 1,
         }]
     },
