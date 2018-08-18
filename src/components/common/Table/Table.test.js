@@ -35,14 +35,14 @@ const data = {
         },
     ],
     rows: [{
-            date: new Date().toDateString(),
+            date: '10-08-2018',
             image: 'https://placehold.it/10x10',
             text: 'test',
             role: Role.ADMIN,
             toggle: ToggleState.ACCEPTED,
         },
         {
-            date: new Date().toDateString(),
+            date: '10-08-2018',
             image: 'https://placehold.it/10x10',
             text: 'test',
             toggle: 'test',
