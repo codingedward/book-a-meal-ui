@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paginator from 'src/components/common/Paginator';
 import { paginationInfo } from 'src/utils';
 
@@ -28,6 +29,10 @@ class MealsTable extends React.Component {
             </div>
         );
     }
+}
+
+MealsTable.propTypes = {
+    data: PropTypes.object.isRequired,
 }
 
 export default MealsTable;

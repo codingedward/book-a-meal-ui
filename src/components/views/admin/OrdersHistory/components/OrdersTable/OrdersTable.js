@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paginator from 'src/components/common/Paginator';
 import { flattenObject, paginationInfo } from 'src/utils';
 
@@ -8,13 +9,8 @@ import { EntryType } from 'src/constants';
 class OrdersTable extends React.Component {
 
     render() {
-        const { orders  } = this.props.data;
-        let rows = (orders) ? orders : [];
-
-        rows = rows.map(row => {
-            return flattenObject(row);
-        });
-
+        const { orders  = [] } = this.props.data;
+        let rows = orders.map((row) => flattenObject(row));
         const tableData = {
             columns: [
                 { key: 'id', title: 'ID', type: EntryType.NUMBER },
@@ -37,6 +33,11 @@ class OrdersTable extends React.Component {
             </div>
         );
     }
+}
+
+OrdersTable.propTypes = {
+    data: PropTypes.object.isRequired,
+    onToggle: PropTypes.func.isRequired,
 }
 
 export default OrdersTable;

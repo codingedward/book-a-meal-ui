@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button, Input } from 'reactstrap';
@@ -104,6 +105,13 @@ class OrderModal extends React.Component {
             />
         );
     }
+}
+
+OrderModal.propTypes = {
+    setLoading: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired,
+    item: PropTypes.object,
+    menu: PropTypes.object,
 }
 
 export default OrderModal;

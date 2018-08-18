@@ -4,7 +4,18 @@ exports[`<Paginator /> renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Paginator />,
+  Symbol(enzyme.__unrendered__): <Paginator
+    onNext={[Function]}
+    onPrev={[Function]}
+    pageInfo={
+        Object {
+            "hasNext": true,
+            "hasPrev": true,
+            "nextPage": 2,
+            "prevPage": 1,
+          }
+    }
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -28,18 +39,18 @@ ShallowWrapper {
           className="pt-1"
 >
           <Button
-                    className="btn btn-secondary float-right"
+                    className="btn btn-secondary float-right btn-next"
                     color="secondary"
-                    disabled={true}
+                    disabled={false}
                     onClick={[Function]}
                     tag="button"
           >
                     Next 
           </Button>
           <Button
-                    className="btn btn-secondary"
+                    className="btn btn-secondary btn-prev"
                     color="secondary"
-                    disabled={true}
+                    disabled={false}
                     onClick={[Function]}
                     tag="button"
           >
@@ -79,18 +90,18 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Button
-              className="btn btn-secondary float-right"
+              className="btn btn-secondary float-right btn-next"
               color="secondary"
-              disabled={true}
+              disabled={false}
               onClick={[Function]}
               tag="button"
 >
               Next 
 </Button>,
             <Button
-              className="btn btn-secondary"
+              className="btn btn-secondary btn-prev"
               color="secondary"
-              disabled={true}
+              disabled={false}
               onClick={[Function]}
               tag="button"
 >
@@ -107,9 +118,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": "Next ",
-              "className": "btn btn-secondary float-right",
+              "className": "btn btn-secondary float-right btn-next",
               "color": "secondary",
-              "disabled": true,
+              "disabled": false,
               "onClick": [Function],
               "tag": "button",
             },
@@ -123,9 +134,9 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": " Previous",
-              "className": "btn btn-secondary",
+              "className": "btn btn-secondary btn-prev",
               "color": "secondary",
-              "disabled": true,
+              "disabled": false,
               "onClick": [Function],
               "tag": "button",
             },
@@ -156,18 +167,18 @@ ShallowWrapper {
             className="pt-1"
 >
             <Button
-                        className="btn btn-secondary float-right"
+                        className="btn btn-secondary float-right btn-next"
                         color="secondary"
-                        disabled={true}
+                        disabled={false}
                         onClick={[Function]}
                         tag="button"
             >
                         Next 
             </Button>
             <Button
-                        className="btn btn-secondary"
+                        className="btn btn-secondary btn-prev"
                         color="secondary"
-                        disabled={true}
+                        disabled={false}
                         onClick={[Function]}
                         tag="button"
             >
@@ -207,18 +218,18 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Button
-                className="btn btn-secondary float-right"
+                className="btn btn-secondary float-right btn-next"
                 color="secondary"
-                disabled={true}
+                disabled={false}
                 onClick={[Function]}
                 tag="button"
 >
                 Next 
 </Button>,
               <Button
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-prev"
                 color="secondary"
-                disabled={true}
+                disabled={false}
                 onClick={[Function]}
                 tag="button"
 >
@@ -235,9 +246,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": "Next ",
-                "className": "btn btn-secondary float-right",
+                "className": "btn btn-secondary float-right btn-next",
                 "color": "secondary",
-                "disabled": true,
+                "disabled": false,
                 "onClick": [Function],
                 "tag": "button",
               },
@@ -251,9 +262,9 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": " Previous",
-                "className": "btn btn-secondary",
+                "className": "btn btn-secondary btn-prev",
                 "color": "secondary",
-                "disabled": true,
+                "disabled": false,
                 "onClick": [Function],
                 "tag": "button",
               },

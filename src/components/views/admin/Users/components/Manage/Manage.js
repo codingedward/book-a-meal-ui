@@ -4,7 +4,6 @@ import Modal from 'src/components/common/Modal';
 import { Alert, Button } from 'reactstrap';
 import { Role } from 'src/constants';
 import { authenticated, singleError } from 'src/utils';
-import './styles.css';
 
 
 class ManageModal extends React.Component {

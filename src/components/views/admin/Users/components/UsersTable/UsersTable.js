@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paginator from 'src/components/common/Paginator';
 import { flattenObject, paginationInfo } from 'src/utils';
 
@@ -9,10 +10,7 @@ class UsersTable extends React.Component {
 
     render() {
         const { users = []  } = this.props.data;
-        let rows = users.map(row => {
-            return flattenObject(row);
-        });
-
+        let rows = users.map(row => flattenObject(row));
         const tableData = {
             columns: [
                 { key: 'id', title: 'ID', type: EntryType.NUMBER },
@@ -32,6 +30,10 @@ class UsersTable extends React.Component {
             </div>
         );
     }
+}
+
+UsersTable.propTypes = {
+    data: PropTypes.object
 }
 
 export default UsersTable;

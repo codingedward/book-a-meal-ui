@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import ImageInput from 'src/components/common/ImageInput';
 import { Alert, Input, Button } from 'reactstrap';
 import { singleError } from 'src/utils';
 import { IMAGES_UPLOAD_URL, IMAGE_UPLOAD_PRESET } from 'src/constants';
-import './styles.css';
 
 
 class EditModal extends React.Component {
@@ -90,6 +90,7 @@ class EditModal extends React.Component {
 
             // delete auth headers..
             delete axios.defaults.headers.common.Authorization;
+            delete axios.defaults.headers.common['Access-Control-Allow-Origin'];
             // image upload...
             axios.post(IMAGES_UPLOAD_URL, imageUpload).then(({ data }) => {
                 axios.auth();
@@ -164,6 +165,14 @@ class EditModal extends React.Component {
             />
         );
     }
+}
+
+EditModal.propTypes = {
+    meal: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired,
+    setLoading: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
 }
 
 export default EditModal;

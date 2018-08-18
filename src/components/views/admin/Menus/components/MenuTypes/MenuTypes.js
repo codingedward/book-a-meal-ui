@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'src/axios';
+import PropTypes from 'prop-types';
 import { Alert, Button, Input } from 'reactstrap';
 import Modal from 'src/components/common/Modal';
 import DeleteModal from './Delete';
@@ -10,6 +11,8 @@ class MenuTypes extends React.Component {
 
     state = {
         newName: '',
+        toEdit: {},
+        toDelete: {},
         data: {
             menus: []
         },
@@ -21,19 +24,18 @@ class MenuTypes extends React.Component {
 
     fetchMenuTypes = () => {
         this.props.setLoading(true);
-        const _this = this;
         axios.get('/menus?fields=name,id&per_page=1000').then(({ data }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 data,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         })
     }
 
@@ -67,7 +69,6 @@ class MenuTypes extends React.Component {
         });
     }
 
-
     toggleDelete = () => {
         this.setState({
             ...this.state,
@@ -84,21 +85,20 @@ class MenuTypes extends React.Component {
 
     onCreate = () => {
         this.props.setLoading(true);
-        const _this = this;
         axios.post('/menus', { name: this.state.newName }).then(({ data }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: null,
                 newName: ''
             });
-            _this.props.setLoading(false);
-            _this.fetchMenuTypes();
+            this.props.setLoading(false);
+            this.fetchMenuTypes();
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         })
     }
 
@@ -188,5 +188,12 @@ class MenuTypes extends React.Component {
         );
     }
 }
+
+MenuTypes.propTypes = {
+    setLoading: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    toggle: PropTypes.func.isRequired,
+}
+
 
 export default MenuTypes;

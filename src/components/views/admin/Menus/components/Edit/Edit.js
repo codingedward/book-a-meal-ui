@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button, Input } from 'reactstrap';
@@ -198,6 +199,13 @@ class EditModal extends React.Component {
             />
         );
     }
+}
+
+EditModal.propTypes = {
+    menuItem: PropTypes.object,
+    toggle: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    setLoading: PropTypes.func.isRequired,
 }
 
 export default EditModal;

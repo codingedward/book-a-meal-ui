@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './styles.css';
 
 class ImageInput extends React.Component {
-
     constructor(props) {
         super(props);
         let prefillSelected = false;
@@ -92,7 +92,6 @@ class ImageInput extends React.Component {
             fileType: files[0].type,
             imageSelected: true,
         });
-
         this.loadImage(files[0]);
     }
 
@@ -196,6 +195,13 @@ class ImageInput extends React.Component {
             </div>
         );
     }
+}
+
+ImageInput.propTypes = {
+    prefill: PropTypes.string,
+    onImageRemoved: PropTypes.func,
+    onPrefillRemoved: PropTypes.func,
+    onImageAdded: PropTypes.func,
 }
 
 export default ImageInput;

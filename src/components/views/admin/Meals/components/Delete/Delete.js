@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button } from 'reactstrap';
 import { singleError } from 'src/utils';
-import './styles.css';
 
 
 class DeleteModal extends React.Component {
@@ -18,15 +18,14 @@ class DeleteModal extends React.Component {
     }
 
     onDelete = () => {
-        const _this = this;
         axios.delete(`/meals/${this.props.meal.id}`).then(() => {
-            _this.props.onChange();
-            _this.props.toggle();
+            this.props.onChange();
+            this.props.toggle();
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
-            })
+            });
         })
     }
 
@@ -62,6 +61,13 @@ class DeleteModal extends React.Component {
             />
         );
     }
+}
+
+DeleteModal.propTypes = {
+    meal: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
 }
 
 export default DeleteModal;

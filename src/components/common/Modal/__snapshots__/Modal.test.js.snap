@@ -4,7 +4,9 @@ exports[`<Modal /> renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Modal />,
+  Symbol(enzyme.__unrendered__): <Modal
+    toggle={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -28,7 +30,7 @@ ShallowWrapper {
         <ModalHeader
           closeAriaLabel="Close"
           tag="h5"
-          toggle={undefined}
+          toggle={[Function]}
           wrapTag="div"
 >
           <button
@@ -60,7 +62,7 @@ ShallowWrapper {
       "onOpened": [Function],
       "role": "dialog",
       "size": "md",
-      "toggle": undefined,
+      "toggle": [Function],
       "zIndex": 1050,
     },
     "ref": null,
@@ -86,7 +88,7 @@ ShallowWrapper {
           ],
           "closeAriaLabel": "Close",
           "tag": "h5",
-          "toggle": undefined,
+          "toggle": [Function],
           "wrapTag": "div",
         },
         "ref": null,
@@ -168,7 +170,7 @@ ShallowWrapper {
           <ModalHeader
             closeAriaLabel="Close"
             tag="h5"
-            toggle={undefined}
+            toggle={[Function]}
             wrapTag="div"
 >
             <button
@@ -200,7 +202,7 @@ ShallowWrapper {
         "onOpened": [Function],
         "role": "dialog",
         "size": "md",
-        "toggle": undefined,
+        "toggle": [Function],
         "zIndex": 1050,
       },
       "ref": null,
@@ -226,7 +228,7 @@ ShallowWrapper {
             ],
             "closeAriaLabel": "Close",
             "tag": "h5",
-            "toggle": undefined,
+            "toggle": [Function],
             "wrapTag": "div",
           },
           "ref": null,

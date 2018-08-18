@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loading from 'react-loading-bar'
 import 'react-loading-bar/dist/index.css'
 import './styles.css';
@@ -18,6 +19,11 @@ const AuthPage = ({ styles = {}, children,  loading }) => (
         </section>
     </main>
 );
+
+AuthPage.propTypes = {
+    children: PropTypes.element,
+    loading: PropTypes.bool,
+}
 
 export default AuthPage;
 

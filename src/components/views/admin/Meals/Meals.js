@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Alert } from 'reactstrap';
 import Filter from 'src/components/common/Filter';
 import Content from 'src/components/common/Content';
@@ -18,6 +19,8 @@ class Meals extends React.Component {
             page: 1,
             data: {},
             search: '',
+            toEdit: {},
+            toDelete: {},
             perPage: 5,
             editIsOpen: false,
             createIsOpen: false,
@@ -180,5 +183,9 @@ class Meals extends React.Component {
         );
     }
 }
+
+Meals.propTypes = {
+    setLoading: PropTypes.func.isRequired,
+};
 
 export default Meals;

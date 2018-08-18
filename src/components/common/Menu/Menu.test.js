@@ -4,8 +4,7 @@ import 'src/utils/bootTests'; // order matters!
 import Menu from './Menu';
 import Adapter from 'enzyme-adapter-react-16';
 
-const items = [
-    {
+const items = [{
         id: 0,
         name: 'name',
         cost: 50,
@@ -21,7 +20,7 @@ const items = [
 
 describe('<Menu />', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Menu items={items}/>);
+        const wrapper = shallow(<Menu items={items} onOrder={() => {}} setLoading={() => {}}/>);
         expect(wrapper).toMatchSnapshot();
     });
 });

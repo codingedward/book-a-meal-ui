@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button, Input } from 'reactstrap';
@@ -174,6 +175,13 @@ class CreateModal extends React.Component {
             />
         );
     }
+}
+
+CreateModal.propTypes = {
+    setLoading: PropTypes.func.isRequired,
+    toggle: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool,
 }
 
 export default CreateModal;

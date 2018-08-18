@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import menuImg from './assets/menu.png';
 
 const Content = ({ children, contentTop, contentFilter, toggleMenu }) => (
@@ -20,5 +21,12 @@ const Content = ({ children, contentTop, contentFilter, toggleMenu }) => (
         </div>
     </div>
 );
+
+Content.propTypes = {
+    children: PropTypes.array,
+    contentTop: PropTypes.element,
+    contentFilter: PropTypes.element,
+    toggleMenu: PropTypes.func.isRequired,
+};
 
 export default Content;

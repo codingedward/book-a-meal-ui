@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Paginator from 'src/components/common/Paginator';
 import { flattenObject, paginationInfo } from 'src/utils';
 
@@ -8,13 +9,8 @@ import { EntryType } from 'src/constants';
 class MenuItemsTable extends React.Component {
 
     render() {
-        const { menu_items  } = this.props.data;
-        let rows = (menu_items) ? menu_items : [];
-
-        rows = rows.map(row => {
-            return flattenObject(row);
-        });
-
+        const { menu_items = [] } = this.props.data;
+        let rows = menu_items.map((row) => flattenObject(row));
         const tableData = {
             columns: [
                 { key: 'id', title: 'ID', type: EntryType.NUMBER },
@@ -35,6 +31,10 @@ class MenuItemsTable extends React.Component {
             </div>
         );
     }
+}
+
+MenuItemsTable.propTypes = {
+    data: PropTypes.object.isRequired,
 }
 
 export default MenuItemsTable;

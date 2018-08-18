@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MenuItem from './components/MenuItem';
-import './styles.css';
 
 const Menu = ({ items, menu = {}, onOrder }) => (
     <div>
@@ -10,5 +10,11 @@ const Menu = ({ items, menu = {}, onOrder }) => (
         </div>
     </div>
 );
+
+Menu.propTypes = {
+    items: PropTypes.array,
+    menu: PropTypes.object,
+    onOrder: PropTypes.func.isRequired
+}
 
 export default Menu;

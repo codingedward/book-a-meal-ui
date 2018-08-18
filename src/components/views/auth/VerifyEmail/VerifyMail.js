@@ -5,7 +5,6 @@ import { Redirect, Link } from 'react-router-dom';
 import AuthPage from 'src/components/common/AuthPage';
 import { Role } from 'src/constants';
 import { authenticated, singleError } from 'src/utils';
-import './styles.css';
 
 class VerifyMail extends React.Component {
 

@@ -3,10 +3,8 @@ import { Redirect, Link } from 'react-router-dom';
 import AuthPage from 'src/components/common/AuthPage';
 import { Role } from 'src/constants';
 import { authenticated } from 'src/utils';
-import './styles.css';
 
 class AccountCreated extends React.Component {
-
 
     render() {
         const user = authenticated();

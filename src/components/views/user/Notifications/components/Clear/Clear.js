@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button } from 'reactstrap';
@@ -80,6 +81,12 @@ class ClearModal extends React.Component {
             />
         );
     }
+}
+
+ClearModal.propTypes = {
+    toggle: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool,
+    setLoading: PropTypes.func.isRequired,
 }
 
 export default ClearModal;

@@ -6,7 +6,6 @@ import { Role } from 'src/constants';
 
 import AuthPage from 'src/components/common/AuthPage';
 import { singleError, authenticated } from 'src/utils';
-import './styles.css';
 
 class PasswordReset extends React.Component {
 

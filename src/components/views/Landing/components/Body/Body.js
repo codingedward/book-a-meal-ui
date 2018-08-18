@@ -1,9 +1,7 @@
 import React from 'react';
 import Ionicon from 'react-ionicons';
 
-
 class Body extends React.Component {
-
 
     render() {
         return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Alert } from 'reactstrap';
 import Filter from 'src/components/common/Filter';
 import Content from 'src/components/common/Content';
@@ -111,5 +112,9 @@ class OrdersHistory extends React.Component {
         );
     }
 }
+
+OrdersHistory.propTypes = {
+    setLoading: PropTypes.func.isRequired,
+};
 
 export default OrdersHistory;

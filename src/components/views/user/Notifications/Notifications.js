@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'src/axios';
+import PropTypes from 'prop-types';
 import { Alert } from 'reactstrap';
 import Filter from 'src/components/common/Filter';
 import Content from 'src/components/common/Content';
@@ -148,6 +149,10 @@ class Notifications extends React.Component {
             </Content>
         );
     }
+}
+
+Notifications.propTypes = {
+    setLoading: PropTypes.func.isRequired,
 }
 
 export default Notifications;

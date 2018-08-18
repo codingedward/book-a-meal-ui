@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import { Alert, Button, Input } from 'reactstrap';
 import Modal from 'src/components/common/Modal';
@@ -10,17 +11,16 @@ class Edit extends React.Component {
 
     onEdit = () => {
         this.props.setLoading(true);
-        const _this = this;
         axios.put(`/menus/${this.props.menu.id}`, {name: this.state.name}).then(() => {
-            _this.props.setLoading(false);
-            _this.props.toggle();
-            _this.props.onChange();
+            this.props.setLoading(false);
+            this.props.toggle();
+            this.props.onChange();
         }).catch(({ response }) => {
-            _this.setState({
-                ..._this.state,
+            this.setState({
+                ...this.state,
                 error: response,
             });
-            _this.props.setLoading(false);
+            this.props.setLoading(false);
         });
     }
 
@@ -73,6 +73,13 @@ class Edit extends React.Component {
             />
         );
     }
+}
+
+Edit.propTypes = {
+    toggle: PropTypes.func.isRequired,
+    setLoading: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    menu: PropTypes.object.isRequired
 }
 
 export default Edit;

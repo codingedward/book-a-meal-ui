@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 describe('<Content />', () => {
     it('renders correctly', () => {
-        const wrapper = shallow(<Content/>);
+        const wrapper = shallow(<Content toggleMenu={() => {}}/>);
         expect(wrapper).toMatchSnapshot();
     });
 });

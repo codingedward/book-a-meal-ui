@@ -1,13 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button } from 'reactstrap';
 import { ToggleState } from 'src/constants';
 import { singleError } from 'src/utils';
-import './styles.css';
 
 
-class DeleteModal extends React.Component {
+class Manage extends React.Component {
 
     state = {}
 
@@ -86,4 +86,11 @@ class DeleteModal extends React.Component {
     }
 }
 
-export default DeleteModal;
+Manage.propTypes = {
+    setLoading: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
+    order: PropTypes.object.isRequired
+}
+
+export default Manage;

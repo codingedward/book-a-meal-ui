@@ -10,5 +10,10 @@ describe('<Login />', () => {
         expect(wrapper.find('.btn').length).toBe(1);
         expect(wrapper).toMatchSnapshot();
     });
+    it('records changes', () => {
+        const wrapper = shallow(<Login />);
+        wrapper.instance().onChange({target:{name: 'name', value: 'value'}});
+        expect(wrapper.state('name')).toBe('value');
+    });
 });
 

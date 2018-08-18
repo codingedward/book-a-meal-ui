@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Content from 'src/components/common/Content';
 import MealMenu from 'src/components/common/Menu';
@@ -120,6 +121,10 @@ class Menu extends React.Component {
             </Content>
         );
     }
+}
+
+Menu.propTypes = {
+    setLoading: PropTypes.func.isRequired
 }
 
 export default Menu;

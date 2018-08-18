@@ -5,7 +5,6 @@ import axios from 'src/axios';
 
 import AuthPage from '../../../common/AuthPage';
 import { singleError } from '../../../../utils';
-import './styles.css';
 
 class Register extends React.Component {
 

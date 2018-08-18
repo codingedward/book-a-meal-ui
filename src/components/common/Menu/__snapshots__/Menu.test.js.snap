@@ -21,6 +21,8 @@ ShallowWrapper {
             },
           ]
     }
+    onOrder={[Function]}
+    setLoading={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -51,7 +53,7 @@ ShallowWrapper {
                                       }
                     }
                     menu={Object {}}
-                    onOrder={undefined}
+                    onOrder={[Function]}
           />
           <MenuItem
                     item={
@@ -63,7 +65,7 @@ ShallowWrapper {
                                       }
                     }
                     menu={Object {}}
-                    onOrder={undefined}
+                    onOrder={[Function]}
           />
 </div>,
       ],
@@ -98,7 +100,7 @@ ShallowWrapper {
                                         }
               }
               menu={Object {}}
-              onOrder={undefined}
+              onOrder={[Function]}
 />,
             <MenuItem
               item={
@@ -110,7 +112,7 @@ ShallowWrapper {
                                         }
               }
               menu={Object {}}
-              onOrder={undefined}
+              onOrder={[Function]}
 />,
           ],
           "className": "row",
@@ -129,7 +131,7 @@ ShallowWrapper {
                 "name": "name",
               },
               "menu": Object {},
-              "onOrder": undefined,
+              "onOrder": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -147,7 +149,7 @@ ShallowWrapper {
                 "name": "name2",
               },
               "menu": Object {},
-              "onOrder": undefined,
+              "onOrder": [Function],
             },
             "ref": null,
             "rendered": null,
@@ -182,7 +184,7 @@ ShallowWrapper {
                                               }
                         }
                         menu={Object {}}
-                        onOrder={undefined}
+                        onOrder={[Function]}
             />
             <MenuItem
                         item={
@@ -194,7 +196,7 @@ ShallowWrapper {
                                               }
                         }
                         menu={Object {}}
-                        onOrder={undefined}
+                        onOrder={[Function]}
             />
 </div>,
         ],
@@ -229,7 +231,7 @@ ShallowWrapper {
                                               }
                 }
                 menu={Object {}}
-                onOrder={undefined}
+                onOrder={[Function]}
 />,
               <MenuItem
                 item={
@@ -241,7 +243,7 @@ ShallowWrapper {
                                               }
                 }
                 menu={Object {}}
-                onOrder={undefined}
+                onOrder={[Function]}
 />,
             ],
             "className": "row",
@@ -260,7 +262,7 @@ ShallowWrapper {
                   "name": "name",
                 },
                 "menu": Object {},
-                "onOrder": undefined,
+                "onOrder": [Function],
               },
               "ref": null,
               "rendered": null,
@@ -278,7 +280,7 @@ ShallowWrapper {
                   "name": "name2",
                 },
                 "menu": Object {},
-                "onOrder": undefined,
+                "onOrder": [Function],
               },
               "ref": null,
               "rendered": null,

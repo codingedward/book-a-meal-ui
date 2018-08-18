@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { 
     Modal as BModal, 
     ModalHeader, 
@@ -23,5 +24,15 @@ const Modal = ({ size="md", onOpened, title, body, footer, isOpen, toggle }) => 
         </ModalFooter>
     </BModal>
 );
+
+Modal.propTypes = {
+    isOpen: PropTypes.bool,
+    size: PropTypes.string,
+    body: PropTypes.element,
+    onOpened: PropTypes.func,
+    title: PropTypes.string,
+    footer: PropTypes.element,
+    toggle: PropTypes.func.isRequired,
+}
 
 export default Modal;

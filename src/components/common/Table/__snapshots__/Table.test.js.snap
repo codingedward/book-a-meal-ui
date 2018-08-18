@@ -9,14 +9,52 @@ ShallowWrapper {
         Object {
             "columns": Array [
               Object {
-                "key": "name",
-                "title": "Name",
+                "key": "date",
+                "title": "",
+                "type": 3,
+              },
+              Object {
+                "key": "image",
+                "title": "",
+                "type": 2,
+              },
+              Object {
+                "key": "text",
+                "title": "",
                 "type": 0,
+              },
+              Object {
+                "key": "role",
+                "title": "",
+                "type": 5,
+              },
+              Object {
+                "key": "toggle",
+                "title": "",
+                "type": 4,
               },
             ],
             "rows": Array [
               Object {
-                "name": "John Doe",
+                "date": "Sat Aug 18 2018",
+                "image": "https://placehold.it/10x10",
+                "role": 1,
+                "text": "test",
+                "toggle": 2,
+              },
+              Object {
+                "date": "Sat Aug 18 2018",
+                "image": "https://placehold.it/10x10",
+                "role": 0,
+                "text": "test",
+                "toggle": 1,
+              },
+              Object {
+                "date": "Sat Aug 18 2018",
+                "image": "https://placehold.it/10x10",
+                "role": 1000,
+                "text": "test",
+                "toggle": 1000,
               },
             ],
           }
@@ -42,7 +80,27 @@ ShallowWrapper {
                     <tr>
                               <th>
                                          
-                                        Name
+                                        
+                                         
+                              </th>
+                              <th>
+                                         
+                                        
+                                         
+                              </th>
+                              <th>
+                                         
+                                        
+                                         
+                              </th>
+                              <th>
+                                         
+                                        
+                                         
+                              </th>
+                              <th>
+                                         
+                                        
                                          
                               </th>
                     </tr>
@@ -50,7 +108,89 @@ ShallowWrapper {
           <tbody>
                     <tr>
                               <td>
-                                        John Doe
+                                        Sat Aug 18 2018
+                              </td>
+                              <td>
+                                        <img
+                                                  src="https://placehold.it/10x10"
+                                        />
+                              </td>
+                              <td>
+                                        test
+                              </td>
+                              <td>
+                                        <button
+                                                  className="admin"
+                                                  onClick={[Function]}
+                                        >
+                                                  Admin
+                                        </button>
+                              </td>
+                              <td>
+                                        <button
+                                                  className="accepted"
+                                                  onClick={[Function]}
+                                        >
+                                                  Accepted
+                                        </button>
+                              </td>
+                    </tr>
+                    <tr>
+                              <td>
+                                        Sat Aug 18 2018
+                              </td>
+                              <td>
+                                        <img
+                                                  src="https://placehold.it/10x10"
+                                        />
+                              </td>
+                              <td>
+                                        test
+                              </td>
+                              <td>
+                                        <button
+                                                  className="super-admin"
+                                                  onClick={[Function]}
+                                        >
+                                                  Super Admin
+                                        </button>
+                              </td>
+                              <td>
+                                        <button
+                                                  className="pending"
+                                                  onClick={[Function]}
+                                        >
+                                                  Pending
+                                        </button>
+                              </td>
+                    </tr>
+                    <tr>
+                              <td>
+                                        Sat Aug 18 2018
+                              </td>
+                              <td>
+                                        <img
+                                                  src="https://placehold.it/10x10"
+                                        />
+                              </td>
+                              <td>
+                                        test
+                              </td>
+                              <td>
+                                        <button
+                                                  className="user"
+                                                  onClick={[Function]}
+                                        >
+                                                  User
+                                        </button>
+                              </td>
+                              <td>
+                                        <button
+                                                  className="rejected"
+                                                  onClick={[Function]}
+                                        >
+                                                  Rejected
+                                        </button>
                               </td>
                     </tr>
           </tbody>
@@ -71,7 +211,27 @@ ShallowWrapper {
               <tr>
                             <th>
                                            
-                                          Name
+                                          
+                                           
+                            </th>
+                            <th>
+                                           
+                                          
+                                           
+                            </th>
+                            <th>
+                                           
+                                          
+                                           
+                            </th>
+                            <th>
+                                           
+                                          
+                                           
+                            </th>
+                            <th>
+                                           
+                                          
                                            
                             </th>
               </tr>
@@ -79,7 +239,89 @@ ShallowWrapper {
             <tbody>
               <tr>
                             <td>
-                                          John Doe
+                                          Sat Aug 18 2018
+                            </td>
+                            <td>
+                                          <img
+                                                        src="https://placehold.it/10x10"
+                                          />
+                            </td>
+                            <td>
+                                          test
+                            </td>
+                            <td>
+                                          <button
+                                                        className="admin"
+                                                        onClick={[Function]}
+                                          >
+                                                        Admin
+                                          </button>
+                            </td>
+                            <td>
+                                          <button
+                                                        className="accepted"
+                                                        onClick={[Function]}
+                                          >
+                                                        Accepted
+                                          </button>
+                            </td>
+              </tr>
+              <tr>
+                            <td>
+                                          Sat Aug 18 2018
+                            </td>
+                            <td>
+                                          <img
+                                                        src="https://placehold.it/10x10"
+                                          />
+                            </td>
+                            <td>
+                                          test
+                            </td>
+                            <td>
+                                          <button
+                                                        className="super-admin"
+                                                        onClick={[Function]}
+                                          >
+                                                        Super Admin
+                                          </button>
+                            </td>
+                            <td>
+                                          <button
+                                                        className="pending"
+                                                        onClick={[Function]}
+                                          >
+                                                        Pending
+                                          </button>
+                            </td>
+              </tr>
+              <tr>
+                            <td>
+                                          Sat Aug 18 2018
+                            </td>
+                            <td>
+                                          <img
+                                                        src="https://placehold.it/10x10"
+                                          />
+                            </td>
+                            <td>
+                                          test
+                            </td>
+                            <td>
+                                          <button
+                                                        className="user"
+                                                        onClick={[Function]}
+                                          >
+                                                        User
+                                          </button>
+                            </td>
+                            <td>
+                                          <button
+                                                        className="rejected"
+                                                        onClick={[Function]}
+                                          >
+                                                        Rejected
+                                          </button>
                             </td>
               </tr>
 </tbody>,
@@ -96,7 +338,27 @@ ShallowWrapper {
               "children": <tr>
                 <th>
                                  
-                                Name
+                                
+                                 
+                </th>
+                <th>
+                                 
+                                
+                                 
+                </th>
+                <th>
+                                 
+                                
+                                 
+                </th>
+                <th>
+                                 
+                                
+                                 
+                </th>
+                <th>
+                                 
+                                
                                  
                 </th>
 </tr>,
@@ -111,7 +373,27 @@ ShallowWrapper {
                   Array [
                     <th>
                        
-                      Name
+                      
+                       
+</th>,
+                    <th>
+                       
+                      
+                       
+</th>,
+                    <th>
+                       
+                      
+                       
+</th>,
+                    <th>
+                       
+                      
+                       
+</th>,
+                    <th>
+                       
+                      
                        
 </th>,
                   ],
@@ -123,19 +405,95 @@ ShallowWrapper {
               "rendered": Array [
                 Object {
                   "instance": null,
-                  "key": "Name",
+                  "key": "",
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
                       " ",
-                      "Name",
+                      "",
                       " ",
                     ],
                   },
                   "ref": null,
                   "rendered": Array [
                     " ",
-                    "Name",
+                    "",
+                    " ",
+                  ],
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": "",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": "",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": "",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "",
+                    " ",
+                  ],
+                  "type": "th",
+                },
+                Object {
+                  "instance": null,
+                  "key": "",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " ",
+                    "",
                     " ",
                   ],
                   "type": "th",
@@ -155,7 +513,89 @@ ShallowWrapper {
               "children": Array [
                 <tr>
                   <td>
-                                    John Doe
+                                    Sat Aug 18 2018
+                  </td>
+                  <td>
+                                    <img
+                                                      src="https://placehold.it/10x10"
+                                    />
+                  </td>
+                  <td>
+                                    test
+                  </td>
+                  <td>
+                                    <button
+                                                      className="admin"
+                                                      onClick={[Function]}
+                                    >
+                                                      Admin
+                                    </button>
+                  </td>
+                  <td>
+                                    <button
+                                                      className="accepted"
+                                                      onClick={[Function]}
+                                    >
+                                                      Accepted
+                                    </button>
+                  </td>
+</tr>,
+                <tr>
+                  <td>
+                                    Sat Aug 18 2018
+                  </td>
+                  <td>
+                                    <img
+                                                      src="https://placehold.it/10x10"
+                                    />
+                  </td>
+                  <td>
+                                    test
+                  </td>
+                  <td>
+                                    <button
+                                                      className="super-admin"
+                                                      onClick={[Function]}
+                                    >
+                                                      Super Admin
+                                    </button>
+                  </td>
+                  <td>
+                                    <button
+                                                      className="pending"
+                                                      onClick={[Function]}
+                                    >
+                                                      Pending
+                                    </button>
+                  </td>
+</tr>,
+                <tr>
+                  <td>
+                                    Sat Aug 18 2018
+                  </td>
+                  <td>
+                                    <img
+                                                      src="https://placehold.it/10x10"
+                                    />
+                  </td>
+                  <td>
+                                    test
+                  </td>
+                  <td>
+                                    <button
+                                                      className="user"
+                                                      onClick={[Function]}
+                                    >
+                                                      User
+                                    </button>
+                  </td>
+                  <td>
+                                    <button
+                                                      className="rejected"
+                                                      onClick={[Function]}
+                                    >
+                                                      Rejected
+                                    </button>
                   </td>
 </tr>,
               ],
@@ -170,7 +610,31 @@ ShallowWrapper {
                   "children": Array [
                     Array [
                       <td>
-                        John Doe
+                        Sat Aug 18 2018
+</td>,
+                      <td>
+                        <img
+                                                src="https://placehold.it/10x10"
+                        />
+</td>,
+                      <td>
+                        test
+</td>,
+                      <td>
+                        <button
+                                                className="admin"
+                                                onClick={[Function]}
+                        >
+                                                Admin
+                        </button>
+</td>,
+                      <td>
+                        <button
+                                                className="accepted"
+                                                onClick={[Function]}
+                        >
+                                                Accepted
+                        </button>
 </td>,
                     ],
                     undefined,
@@ -184,10 +648,394 @@ ShallowWrapper {
                     "key": "00",
                     "nodeType": "host",
                     "props": Object {
-                      "children": "John Doe",
+                      "children": "Sat Aug 18 2018",
                     },
                     "ref": null,
-                    "rendered": "John Doe",
+                    "rendered": "Sat Aug 18 2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "01",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <img
+                        src="https://placehold.it/10x10"
+/>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "src": "https://placehold.it/10x10",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "02",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "test",
+                    },
+                    "ref": null,
+                    "rendered": "test",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "03",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="admin"
+                        onClick={[Function]}
+>
+                        Admin
+</button>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Admin",
+                        "className": "admin",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Admin",
+                      "type": "button",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "04",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="accepted"
+                        onClick={[Function]}
+>
+                        Accepted
+</button>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Accepted",
+                        "className": "accepted",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Accepted",
+                      "type": "button",
+                    },
+                    "type": "td",
+                  },
+                  undefined,
+                  undefined,
+                ],
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    Array [
+                      <td>
+                        Sat Aug 18 2018
+</td>,
+                      <td>
+                        <img
+                                                src="https://placehold.it/10x10"
+                        />
+</td>,
+                      <td>
+                        test
+</td>,
+                      <td>
+                        <button
+                                                className="super-admin"
+                                                onClick={[Function]}
+                        >
+                                                Super Admin
+                        </button>
+</td>,
+                      <td>
+                        <button
+                                                className="pending"
+                                                onClick={[Function]}
+                        >
+                                                Pending
+                        </button>
+</td>,
+                    ],
+                    undefined,
+                    undefined,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "10",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Sat Aug 18 2018",
+                    },
+                    "ref": null,
+                    "rendered": "Sat Aug 18 2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "11",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <img
+                        src="https://placehold.it/10x10"
+/>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "src": "https://placehold.it/10x10",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "12",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "test",
+                    },
+                    "ref": null,
+                    "rendered": "test",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "13",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="super-admin"
+                        onClick={[Function]}
+>
+                        Super Admin
+</button>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Super Admin",
+                        "className": "super-admin",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Super Admin",
+                      "type": "button",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "14",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="pending"
+                        onClick={[Function]}
+>
+                        Pending
+</button>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Pending",
+                        "className": "pending",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Pending",
+                      "type": "button",
+                    },
+                    "type": "td",
+                  },
+                  undefined,
+                  undefined,
+                ],
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": "2",
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    Array [
+                      <td>
+                        Sat Aug 18 2018
+</td>,
+                      <td>
+                        <img
+                                                src="https://placehold.it/10x10"
+                        />
+</td>,
+                      <td>
+                        test
+</td>,
+                      <td>
+                        <button
+                                                className="user"
+                                                onClick={[Function]}
+                        >
+                                                User
+                        </button>
+</td>,
+                      <td>
+                        <button
+                                                className="rejected"
+                                                onClick={[Function]}
+                        >
+                                                Rejected
+                        </button>
+</td>,
+                    ],
+                    undefined,
+                    undefined,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "20",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Sat Aug 18 2018",
+                    },
+                    "ref": null,
+                    "rendered": "Sat Aug 18 2018",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "21",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <img
+                        src="https://placehold.it/10x10"
+/>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "src": "https://placehold.it/10x10",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "img",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "22",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "test",
+                    },
+                    "ref": null,
+                    "rendered": "test",
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "23",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="user"
+                        onClick={[Function]}
+>
+                        User
+</button>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "User",
+                        "className": "user",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "User",
+                      "type": "button",
+                    },
+                    "type": "td",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "24",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        className="rejected"
+                        onClick={[Function]}
+>
+                        Rejected
+</button>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Rejected",
+                        "className": "rejected",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Rejected",
+                      "type": "button",
+                    },
                     "type": "td",
                   },
                   undefined,
@@ -219,7 +1067,27 @@ ShallowWrapper {
                         <tr>
                                     <th>
                                                  
-                                                Name
+                                                
+                                                 
+                                    </th>
+                                    <th>
+                                                 
+                                                
+                                                 
+                                    </th>
+                                    <th>
+                                                 
+                                                
+                                                 
+                                    </th>
+                                    <th>
+                                                 
+                                                
+                                                 
+                                    </th>
+                                    <th>
+                                                 
+                                                
                                                  
                                     </th>
                         </tr>
@@ -227,7 +1095,89 @@ ShallowWrapper {
             <tbody>
                         <tr>
                                     <td>
-                                                John Doe
+                                                Sat Aug 18 2018
+                                    </td>
+                                    <td>
+                                                <img
+                                                            src="https://placehold.it/10x10"
+                                                />
+                                    </td>
+                                    <td>
+                                                test
+                                    </td>
+                                    <td>
+                                                <button
+                                                            className="admin"
+                                                            onClick={[Function]}
+                                                >
+                                                            Admin
+                                                </button>
+                                    </td>
+                                    <td>
+                                                <button
+                                                            className="accepted"
+                                                            onClick={[Function]}
+                                                >
+                                                            Accepted
+                                                </button>
+                                    </td>
+                        </tr>
+                        <tr>
+                                    <td>
+                                                Sat Aug 18 2018
+                                    </td>
+                                    <td>
+                                                <img
+                                                            src="https://placehold.it/10x10"
+                                                />
+                                    </td>
+                                    <td>
+                                                test
+                                    </td>
+                                    <td>
+                                                <button
+                                                            className="super-admin"
+                                                            onClick={[Function]}
+                                                >
+                                                            Super Admin
+                                                </button>
+                                    </td>
+                                    <td>
+                                                <button
+                                                            className="pending"
+                                                            onClick={[Function]}
+                                                >
+                                                            Pending
+                                                </button>
+                                    </td>
+                        </tr>
+                        <tr>
+                                    <td>
+                                                Sat Aug 18 2018
+                                    </td>
+                                    <td>
+                                                <img
+                                                            src="https://placehold.it/10x10"
+                                                />
+                                    </td>
+                                    <td>
+                                                test
+                                    </td>
+                                    <td>
+                                                <button
+                                                            className="user"
+                                                            onClick={[Function]}
+                                                >
+                                                            User
+                                                </button>
+                                    </td>
+                                    <td>
+                                                <button
+                                                            className="rejected"
+                                                            onClick={[Function]}
+                                                >
+                                                            Rejected
+                                                </button>
                                     </td>
                         </tr>
             </tbody>
@@ -248,7 +1198,27 @@ ShallowWrapper {
                 <tr>
                                 <th>
                                                  
-                                                Name
+                                                
+                                                 
+                                </th>
+                                <th>
+                                                 
+                                                
+                                                 
+                                </th>
+                                <th>
+                                                 
+                                                
+                                                 
+                                </th>
+                                <th>
+                                                 
+                                                
+                                                 
+                                </th>
+                                <th>
+                                                 
+                                                
                                                  
                                 </th>
                 </tr>
@@ -256,7 +1226,89 @@ ShallowWrapper {
               <tbody>
                 <tr>
                                 <td>
-                                                John Doe
+                                                Sat Aug 18 2018
+                                </td>
+                                <td>
+                                                <img
+                                                                src="https://placehold.it/10x10"
+                                                />
+                                </td>
+                                <td>
+                                                test
+                                </td>
+                                <td>
+                                                <button
+                                                                className="admin"
+                                                                onClick={[Function]}
+                                                >
+                                                                Admin
+                                                </button>
+                                </td>
+                                <td>
+                                                <button
+                                                                className="accepted"
+                                                                onClick={[Function]}
+                                                >
+                                                                Accepted
+                                                </button>
+                                </td>
+                </tr>
+                <tr>
+                                <td>
+                                                Sat Aug 18 2018
+                                </td>
+                                <td>
+                                                <img
+                                                                src="https://placehold.it/10x10"
+                                                />
+                                </td>
+                                <td>
+                                                test
+                                </td>
+                                <td>
+                                                <button
+                                                                className="super-admin"
+                                                                onClick={[Function]}
+                                                >
+                                                                Super Admin
+                                                </button>
+                                </td>
+                                <td>
+                                                <button
+                                                                className="pending"
+                                                                onClick={[Function]}
+                                                >
+                                                                Pending
+                                                </button>
+                                </td>
+                </tr>
+                <tr>
+                                <td>
+                                                Sat Aug 18 2018
+                                </td>
+                                <td>
+                                                <img
+                                                                src="https://placehold.it/10x10"
+                                                />
+                                </td>
+                                <td>
+                                                test
+                                </td>
+                                <td>
+                                                <button
+                                                                className="user"
+                                                                onClick={[Function]}
+                                                >
+                                                                User
+                                                </button>
+                                </td>
+                                <td>
+                                                <button
+                                                                className="rejected"
+                                                                onClick={[Function]}
+                                                >
+                                                                Rejected
+                                                </button>
                                 </td>
                 </tr>
 </tbody>,
@@ -273,7 +1325,27 @@ ShallowWrapper {
                 "children": <tr>
                   <th>
                                      
-                                    Name
+                                    
+                                     
+                  </th>
+                  <th>
+                                     
+                                    
+                                     
+                  </th>
+                  <th>
+                                     
+                                    
+                                     
+                  </th>
+                  <th>
+                                     
+                                    
+                                     
+                  </th>
+                  <th>
+                                     
+                                    
                                      
                   </th>
 </tr>,
@@ -288,7 +1360,27 @@ ShallowWrapper {
                     Array [
                       <th>
                          
-                        Name
+                        
+                         
+</th>,
+                      <th>
+                         
+                        
+                         
+</th>,
+                      <th>
+                         
+                        
+                         
+</th>,
+                      <th>
+                         
+                        
+                         
+</th>,
+                      <th>
+                         
+                        
                          
 </th>,
                     ],
@@ -300,19 +1392,95 @@ ShallowWrapper {
                 "rendered": Array [
                   Object {
                     "instance": null,
-                    "key": "Name",
+                    "key": "",
                     "nodeType": "host",
                     "props": Object {
                       "children": Array [
                         " ",
-                        "Name",
+                        "",
                         " ",
                       ],
                     },
                     "ref": null,
                     "rendered": Array [
                       " ",
-                      "Name",
+                      "",
+                      " ",
+                    ],
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "",
+                      " ",
+                    ],
+                    "type": "th",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        " ",
+                        "",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      " ",
+                      "",
                       " ",
                     ],
                     "type": "th",
@@ -332,7 +1500,89 @@ ShallowWrapper {
                 "children": Array [
                   <tr>
                     <td>
-                                        John Doe
+                                        Sat Aug 18 2018
+                    </td>
+                    <td>
+                                        <img
+                                                            src="https://placehold.it/10x10"
+                                        />
+                    </td>
+                    <td>
+                                        test
+                    </td>
+                    <td>
+                                        <button
+                                                            className="admin"
+                                                            onClick={[Function]}
+                                        >
+                                                            Admin
+                                        </button>
+                    </td>
+                    <td>
+                                        <button
+                                                            className="accepted"
+                                                            onClick={[Function]}
+                                        >
+                                                            Accepted
+                                        </button>
+                    </td>
+</tr>,
+                  <tr>
+                    <td>
+                                        Sat Aug 18 2018
+                    </td>
+                    <td>
+                                        <img
+                                                            src="https://placehold.it/10x10"
+                                        />
+                    </td>
+                    <td>
+                                        test
+                    </td>
+                    <td>
+                                        <button
+                                                            className="super-admin"
+                                                            onClick={[Function]}
+                                        >
+                                                            Super Admin
+                                        </button>
+                    </td>
+                    <td>
+                                        <button
+                                                            className="pending"
+                                                            onClick={[Function]}
+                                        >
+                                                            Pending
+                                        </button>
+                    </td>
+</tr>,
+                  <tr>
+                    <td>
+                                        Sat Aug 18 2018
+                    </td>
+                    <td>
+                                        <img
+                                                            src="https://placehold.it/10x10"
+                                        />
+                    </td>
+                    <td>
+                                        test
+                    </td>
+                    <td>
+                                        <button
+                                                            className="user"
+                                                            onClick={[Function]}
+                                        >
+                                                            User
+                                        </button>
+                    </td>
+                    <td>
+                                        <button
+                                                            className="rejected"
+                                                            onClick={[Function]}
+                                        >
+                                                            Rejected
+                                        </button>
                     </td>
 </tr>,
                 ],
@@ -347,7 +1597,31 @@ ShallowWrapper {
                     "children": Array [
                       Array [
                         <td>
-                          John Doe
+                          Sat Aug 18 2018
+</td>,
+                        <td>
+                          <img
+                                                    src="https://placehold.it/10x10"
+                          />
+</td>,
+                        <td>
+                          test
+</td>,
+                        <td>
+                          <button
+                                                    className="admin"
+                                                    onClick={[Function]}
+                          >
+                                                    Admin
+                          </button>
+</td>,
+                        <td>
+                          <button
+                                                    className="accepted"
+                                                    onClick={[Function]}
+                          >
+                                                    Accepted
+                          </button>
 </td>,
                       ],
                       undefined,
@@ -361,10 +1635,394 @@ ShallowWrapper {
                       "key": "00",
                       "nodeType": "host",
                       "props": Object {
-                        "children": "John Doe",
+                        "children": "Sat Aug 18 2018",
                       },
                       "ref": null,
-                      "rendered": "John Doe",
+                      "rendered": "Sat Aug 18 2018",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "01",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <img
+                          src="https://placehold.it/10x10"
+/>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "src": "https://placehold.it/10x10",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "02",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "test",
+                      },
+                      "ref": null,
+                      "rendered": "test",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "03",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="admin"
+                          onClick={[Function]}
+>
+                          Admin
+</button>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Admin",
+                          "className": "admin",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Admin",
+                        "type": "button",
+                      },
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "04",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="accepted"
+                          onClick={[Function]}
+>
+                          Accepted
+</button>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Accepted",
+                          "className": "accepted",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Accepted",
+                        "type": "button",
+                      },
+                      "type": "td",
+                    },
+                    undefined,
+                    undefined,
+                  ],
+                  "type": "tr",
+                },
+                Object {
+                  "instance": null,
+                  "key": "1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      Array [
+                        <td>
+                          Sat Aug 18 2018
+</td>,
+                        <td>
+                          <img
+                                                    src="https://placehold.it/10x10"
+                          />
+</td>,
+                        <td>
+                          test
+</td>,
+                        <td>
+                          <button
+                                                    className="super-admin"
+                                                    onClick={[Function]}
+                          >
+                                                    Super Admin
+                          </button>
+</td>,
+                        <td>
+                          <button
+                                                    className="pending"
+                                                    onClick={[Function]}
+                          >
+                                                    Pending
+                          </button>
+</td>,
+                      ],
+                      undefined,
+                      undefined,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "10",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Sat Aug 18 2018",
+                      },
+                      "ref": null,
+                      "rendered": "Sat Aug 18 2018",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "11",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <img
+                          src="https://placehold.it/10x10"
+/>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "src": "https://placehold.it/10x10",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "12",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "test",
+                      },
+                      "ref": null,
+                      "rendered": "test",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "13",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="super-admin"
+                          onClick={[Function]}
+>
+                          Super Admin
+</button>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Super Admin",
+                          "className": "super-admin",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Super Admin",
+                        "type": "button",
+                      },
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "14",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="pending"
+                          onClick={[Function]}
+>
+                          Pending
+</button>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Pending",
+                          "className": "pending",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Pending",
+                        "type": "button",
+                      },
+                      "type": "td",
+                    },
+                    undefined,
+                    undefined,
+                  ],
+                  "type": "tr",
+                },
+                Object {
+                  "instance": null,
+                  "key": "2",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      Array [
+                        <td>
+                          Sat Aug 18 2018
+</td>,
+                        <td>
+                          <img
+                                                    src="https://placehold.it/10x10"
+                          />
+</td>,
+                        <td>
+                          test
+</td>,
+                        <td>
+                          <button
+                                                    className="user"
+                                                    onClick={[Function]}
+                          >
+                                                    User
+                          </button>
+</td>,
+                        <td>
+                          <button
+                                                    className="rejected"
+                                                    onClick={[Function]}
+                          >
+                                                    Rejected
+                          </button>
+</td>,
+                      ],
+                      undefined,
+                      undefined,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "20",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Sat Aug 18 2018",
+                      },
+                      "ref": null,
+                      "rendered": "Sat Aug 18 2018",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "21",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <img
+                          src="https://placehold.it/10x10"
+/>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "src": "https://placehold.it/10x10",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "img",
+                      },
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "22",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "test",
+                      },
+                      "ref": null,
+                      "rendered": "test",
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "23",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="user"
+                          onClick={[Function]}
+>
+                          User
+</button>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "User",
+                          "className": "user",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "User",
+                        "type": "button",
+                      },
+                      "type": "td",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "24",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          className="rejected"
+                          onClick={[Function]}
+>
+                          Rejected
+</button>,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Rejected",
+                          "className": "rejected",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Rejected",
+                        "type": "button",
+                      },
                       "type": "td",
                     },
                     undefined,

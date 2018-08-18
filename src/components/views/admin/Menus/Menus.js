@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Alert, 
     ButtonDropdown,  
     DropdownToggle,
@@ -28,6 +29,11 @@ class Menus extends React.Component {
             data: {},
             search: '',
             perPage: 5,
+            deleteIsOpen: false,
+            editIsOpen: false,
+            menuTypesIsOpen: false,
+            toDelete: {},
+            toEdit: {}
         }
     }
 
@@ -131,10 +137,6 @@ class Menus extends React.Component {
         this.fetchMenus({search: text});
     }
 
-    blockBubble = () => {
-        this.setState({}) 
-    }
-
     onPageChange = (page) => {
         this.setState({
             ...this.state,
@@ -223,6 +225,10 @@ class Menus extends React.Component {
             </Content>
         );
     }
+}
+
+Menus.propTypes = {
+    setLoading: PropTypes.func.isRequired
 }
 
 export default Menus;

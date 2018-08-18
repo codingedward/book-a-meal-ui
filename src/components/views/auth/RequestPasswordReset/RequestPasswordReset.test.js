@@ -8,5 +8,11 @@ describe('<RequestPasswordReset />', () => {
         const wrapper = shallow(<RequestPasswordReset/>);
         expect(wrapper).toMatchSnapshot();
     });
+    it('records changes', () => {
+        const wrapper = shallow(<RequestPasswordReset />);
+        wrapper.instance().onChange({target:{name: 'name', value: 'value'}});
+        expect(wrapper.state('name')).toBe('value');
+    });
 });
+
 

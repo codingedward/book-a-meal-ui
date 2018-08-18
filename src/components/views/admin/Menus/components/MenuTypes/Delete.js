@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'src/axios';
+import PropTypes from 'prop-types';
 import { Alert, Button } from 'reactstrap';
 import Modal from 'src/components/common/Modal';
 import { singleError } from 'src/utils';
@@ -62,5 +63,11 @@ class Delete extends React.Component {
     }
 }
 
-export default Delete;
+Delete.propTypes = {
+    toggle: PropTypes.func.isRequired,
+    setLoading: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    menu: PropTypes.object.isRequired
+}
 
+export default Delete;

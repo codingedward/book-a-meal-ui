@@ -1,12 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import { singleError } from 'src/utils';
 import Modal from 'src/components/common/Modal';
 import { Alert, Input, Button } from 'reactstrap';
 import ImageInput from 'src/components/common/ImageInput';
 import { IMAGES_UPLOAD_URL, IMAGE_UPLOAD_PRESET } from 'src/constants';
-import './styles.css';
-
 
 class CreateModal extends React.Component {
 
@@ -38,16 +37,15 @@ class CreateModal extends React.Component {
             error: null,
             success: false,
             image: null,
-        })
+        });
     }
 
     onImageRemoved = () => {
         this.setState({
             ...this.state,
             image: null,
-        })
+        });
     }
-
 
     onChange = (e) => {
         this.setState({
@@ -94,6 +92,7 @@ class CreateModal extends React.Component {
 
             // first upload the image
             delete axios.defaults.headers.common.Authorization;
+            delete axios.defaults.headers.common['Access-Control-Allow-Origin'];
             axios.post(IMAGES_UPLOAD_URL, imageUpload).then(({ data }) => {
                 axios.auth();
                 axios.post('/meals', { 
@@ -162,6 +161,14 @@ class CreateModal extends React.Component {
             />
         );
     }
+}
+
+CreateModal.propTypes = {
+    toggle: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    setLoading: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool,
+
 }
 
 export default CreateModal;

@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'src/axios';
 import Modal from 'src/components/common/Modal';
 import { Alert, Button } from 'reactstrap';
 import { singleError } from 'src/utils';
-import './styles.css';
 
 
 class DeleteModal extends React.Component {
@@ -61,6 +61,13 @@ class DeleteModal extends React.Component {
             />
         );
     }
+}
+
+DeleteModal.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    toggle: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    menuItem: PropTypes.object.isRequired,
 }
 
 export default DeleteModal;
