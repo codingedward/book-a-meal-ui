@@ -17,8 +17,3 @@ describe('<Sidebar />', () => {
         expect(spy.called).toBe(true);
     })
 });
-
-
-
-
-
