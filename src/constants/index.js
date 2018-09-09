@@ -1,5 +1,4 @@
-//export const BASE_URL = 'https://andela-bam-api.herokuapp.com/api/v1';
-export const BASE_URL = 'http://localhost:8000/api/v1';
+export const BASE_URL = 'https://andela-bam-api.herokuapp.com/api/v1';
 export const IMAGE_UPLOAD_PRESET = 'pztk1zzn';
 export const IMAGES_UPLOAD_URL = 'http://api.cloudinary.com/v1_1/codingedward/image/upload';
 
