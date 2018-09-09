@@ -1318,7 +1318,7 @@ ShallowWrapper {
         <img
                 alt="Food"
                 className="img-fluid"
-                src="https://placehold.it/10x10"
+                src="placeholder.png"
         />
         <table
                 className="table"
@@ -1366,7 +1366,7 @@ ShallowWrapper {
           <img
             alt="Food"
             className="img-fluid"
-            src="https://placehold.it/10x10"
+            src="placeholder.png"
 />,
           <table
             className="table"
@@ -1413,7 +1413,7 @@ ShallowWrapper {
           "props": Object {
             "alt": "Food",
             "className": "img-fluid",
-            "src": "https://placehold.it/10x10",
+            "src": "placeholder.png",
           },
           "ref": null,
           "rendered": null,
@@ -1622,7 +1622,7 @@ ShallowWrapper {
           <img
                     alt="Food"
                     className="img-fluid"
-                    src="https://placehold.it/10x10"
+                    src="placeholder.png"
           />
           <table
                     className="table"
@@ -1670,7 +1670,7 @@ ShallowWrapper {
             <img
               alt="Food"
               className="img-fluid"
-              src="https://placehold.it/10x10"
+              src="placeholder.png"
 />,
             <table
               className="table"
@@ -1717,7 +1717,7 @@ ShallowWrapper {
             "props": Object {
               "alt": "Food",
               "className": "img-fluid",
-              "src": "https://placehold.it/10x10",
+              "src": "placeholder.png",
             },
             "ref": null,
             "rendered": null,
